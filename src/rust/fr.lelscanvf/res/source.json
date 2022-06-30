@@ -1,0 +1,13 @@
+{
+	"info": {
+		"id": "fr.lelscanvf",
+		"lang": "fr",
+		"name": "LelScan-VF",
+		"version": 1,
+		"urls": [
+            "https://lelscanvf.com"
+		],
+		"nsfw": 0
+	},
+    "listings": []
+}
