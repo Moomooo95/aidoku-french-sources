@@ -28,7 +28,7 @@ pub fn parse_recents(html: Node, result: &mut Vec<Manga>) {
 }
 
 pub fn parse_search(html: Node, result: &mut Vec<Manga>) {
-	for page in html.select(".grid.gap-2 div").array() {
+	for page in html.select(".grid.gap-3 div").array() {
 		let obj = page.as_node();
 
 		let id = obj.select("a").attr("href").read();
