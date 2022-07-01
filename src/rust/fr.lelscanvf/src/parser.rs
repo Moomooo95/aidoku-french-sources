@@ -7,7 +7,16 @@ pub fn parse_recents(html: Node, result: &mut Vec<Manga>) {
 	for page in html.select(".hot-thumbnails li").array() {
 		let obj = page.as_node();
 
-		let id = obj.select(".manga-name a").attr("href").read().split('/')[4];
+		let url = obj.select(".manga-name a").attr("href").read();
+		let mut id = String::new();
+		let mut i = 0;
+		for s in url.split('/') {
+			if i == 4 {
+				id = String::from(s);
+				break;
+			}
+			i+=1;
+		}
 		let title = obj.select(".manga-name a").text().read();
 		let img = obj.select(".thumbnail img").attr("src").read();
 
