@@ -3,12 +3,12 @@
 	{
 		"type": "select",
 		"name": "Type",
-		"options": ["All", "Manga", "Novel", "One Shot", "Doujinshi", "Manhwa", "Manhua", "Oel"]
+		"options": ["All", "Manga", "Webtoon", "Manhua"]
 	},
 	{
 		"type": "select",
 		"name": "Status",
-		"options": ["All", "Publishing", "Finished", "On Haitus", "Discontinued"]
+		"options": ["All", "Ongoing", "Complete"]
 	},
 	{
 		"type": "group",
