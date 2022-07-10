@@ -2,6 +2,7 @@
 .build
 *.aix
 
+public/*
 src/**/out
 src/**/public
 
@@ -11,3 +12,5 @@ src/as/*/.wireit
 
 src/rust/*/target
 src/rust/node_modules
+
+wasm-ld
