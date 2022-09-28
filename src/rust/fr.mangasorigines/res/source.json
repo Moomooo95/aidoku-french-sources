@@ -1,0 +1,15 @@
+{
+	"info": {
+		"id": "fr.mangasorigines",
+		"lang": "fr",
+		"name": "MangasOrigines",
+		"version": 1,
+		"url": "https://mangas-origines.fr/",
+		"nsfw": 1
+	},
+	"listings": [
+		{ "name": "Dernières Sorties" },
+		{ "name": "Tendances" },
+		{ "name": "Nouveau" }
+	]
+}

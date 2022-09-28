@@ -1,0 +1,464 @@
+[
+	{
+		"type": "title"
+	},
+	{
+		"type": "author"
+	},
+	{
+		"type": "sort",
+		"name": "Sort",
+		"options": [
+			"Pertinence",
+			"Dernières Sorties",
+			"Tendance",
+			"Note",
+			"Vues",
+			"Nouveau",
+			"Titre"
+		],
+		"default": {
+			"index": 0
+		}
+	},
+	{
+		"type": "group",
+		"name": "Status",
+		"filters": [
+			{
+				"type": "check",
+				"name": "En cours",
+				"id": "&status[]=on-going"
+			},
+			{
+				"type": "check",
+				"name": "Terminé",
+				"id": "&status[]=end"
+			},
+			{
+				"type": "check",
+				"name": "En pause",
+				"id": "&status[]=on-hold"
+			},
+			{
+				"type": "check",
+				"name": "Abandonné",
+				"id": "&status[]=canceled"
+			}
+		]
+	},
+	{
+		"type": "select",
+		"name": "Contenu pour Adulte",
+		"options": [
+			"Tout",
+			"Aucun contenu pour adulte",
+			"Seulement du contenu adulte"
+		]
+	},
+	{
+		"type": "select",
+		"name": "Condition pour les genres",
+		"options": [
+			"OR",
+			"AND"
+		],
+		"default": 0
+	},
+	{
+		"type": "group",
+		"name": "Genres",
+		"filters": [
+			{
+				"type": "genre",
+				"name": "Action",
+				"id": "action",
+				"canExclude": false
+			},
+			{
+				"type": "genre",
+				"name": "Adulte",
+				"id": "adult",
+				"canExclude": false
+			},
+			{
+				"type": "genre",
+				"name": "Aliens",
+				"id": "aliens",
+				"canExclude": false
+			},
+			{
+				"type": "genre",
+				"name": "Amitié",
+				"id": "amitie",
+				"canExclude": false
+			},
+			{
+				"type": "genre",
+				"name": "Amour",
+				"id": "amour",
+				"canExclude": false
+			},
+			{
+				"type": "genre",
+				"name": "Anime",
+				"id": "anime",
+				"canExclude": false
+			},
+			{
+				"type": "genre",
+				"name": "Art",
+				"id": "art",
+				"canExclude": false
+			},
+			{
+				"type": "genre",
+				"name": "Arts Martiaux",
+				"id": "martial-arts",
+				"canExclude": false
+			},
+			{
+				"type": "genre",
+				"name": "Aventure",
+				"id": "aventure",
+				"canExclude": false
+			},
+			{
+				"type": "genre",
+				"name": "Camping",
+				"id": "camping",
+				"canExclude": false
+			},
+			{
+				"type": "genre",
+				"name": "Combat",
+				"id": "combat",
+				"canExclude": false
+			},
+			{
+				"type": "genre",
+				"name": "Comédie",
+				"id": "comedy",
+				"canExclude": false
+			},
+			{
+				"type": "genre",
+				"name": "Cuisine",
+				"id": "cooking",
+				"canExclude": false
+			},
+			{
+				"type": "genre",
+				"name": "Detective",
+				"id": "detective",
+				"canExclude": false
+			},
+			{
+				"type": "genre",
+				"name": "Doujinshi",
+				"id": "doujinshi",
+				"canExclude": false
+			},
+			{
+				"type": "genre",
+				"name": "Drame",
+				"id": "drame",
+				"canExclude": false
+			},
+			{
+				"type": "genre",
+				"name": "Ecchi",
+				"id": "ecchi",
+				"canExclude": false
+			},
+			{
+				"type": "genre",
+				"name": "Fantaisie",
+				"id": "fantasy",
+				"canExclude": false
+			},
+			{
+				"type": "genre",
+				"name": "Fantastique",
+				"id": "fantastique",
+				"canExclude": false
+			},
+			{
+				"type": "genre",
+				"name": "Gore",
+				"id": "gore",
+				"canExclude": false
+			},
+			{
+				"type": "genre",
+				"name": "Harem",
+				"id": "harem",
+				"canExclude": false
+			},
+			{
+				"type": "genre",
+				"name": "Hentai",
+				"id": "hentai",
+				"canExclude": false
+			},
+			{
+				"type": "genre",
+				"name": "Historique",
+				"id": "historical",
+				"canExclude": false
+			},
+			{
+				"type": "genre",
+				"name": "Horreur",
+				"id": "horror",
+				"canExclude": false
+			},
+			{
+				"type": "genre",
+				"name": "Isekai",
+				"id": "isekai",
+				"canExclude": false
+			},
+			{
+				"type": "genre",
+				"name": "Jeu video",
+				"id": "jeu-video",
+				"canExclude": false
+			},
+			{
+				"type": "genre",
+				"name": "Josei",
+				"id": "josei",
+				"canExclude": false
+			},
+			{
+				"type": "genre",
+				"name": "Loli",
+				"id": "loli",
+				"canExclude": false
+			},
+			{
+				"type": "genre",
+				"name": "Magie",
+				"id": "magie",
+				"canExclude": false
+			},
+			{
+				"type": "genre",
+				"name": "Manga",
+				"id": "manga",
+				"canExclude": false
+			},
+			{
+				"type": "genre",
+				"name": "Manhua",
+				"id": "manhua",
+				"canExclude": false
+			},
+			{
+				"type": "genre",
+				"name": "Manhwa",
+				"id": "manhwa",
+				"canExclude": false
+			},
+			{
+				"type": "genre",
+				"name": "Mature",
+				"id": "mature",
+				"canExclude": false
+			},
+			{
+				"type": "genre",
+				"name": "Mecha",
+				"id": "mecha",
+				"canExclude": false
+			},
+			{
+				"type": "genre",
+				"name": "médical",
+				"id": "medical",
+				"canExclude": false
+			},
+			{
+				"type": "genre",
+				"name": "Mystère",
+				"id": "mystery",
+				"canExclude": false
+			},
+			{
+				"type": "genre",
+				"name": "Novel",
+				"id": "novel",
+				"canExclude": false
+			},
+			{
+				"type": "genre",
+				"name": "Oneshot",
+				"id": "oneshot",
+				"canExclude": false
+			},
+			{
+				"type": "genre",
+				"name": "Post-apocalyptique",
+				"id": "post-apocalyptique",
+				"canExclude": false
+			},
+			{
+				"type": "genre",
+				"name": "Psychological",
+				"id": "psychological",
+				"canExclude": false
+			},
+			{
+				"type": "genre",
+				"name": "Reincarnation",
+				"id": "reincarnation",
+				"canExclude": false
+			},
+			{
+				"type": "genre",
+				"name": "Romance",
+				"id": "romance",
+				"canExclude": false
+			},
+			{
+				"type": "genre",
+				"name": "school",
+				"id": "school",
+				"canExclude": false
+			},
+			{
+				"type": "genre",
+				"name": "Science-fiction",
+				"id": "science-fiction",
+				"canExclude": false
+			},
+			{
+				"type": "genre",
+				"name": "Seinen",
+				"id": "seinen",
+				"canExclude": false
+			},
+			{
+				"type": "genre",
+				"name": "Sexe",
+				"id": "sexe",
+				"canExclude": false
+			},
+			{
+				"type": "genre",
+				"name": "Shojo",
+				"id": "shojo",
+				"canExclude": false
+			},
+			{
+				"type": "genre",
+				"name": "Shojo Ai",
+				"id": "shojo-ai",
+				"canExclude": false
+			},
+			{
+				"type": "genre",
+				"name": "Shonen",
+				"id": "shonen",
+				"canExclude": false
+			},
+			{
+				"type": "genre",
+				"name": "Shonen Ai",
+				"id": "shounen-ai",
+				"canExclude": false
+			},
+			{
+				"type": "genre",
+				"name": "Smut",
+				"id": "smut",
+				"canExclude": false
+			},
+			{
+				"type": "genre",
+				"name": "Sports",
+				"id": "sports",
+				"canExclude": false
+			},
+			{
+				"type": "genre",
+				"name": "Supernaturel",
+				"id": "supernatural",
+				"canExclude": false
+			},
+			{
+				"type": "genre",
+				"name": "Surnaturel",
+				"id": "surnaturel",
+				"canExclude": false
+			},
+			{
+				"type": "genre",
+				"name": "Survival game",
+				"id": "survival-game",
+				"canExclude": false
+			},
+			{
+				"type": "genre",
+				"name": "Thriller",
+				"id": "thriller",
+				"canExclude": false
+			},
+			{
+				"type": "genre",
+				"name": "Tragédie",
+				"id": "tragedy",
+				"canExclude": false
+			},
+			{
+				"type": "genre",
+				"name": "Tranche de vie",
+				"id": "tranche-de-vie",
+				"canExclude": false
+			},
+			{
+				"type": "genre",
+				"name": "Triangle amoureux",
+				"id": "triangle-amoureux",
+				"canExclude": false
+			},
+			{
+				"type": "genre",
+				"name": "Uncensored",
+				"id": "uncensored",
+				"canExclude": false
+			},
+			{
+				"type": "genre",
+				"name": "Vie scolaire",
+				"id": "vie-scolaire",
+				"canExclude": false
+			},
+			{
+				"type": "genre",
+				"name": "Webcomic",
+				"id": "webtoon",
+				"canExclude": false
+			},
+			{
+				"type": "genre",
+				"name": "Yaoi",
+				"id": "yaoi",
+				"canExclude": false
+			},
+			{
+				"type": "genre",
+				"name": "Yuri",
+				"id": "yuri",
+				"canExclude": false
+			},
+			{
+				"type": "genre",
+				"name": "Zombie",
+				"id": "zombie",
+				"canExclude": false
+			}
+		]
+	}
+]

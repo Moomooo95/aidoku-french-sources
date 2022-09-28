@@ -2,12 +2,9 @@
 	"info": {
 		"id": "fr.lelscanvf",
 		"lang": "fr",
-		"name": "LelScan-VF",
+		"name": "LelscanVF",
 		"version": 1,
-		"urls": [
-            "https://lelscanvf.com"
-		],
+		"url": "https://lelscanvf.com",
 		"nsfw": 0
-	},
-    "listings": []
+	}
 }

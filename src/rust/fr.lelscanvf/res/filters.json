@@ -2,13 +2,13 @@
 	{ "type": "title" },
 	{
 		"type": "select",
-		"name": "Type",
-		"options": ["All", "Manga", "Webtoon", "Manhua"]
+		"name": "Sort By",
+		"options": ["name", "views"]
 	},
 	{
 		"type": "select",
-		"name": "Status",
-		"options": ["All", "Ongoing", "Complete"]
+		"name": "Sort",
+		"options": ["ascending", "descendant"]
 	},
 	{
 		"type": "group",
@@ -17,231 +17,193 @@
 			{
 				"type": "genre",
 				"name": "Action",
+				"value": "1",
 				"canExclude": false
 			},
 			{
 				"type": "genre",
 				"name": "Adventure",
-				"canExclude": false
-			},
-			{
-				"type": "genre",
-				"name": "Cars",
+				"value": "2",
 				"canExclude": false
 			},
 			{
 				"type": "genre",
 				"name": "Comedy",
-				"canExclude": false
-			},
-			{
-				"type": "genre",
-				"name": "Dementia",
-				"canExclude": false
-			},
-			{
-				"type": "genre",
-				"name": "Demons",
+				"value": "3",
 				"canExclude": false
 			},
 			{
 				"type": "genre",
 				"name": "Doujinshi",
+				"value": "4",
 				"canExclude": false
 			},
 			{
 				"type": "genre",
 				"name": "Drama",
+				"value": "5",
 				"canExclude": false
 			},
 			{
 				"type": "genre",
 				"name": "Ecchi",
+				"value": "6",
 				"canExclude": false
 			},
 			{
 				"type": "genre",
 				"name": "Fantasy",
-				"canExclude": false
-			},
-			{
-				"type": "genre",
-				"name": "Game",
+				"value": "7",
 				"canExclude": false
 			},
 			{
 				"type": "genre",
 				"name": "Gender Bender",
+				"value": "8",
 				"canExclude": false
 			},
 			{
 				"type": "genre",
 				"name": "Harem",
+				"value": "9",
 				"canExclude": false
 			},
 			{
 				"type": "genre",
 				"name": "Historical",
+				"value": "10",
 				"canExclude": false
 			},
 			{
 				"type": "genre",
 				"name": "Horror",
-				"canExclude": false
-			},
-			{
-				"type": "genre",
-				"name": "Isekai",
+				"value": "11",
 				"canExclude": false
 			},
 			{
 				"type": "genre",
 				"name": "Josei",
-				"canExclude": false
-			},
-			{
-				"type": "genre",
-				"name": "Kids",
-				"canExclude": false
-			},
-			{
-				"type": "genre",
-				"name": "Magic",
+				"value": "12",
 				"canExclude": false
 			},
 			{
 				"type": "genre",
 				"name": "Martial Arts",
+				"value": "13",
+				"canExclude": false
+			},
+			{
+				"type": "genre",
+				"name": "Mature",
+				"value": "14",
 				"canExclude": false
 			},
 			{
 				"type": "genre",
 				"name": "Mecha",
-				"canExclude": false
-			},
-			{
-				"type": "genre",
-				"name": "Military",
-				"canExclude": false
-			},
-			{
-				"type": "genre",
-				"name": "Music",
+				"value": "15",
 				"canExclude": false
 			},
 			{
 				"type": "genre",
 				"name": "Mystery",
+				"value": "16",
 				"canExclude": false
 			},
 			{
 				"type": "genre",
-				"name": "Parody",
-				"canExclude": false
-			},
-			{
-				"type": "genre",
-				"name": "Police",
+				"name": "One Shot",
+				"value": "17",
 				"canExclude": false
 			},
 			{
 				"type": "genre",
 				"name": "Psychological",
+				"value": "18",
 				"canExclude": false
 			},
 			{
 				"type": "genre",
 				"name": "Romance",
+				"value": "19",
 				"canExclude": false
 			},
 			{
 				"type": "genre",
-				"name": "Samurai",
-				"canExclude": false
-			},
-			{
-				"type": "genre",
-				"name": "School",
+				"name": "School Life",
+				"value": "20",
 				"canExclude": false
 			},
 			{
 				"type": "genre",
 				"name": "Sci-Fi",
+				"value": "21",
 				"canExclude": false
 			},
 			{
 				"type": "genre",
 				"name": "Seinen",
+				"value": "22",
 				"canExclude": false
 			},
 			{
 				"type": "genre",
 				"name": "Shoujo",
+				"value": "23",
 				"canExclude": false
 			},
 			{
 				"type": "genre",
 				"name": "Shoujo Ai",
+				"value": "24",
 				"canExclude": false
 			},
 			{
 				"type": "genre",
 				"name": "Shounen",
+				"value": "25",
 				"canExclude": false
 			},
 			{
 				"type": "genre",
 				"name": "Shounen Ai",
+				"value": "26",
 				"canExclude": false
 			},
 			{
 				"type": "genre",
 				"name": "Slice of Life",
-				"canExclude": false
-			},
-			{
-				"type": "genre",
-				"name": "Space",
+				"value": "27",
 				"canExclude": false
 			},
 			{
 				"type": "genre",
 				"name": "Sports",
-				"canExclude": false
-			},
-			{
-				"type": "genre",
-				"name": "Super Power",
+				"value": "28",
 				"canExclude": false
 			},
 			{
 				"type": "genre",
 				"name": "Supernatural",
-				"canExclude": false
-			},
-			{
-				"type": "genre",
-				"name": "Thriller",
+				"value": "29",
 				"canExclude": false
 			},
 			{
 				"type": "genre",
 				"name": "Tragedy",
-				"canExclude": false
-			},
-			{
-				"type": "genre",
-				"name": "Vampire",
+				"value": "30",
 				"canExclude": false
 			},
 			{
 				"type": "genre",
 				"name": "Yaoi",
+				"value": "31",
 				"canExclude": false
 			},
 			{
 				"type": "genre",
 				"name": "Yuri",
+				"value": "32",
 				"canExclude": false
 			}
 		]

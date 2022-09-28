@@ -4,10 +4,10 @@ use aidoku::{
 };
 
 pub fn parse_recents(html: Node, result: &mut Vec<Manga>) {
-	for page in html.select(".hot-thumbnails li").array() {
+	for page in html.select(".mangalist .manga-item").array() {
 		let obj = page.as_node();
 
-		let url = obj.select(".manga-name a").attr("href").read();
+		let url = obj.select(".manga-heading a").attr("href").read();
 		let mut id = String::new();
 		let mut i = 0;
 		for s in url.split('/') {
@@ -17,8 +17,8 @@ pub fn parse_recents(html: Node, result: &mut Vec<Manga>) {
 			}
 			i+=1;
 		}
-		let title = obj.select(".manga-name a").text().read();
-		let img = obj.select(".thumbnail img").attr("src").read();
+		let title = obj.select(".manga-heading a").text().read();
+		let img = format!("https://lelscanvf.com/uploads/manga/{}/cover/cover_250x350.jpg", id);
 
 		result.push(Manga {
 			id,
@@ -37,12 +37,38 @@ pub fn parse_recents(html: Node, result: &mut Vec<Manga>) {
 }
 
 pub fn parse_search(html: Node, result: &mut Vec<Manga>) {
-	for page in html.select(".grid.gap-3 div").array() {
+	for page in html.select(".media").array() {
 		let obj = page.as_node();
 
-		let id = obj.select("a").attr("href").read();
-		let title = obj.select("div a ").text().read();
-		let img = obj.select("a figure img").attr("data-src").read();
+		let id = obj.select(".media-heading .chart-title").attr("href").read();
+		let title = obj.select(".media-heading .chart-title").text().read();
+		let img = format!("https:{}", obj.select(".media-left .thumbnail img").attr("src").read());
+
+		if id.len() > 0 && title.len() > 0 && img.len() > 0 {
+			result.push(Manga {
+				id,
+				cover: img,
+				title,
+				author: String::new(),
+				artist: String::new(),
+				description: String::new(),
+				url: String::new(),
+				categories: Vec::new(),
+				status: MangaStatus::Unknown,
+				nsfw: MangaContentRating::Safe,
+				viewer: MangaViewer::Default
+			});
+		}
+	}
+}
+
+pub fn parse_filterlist(html: Node, result: &mut Vec<Manga>) {
+	for page in html.select(".media").array() {
+		let obj = page.as_node();
+
+		let id = obj.select(".media-heading .chart-title").attr("href").read();
+		let title = obj.select(".media-heading .chart-title").text().read();
+		let img = format!("https:{}", obj.select(".media-left .thumbnail img").attr("src").read());
 
 		if id.len() > 0 && title.len() > 0 && img.len() > 0 {
 			result.push(Manga {
@@ -64,19 +90,19 @@ pub fn parse_search(html: Node, result: &mut Vec<Manga>) {
 
 pub fn parse_manga(obj: Node, id: String) -> Result<Manga> {
 	let title = obj.select(".lazy").attr("alt").read();
-	let cover = obj.select(".lazy").attr("data-src").read();
-	let description = obj.select(".text-sm.text--secondary").text().read();
-	let type_str = obj.select(".grid.grid-cols-1.gap-3.mb-3 div:first-child div").text().read().to_lowercase();
-	let status_str = obj.select(".grid.grid-cols-1.gap-3.mb-3 div:nth-child(2) div:nth-child(2)").text().read().to_lowercase();
+	let cover = format!("https:{}", obj.select(".img-responsive").attr("src").read());
+	let description = obj.select(".well p").text().read();
+	let type_str = obj.select(".dl-horizontal > dd:nth-child(8) > a:nth-child(1)").text().read().to_lowercase();
+	let status_str = obj.select(".label").text().read().trim().to_lowercase();
 
-	let url = format!("https://www.mangapill.com{}", &id);
+	let url = format!("https://lelscanvf.com/manga/{}", &id);
 
 	let mut categories: Vec<String> = Vec::new();
 	obj.select("a[href*=genre]")
 		.array()
 		.for_each(|tag| categories.push(tag.as_node().text().read()));
 
-	let status = if status_str.contains("publishing") {
+	let status = if status_str.contains("ongoing") {
 		MangaStatus::Ongoing
 	} else if status_str.contains("finished") {
 		MangaStatus::Completed
@@ -116,25 +142,26 @@ pub fn parse_manga(obj: Node, id: String) -> Result<Manga> {
 pub fn get_chaper_list(obj: Node) -> Result<Vec<Chapter>> {
 	let mut chapters: Vec<Chapter> = Vec::new();
 
-	for chapter in obj.select(".p-1").array() {
+	for chapter in obj.select(".chapters li").array() {
 		let obj = chapter.as_node();
-		let id = obj.attr("href").read();
-		let url = format!("https://www.mangapill.com{}", &id);
-		if id == "Read Chapters" { continue }
+		let title = obj.select("h5 em").text().read();
+		let url = obj.select("h5 a").attr("href").read();
+		let id = String::from(&url[28..]);
 
-		let split = id.as_str().split("-");
+
+		let split = url.as_str().split("/");
 		let vec = split.collect::<Vec<&str>>();
 		let chap_num = vec[vec.len() - 1].parse().unwrap();
 
 		chapters.push(Chapter{
 			id,
-			title: String::new(),
+			title,
 			volume: -1.0,
 			chapter: chap_num,
 			date_updated: -1.0,
 			scanlator: String::new(),
 			url,
-			lang: String::from("en"),
+			lang: String::from("fr"),
 		});
 	}
 	Ok(chapters)
@@ -144,9 +171,13 @@ pub fn get_page_list(obj: Node) -> Result<Vec<Page>> {
 	let mut pages: Vec<Page> = Vec::new();
 
 	let mut i = 0;
-	for page in obj.select("picture img").array() {
+	for page in obj.select("#all img").array() {
 		let obj = page.as_node();
-		let url = obj.attr("data-src").read();
+		let mut url = String::from(obj.attr("data-src").read().trim());
+
+		if !url.contains("https:") {
+			url = format!("https:{}", obj.attr("data-src").read().trim());
+		}
 
 		pages.push(Page {
 			index: i as i32,
@@ -162,50 +193,40 @@ pub fn get_page_list(obj: Node) -> Result<Vec<Page>> {
 pub fn get_filtered_url(filters: Vec<Filter>, page: i32, url: &mut String) {
 	let mut is_searching = false;
 	let mut query = String::new();
-	let mut search_string = String::new();
-	url.push_str("https://mangapill.com");
+	// let mut search_string = String::new();
+	url.push_str("https://lelscanvf.com");
 
 	for filter in filters {
 		match filter.kind {
-			FilterType::Title => {
-				if let Ok(filter_value) = filter.value.as_string() {
-					// filter_value.read().to_lowercase();
-					search_string.push_str(urlencode(filter_value.read().to_lowercase()).as_str());
-					is_searching = true;
-				}
-			},
+			// FilterType::Title => {
+			// 	if let Ok(filter_value) = filter.value.as_string() {
+			// 		// filter_value.read().to_lowercase();
+			// 		search_string.push_str(urlencode(filter_value.read().to_lowercase()).as_str());
+			// 		is_searching = true;
+			// 	}
+			// },
 			FilterType::Genre => {
-				query.push_str("&genre=");
+				query.push_str("&cat=");
 				query.push_str(&urlencode(filter.name.as_str().to_lowercase()));
 				is_searching = true;
 			},
 			FilterType::Select => {
-				if filter.name.as_str() == "Type" {
-					query.push_str("&type=");
+				if filter.name.as_str() == "Sort By" {
+					query.push_str("&sortBy=");
 					match filter.value.as_int().unwrap_or(-1) {
-						0 =>  query.push_str(""),
-						1 =>  query.push_str("manga"),
-						2 =>  query.push_str("novel"),
-						3 =>  query.push_str("one-shot"),
-						4 =>  query.push_str("doujinshi"),
-						5 =>  query.push_str("manhwa"),
-						6 =>  query.push_str("manhua"),
-						7 =>  query.push_str("oel"),
+						0 =>  query.push_str("name"),
+						1 =>  query.push_str("rate"),
 						_ => continue,
 					}
 					if filter.value.as_int().unwrap_or(-1) > 0 {
 						is_searching = true;
 					}
 				}
-				if filter.name.as_str() == "Status" {
-					query.push_str("&status=");
+				if filter.name.as_str() == "Sort" {
+					query.push_str("&asc=");
 					match filter.value.as_int().unwrap_or(-1) {
-						0 =>  query.push_str(""),
-						1 =>  query.push_str("publishing"),
-						2 =>  query.push_str("finished"),
-						3 =>  query.push_str("on+haitus"),
-						4 =>  query.push_str("doujinshi"),
-						5 =>  query.push_str("discontinued"),
+						0 =>  query.push_str("true"),
+						1 =>  query.push_str("false"),
 						_ => continue,
 					}
 					if filter.value.as_int().unwrap_or(-1) > 0 {
@@ -218,12 +239,11 @@ pub fn get_filtered_url(filters: Vec<Filter>, page: i32, url: &mut String) {
 	}
 
 	if is_searching {
-		url.push_str("/search?");
-		url.push_str("q=");
-		url.push_str(&search_string);
-		url.push_str(&query);
-		url.push_str("&page=");
+		url.push_str("/filterList?");
+		url.push_str("page=");
 		url.push_str(&i32_to_string(page));
+		url.push_str(&query);
+		url.push_str("&alpha=&author=&artist=&tag=");
 	}
 }
 
