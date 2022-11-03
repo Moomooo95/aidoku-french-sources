@@ -18,6 +18,12 @@ jobs:
       uses: actions/checkout@v3
     -
       uses: google/wireit@setup-github-actions-caching/v1
+    - 
+      uses: actions/setup-node@v3
+      with:
+        node-version: 16
+        cache: npm
+        cache-dependency-path: '**/package-lock.json'
     -
       name: Cache rust stuff
       uses: actions/cache@v3
@@ -46,10 +52,14 @@ jobs:
         target: wasm32-unknown-unknown
     -
       name: Install build dependencies
+      env:
+        GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       run: |
         sudo ln -s $(which wasm-ld-13 || which wasm-ld-12 || which wasm-ld-11 || which wasm-ld-10) /usr/bin/wasm-ld
-        brew install beerpiss/tap/aidoku-cli
-
+        
+        AIDOKU_CLI_VER=$(gh api repos/Aidoku/aidoku-cli/releases -q '.[0].tag_name')
+        gh release download -R Aidoku/aidoku-cli "$AIDOKU_CLI_VER" -p *_amd64.deb
+        sudo dpkg -i "aidoku-cli_${AIDOKU_CLI_VER:1}_linux_amd64.deb"
         SCCACHE_FILE=sccache-v$SCCACHE_VERSION-x86_64-unknown-linux-musl
         curl -L https://github.com/mozilla/sccache/releases/download/v$SCCACHE_VERSION/$SCCACHE_FILE.tar.gz | tar -xz
         sudo mv -f $SCCACHE_FILE/sccache /usr/local/bin/sccache
@@ -94,4 +104,3 @@ jobs:
         name: gh-pages
         path: public
         if-no-files-found: ignore
-
