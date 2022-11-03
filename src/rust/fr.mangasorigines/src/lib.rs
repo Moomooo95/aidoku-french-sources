@@ -60,13 +60,12 @@ fn get_manga_list(filters: Vec<Filter>, page: i32) -> Result<MangaPageResult> {
 				//let ascending = value.get("ascending").as_bool().unwrap_or(false);
 				url.push_str("&m_orderby");
 				url.push_str(match index {
-					0 => "",
+					0 => "=alphabet",
 					1 => "=latest",
 					2 => "=trending",
 					3 => "=rating",
 					4 => "=views",
 					5 => "=new-manga",
-					6 => "=alphabet",
 					_ => ""
 				});
 			}
@@ -144,26 +143,23 @@ fn get_manga_listing(listing: Listing, page: i32) -> Result<MangaPageResult> {
 
 #[get_manga_details]
 fn get_manga_details(manga_id: String) -> Result<Manga> {
-	let url = format!("https://mangas-origines.fr/catalogues/{}", &manga_id);
+	let url = format!("https://mangas-origines.fr/manga/{}", &manga_id);
 	let html = Request::new(&url, HttpMethod::Get).html();
 	return parser::parse_manga_details(html, manga_id);
 }
 
 #[get_chapter_list]
 fn get_chapter_list(manga_id: String) -> Result<Vec<Chapter>> {
-	let url = format!("https://mangas-origines.fr/catalogues/{}/ajax/chapters/", &manga_id);
+	let url = format!("https://mangas-origines.fr/manga/{}/ajax/chapters/", &manga_id);
 	let html = Request::new(url.clone().as_str(), HttpMethod::Post).html();
 	return parser::parse_chapter_list(html);
 }
 
 #[get_page_list]
 fn get_page_list(chapter_id: String) -> Result<Vec<Page>> {
-	let url = format!("https://mangas-origines.fr/catalogues/{}?style=list", &chapter_id);
+	let url = format!("https://mangas-origines.fr/manga/{}?style=list", &chapter_id);
 	let html = Request::new(url.clone().as_str(), HttpMethod::Get)
-	.header(
-		"Referer", 
-		"https://mangas-origines.fr/"
-	).html();
+	.html();
 	return parser::parse_chapter_details(html);
 }
 

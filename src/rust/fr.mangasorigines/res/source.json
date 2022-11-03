@@ -5,7 +5,7 @@
 		"name": "MangasOrigines",
 		"version": 1,
 		"url": "https://mangas-origines.fr/",
-		"nsfw": 1
+		"nsfw": 0
 	},
 	"listings": [
 		{ "name": "Dernières Sorties" },

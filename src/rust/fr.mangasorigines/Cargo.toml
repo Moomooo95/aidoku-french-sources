@@ -1,7 +1,10 @@
 [package]
 name = "mangasorigines-aidoku"
-version = "0.1.0"
+version = "0.1.1"
+authors = ["Moomooo95 <mohamed.ali.benzina.pro@gmail.com>"]
 edition = "2021"
+description = "Mangas Origines source for aidoku"
+repository = "https://github.com/Moomooo95/aidoku-french-sources/"
 
 [lib]
 crate-type = ["cdylib"]

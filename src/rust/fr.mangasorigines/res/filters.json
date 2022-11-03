@@ -9,13 +9,12 @@
 		"type": "sort",
 		"name": "Sort",
 		"options": [
-			"Pertinence",
+			"A-Z",
 			"Dernières Sorties",
 			"Tendance",
 			"Note",
 			"Vues",
-			"Nouveau",
-			"Titre"
+			"Nouveau"
 		],
 		"default": {
 			"index": 0
@@ -77,18 +76,6 @@
 			},
 			{
 				"type": "genre",
-				"name": "Adulte",
-				"id": "adult",
-				"canExclude": false
-			},
-			{
-				"type": "genre",
-				"name": "Aliens",
-				"id": "aliens",
-				"canExclude": false
-			},
-			{
-				"type": "genre",
 				"name": "Amitié",
 				"id": "amitie",
 				"canExclude": false
@@ -101,32 +88,14 @@
 			},
 			{
 				"type": "genre",
-				"name": "Anime",
-				"id": "anime",
-				"canExclude": false
-			},
-			{
-				"type": "genre",
-				"name": "Art",
-				"id": "art",
-				"canExclude": false
-			},
-			{
-				"type": "genre",
-				"name": "Arts Martiaux",
-				"id": "martial-arts",
+				"name": "Art Martial",
+				"id": "art-martial",
 				"canExclude": false
 			},
 			{
 				"type": "genre",
 				"name": "Aventure",
 				"id": "aventure",
-				"canExclude": false
-			},
-			{
-				"type": "genre",
-				"name": "Camping",
-				"id": "camping",
 				"canExclude": false
 			},
 			{
@@ -138,25 +107,7 @@
 			{
 				"type": "genre",
 				"name": "Comédie",
-				"id": "comedy",
-				"canExclude": false
-			},
-			{
-				"type": "genre",
-				"name": "Cuisine",
-				"id": "cooking",
-				"canExclude": false
-			},
-			{
-				"type": "genre",
-				"name": "Detective",
-				"id": "detective",
-				"canExclude": false
-			},
-			{
-				"type": "genre",
-				"name": "Doujinshi",
-				"id": "doujinshi",
+				"id": "comedie",
 				"canExclude": false
 			},
 			{
@@ -174,7 +125,7 @@
 			{
 				"type": "genre",
 				"name": "Fantaisie",
-				"id": "fantasy",
+				"id": "fantaisie",
 				"canExclude": false
 			},
 			{
@@ -185,8 +136,20 @@
 			},
 			{
 				"type": "genre",
+				"name": "Gender Bender",
+				"id": "gender-bender",
+				"canExclude": false
+			},
+			{
+				"type": "genre",
 				"name": "Gore",
 				"id": "gore",
+				"canExclude": false
+			},
+			{
+				"type": "genre",
+				"name": "Guerre",
+				"id": "guerre",
 				"canExclude": false
 			},
 			{
@@ -197,20 +160,14 @@
 			},
 			{
 				"type": "genre",
-				"name": "Hentai",
-				"id": "hentai",
-				"canExclude": false
-			},
-			{
-				"type": "genre",
 				"name": "Historique",
-				"id": "historical",
+				"id": "historique",
 				"canExclude": false
 			},
 			{
 				"type": "genre",
 				"name": "Horreur",
-				"id": "horror",
+				"id": "horreur",
 				"canExclude": false
 			},
 			{
@@ -221,26 +178,8 @@
 			},
 			{
 				"type": "genre",
-				"name": "Jeu video",
-				"id": "jeu-video",
-				"canExclude": false
-			},
-			{
-				"type": "genre",
 				"name": "Josei",
 				"id": "josei",
-				"canExclude": false
-			},
-			{
-				"type": "genre",
-				"name": "Loli",
-				"id": "loli",
-				"canExclude": false
-			},
-			{
-				"type": "genre",
-				"name": "Magie",
-				"id": "magie",
 				"canExclude": false
 			},
 			{
@@ -263,26 +202,8 @@
 			},
 			{
 				"type": "genre",
-				"name": "Mature",
-				"id": "mature",
-				"canExclude": false
-			},
-			{
-				"type": "genre",
-				"name": "Mecha",
-				"id": "mecha",
-				"canExclude": false
-			},
-			{
-				"type": "genre",
-				"name": "médical",
-				"id": "medical",
-				"canExclude": false
-			},
-			{
-				"type": "genre",
 				"name": "Mystère",
-				"id": "mystery",
+				"id": "mystere",
 				"canExclude": false
 			},
 			{
@@ -293,38 +214,44 @@
 			},
 			{
 				"type": "genre",
-				"name": "Oneshot",
-				"id": "oneshot",
+				"name": "Origines Trad",
+				"id": "origines-trad",
 				"canExclude": false
 			},
 			{
 				"type": "genre",
-				"name": "Post-apocalyptique",
-				"id": "post-apocalyptique",
+				"name": "Parodie",
+				"id": "parodie",
 				"canExclude": false
 			},
 			{
 				"type": "genre",
-				"name": "Psychological",
-				"id": "psychological",
+				"name": "Policier",
+				"id": "policier",
 				"canExclude": false
 			},
 			{
 				"type": "genre",
-				"name": "Reincarnation",
+				"name": "Psychologique",
+				"id": "psychologique",
+				"canExclude": false
+			},
+			{
+				"type": "genre",
+				"name": "Réincarnation",
 				"id": "reincarnation",
+				"canExclude": false
+			},
+			{
+				"type": "genre",
+				"name": "Returner",
+				"id": "returner",
 				"canExclude": false
 			},
 			{
 				"type": "genre",
 				"name": "Romance",
 				"id": "romance",
-				"canExclude": false
-			},
-			{
-				"type": "genre",
-				"name": "school",
-				"id": "school",
 				"canExclude": false
 			},
 			{
@@ -341,38 +268,20 @@
 			},
 			{
 				"type": "genre",
-				"name": "Sexe",
-				"id": "sexe",
-				"canExclude": false
-			},
-			{
-				"type": "genre",
-				"name": "Shojo",
+				"name": "Shôjo",
 				"id": "shojo",
 				"canExclude": false
 			},
 			{
 				"type": "genre",
-				"name": "Shojo Ai",
-				"id": "shojo-ai",
-				"canExclude": false
-			},
-			{
-				"type": "genre",
-				"name": "Shonen",
+				"name": "Shônen",
 				"id": "shonen",
 				"canExclude": false
 			},
 			{
 				"type": "genre",
-				"name": "Shonen Ai",
-				"id": "shounen-ai",
-				"canExclude": false
-			},
-			{
-				"type": "genre",
-				"name": "Smut",
-				"id": "smut",
+				"name": "Shônen Ai",
+				"id": "shonen-ai",
 				"canExclude": false
 			},
 			{
@@ -383,50 +292,14 @@
 			},
 			{
 				"type": "genre",
-				"name": "Supernaturel",
-				"id": "supernatural",
-				"canExclude": false
-			},
-			{
-				"type": "genre",
 				"name": "Surnaturel",
 				"id": "surnaturel",
 				"canExclude": false
 			},
 			{
 				"type": "genre",
-				"name": "Survival game",
-				"id": "survival-game",
-				"canExclude": false
-			},
-			{
-				"type": "genre",
-				"name": "Thriller",
-				"id": "thriller",
-				"canExclude": false
-			},
-			{
-				"type": "genre",
-				"name": "Tragédie",
-				"id": "tragedy",
-				"canExclude": false
-			},
-			{
-				"type": "genre",
-				"name": "Tranche de vie",
-				"id": "tranche-de-vie",
-				"canExclude": false
-			},
-			{
-				"type": "genre",
-				"name": "Triangle amoureux",
-				"id": "triangle-amoureux",
-				"canExclude": false
-			},
-			{
-				"type": "genre",
-				"name": "Uncensored",
-				"id": "uncensored",
+				"name": "Tranches de vie",
+				"id": "tranches-de-vie",
 				"canExclude": false
 			},
 			{
@@ -438,6 +311,18 @@
 			{
 				"type": "genre",
 				"name": "Webcomic",
+				"id": "webcomic",
+				"canExclude": false
+			},
+			{
+				"type": "genre",
+				"name": "Webnovel",
+				"id": "webnovel",
+				"canExclude": false
+			},
+			{
+				"type": "genre",
+				"name": "Webtoon",
 				"id": "webtoon",
 				"canExclude": false
 			},
@@ -445,18 +330,6 @@
 				"type": "genre",
 				"name": "Yaoi",
 				"id": "yaoi",
-				"canExclude": false
-			},
-			{
-				"type": "genre",
-				"name": "Yuri",
-				"id": "yuri",
-				"canExclude": false
-			},
-			{
-				"type": "genre",
-				"name": "Zombie",
-				"id": "zombie",
 				"canExclude": false
 			}
 		]

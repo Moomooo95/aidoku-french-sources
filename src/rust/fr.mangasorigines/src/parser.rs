@@ -7,8 +7,8 @@ use aidoku::{
 	},
 	Manga, Page, MangaStatus, MangaContentRating, MangaViewer, Chapter
 };
-
 use core::str::FromStr;
+use crate::get_url_image;
 
 //////////////////////////
 //// PARSER FUNCTIONS ////
@@ -22,21 +22,9 @@ pub fn parse_catalogue(html: Node, mangas: &mut Vec<Manga>) {
 		let url = obj.select("h3 a").attr("href").read();
 		let split_url :Vec<&str>= url.split("/").collect();
 		let id = String::from(split_url[4]);
-
+		let cover = get_url_image(&obj);
 		let title = obj.select("h3 a").text().read();
 
-		let mut cover :String = if String::from(obj.select(".img-responsive").attr("data-srcset").read().trim()) == "" {
-			String::from(obj.attr("src").read().trim())
-		} else {
-			String::new()
-		};
-		if cover == "" {
-			let img = obj.select(".img-responsive").attr("data-srcset").read() ;
-			let split1 :Vec<&str>= img.split(",").collect();
-			let split2 :Vec<&str>= split1[split1.len()-1].trim().split(" ").collect();
-			cover = String::from(split2[0]);
-		}
-		
 		mangas.push(Manga {
 			id,
 			cover,
@@ -62,18 +50,7 @@ pub fn parse_total_pages_catalogue(html: Node) -> i32 {
 
 // parse mangas with full details
 pub fn parse_manga_details(manga_obj: Node, id: String) -> Result<Manga> {	
-	let mut cover :String = if String::from(manga_obj.select(".summary_image .img-responsive").attr("data-srcset").read().trim()) == "" {
-		String::from(manga_obj.attr("src").read().trim())
-	} else {
-		String::new()
-	};
-	if cover == "" {
-		let img = manga_obj.select(".summary_image .img-responsive").attr("data-srcset").read() ;
-		let split1 :Vec<&str>= img.split(",").collect();
-		let split2 :Vec<&str>= split1[split1.len()-1].trim().split(" ").collect();
-		cover = String::from(split2[0]);
-	}
-
+	let cover = get_url_image(&manga_obj);
 	let title = manga_obj.select(".container .post-title h1").text().read();
 	let author = manga_obj.select("a[href*=auteur]").text().read();
 	let artist = manga_obj.select("a[href*=artist]").text().read();
@@ -138,28 +115,23 @@ pub fn parse_chapter_list(chapter_obj: Node) -> Result<Vec<Chapter>> {
 		let chapter_obj = chapter.as_node();
 
 		let url = chapter_obj.select("a").attr("href").read();
-		let id = String::from(&url[38..]);
+		let id = String::from(&url.replace("https://mangas-origines.fr/manga/", ""));
 
-		let chap_title_str = chapter_obj.select("a").text().read();
+		let chap_title_str = String::from(chapter_obj.select("a").text().read().trim());
 		let mut title = String::new();
 		if chap_title_str.contains("-") {
 			let split_title :Vec<&str>= chap_title_str.split("-").collect();
 			title = String::from(split_title[1].trim());
 		}
+
 		let split_str :Vec<&str>= chap_title_str.split(" ").collect();
 		let chapter = String::from(split_str[1]).parse().unwrap();
 
-		let date_str = chapter_obj.select(".chapter-release-date i").text().read();
-		let mut date_updated = StringRef::from(&date_str)
+		let mut date_updated = StringRef::from(&chapter_obj.select(".chapter-release-date i").text().read().trim())
 			.0
-			.as_date("d MMM yyyy", Some("fr"), None)
+			.as_date("dd/MM/yyyy", Some("fr"), None)
 			.unwrap_or(-1.0);
-		if date_updated < -1.0 {
-			date_updated = StringRef::from(&date_str)
-				.0
-				.as_date("d MMM yyyy", Some("fr"), None)
-				.unwrap_or(-1.0);
-		}
+
 		if date_updated == -1.0 {
 			date_updated = current_date();
 		}
@@ -178,20 +150,14 @@ pub fn parse_chapter_list(chapter_obj: Node) -> Result<Vec<Chapter>> {
 	Ok(chapters)
 }
 
-// parse all images of chapter
+// parse all images of chapters
 pub fn parse_chapter_details(chapter_details_obj: Node) -> Result<Vec<Page>> {
 	let mut pages: Vec<Page> = Vec::new();
 
 	let mut i = 0;
-	for page in chapter_details_obj.select(".container .reading-content img").array() {
-		let chapter_details_obj = page.as_node();
-		//let mut url = String::from(obj.attr("data-src").read().trim());
-
-		let url = if String::from(chapter_details_obj.attr("src").read().trim()) == "" {
-			String::from(chapter_details_obj.attr("data-src").read().trim())
-		} else {
-			String::from(chapter_details_obj.attr("src").read().trim())
-		};
+	for page in chapter_details_obj.select(".container .reading-content div").array() {
+		let url = get_url_image(&page.as_node());
+		// println!("{}", String::from(chapter_details_obj.html().read()));
 
 		pages.push(Page {
 			index: i as i32,
@@ -203,26 +169,3 @@ pub fn parse_chapter_details(chapter_details_obj: Node) -> Result<Vec<Page>> {
 	}
 	Ok(pages)
 }
-
-
-
-
-// pub fn parse_incoming_url(url: String) -> String {
-//     // https://mangapill.com/manga/6290/one-piece-pirate-recipes
-//     // https://mangapill.com/chapters/6290-10006000/one-piece-pirate-recipes-chapter-6
-
-//     let split = url.as_str().split("/");
-//     let vec = split.collect::<Vec<&str>>();
-//     let mut manga_id = String::from("/manga/");
-
-//     if url.contains("/chapters/") {
-//         let split  = vec[vec.len() - 2].split("-");
-//         let ch_vec = split.collect::<Vec<&str>>();
-//         manga_id.push_str(ch_vec[0]);
-//     } else {
-//         manga_id.push_str(vec[vec.len() - 2]);
-//     }
-//     manga_id.push_str("/");
-//     manga_id.push_str(vec[vec.len() - 1]);
-//     return manga_id;
-// }
