@@ -14,3 +14,4 @@ src/rust/*/target
 src/rust/node_modules
 
 wasm-ld
+.env

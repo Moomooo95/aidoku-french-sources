@@ -1,14 +1,31 @@
 [
-	{ "type": "title" },
 	{
-		"type": "select",
-		"name": "Sort By",
-		"options": ["name", "views"]
+		"type": "title"
+	},
+	{
+		"type": "author"
+	},
+	{
+		"type": "sort",
+		"name": "Sort",
+		"options": [
+			"Dernières Sorties",
+			"Dernières Sorties Populaires",
+			"Tendances",
+			"Vues",
+			"Nom"
+		],
+		"default": {
+			"index": 0
+		}
 	},
 	{
 		"type": "select",
-		"name": "Sort",
-		"options": ["ascending", "descendant"]
+		"name": "Asc",
+		"options": [
+			"ascending",
+			"descendant"
+		]
 	},
 	{
 		"type": "group",
@@ -17,193 +34,193 @@
 			{
 				"type": "genre",
 				"name": "Action",
-				"value": "1",
+				"id": "1",
 				"canExclude": false
 			},
 			{
 				"type": "genre",
 				"name": "Adventure",
-				"value": "2",
+				"id": "2",
 				"canExclude": false
 			},
 			{
 				"type": "genre",
 				"name": "Comedy",
-				"value": "3",
+				"id": "3",
 				"canExclude": false
 			},
 			{
 				"type": "genre",
 				"name": "Doujinshi",
-				"value": "4",
+				"id": "4",
 				"canExclude": false
 			},
 			{
 				"type": "genre",
 				"name": "Drama",
-				"value": "5",
+				"id": "5",
 				"canExclude": false
 			},
 			{
 				"type": "genre",
 				"name": "Ecchi",
-				"value": "6",
+				"id": "6",
 				"canExclude": false
 			},
 			{
 				"type": "genre",
 				"name": "Fantasy",
-				"value": "7",
+				"id": "7",
 				"canExclude": false
 			},
 			{
 				"type": "genre",
 				"name": "Gender Bender",
-				"value": "8",
+				"id": "8",
 				"canExclude": false
 			},
 			{
 				"type": "genre",
 				"name": "Harem",
-				"value": "9",
+				"id": "9",
 				"canExclude": false
 			},
 			{
 				"type": "genre",
 				"name": "Historical",
-				"value": "10",
+				"id": "10",
 				"canExclude": false
 			},
 			{
 				"type": "genre",
 				"name": "Horror",
-				"value": "11",
+				"id": "11",
 				"canExclude": false
 			},
 			{
 				"type": "genre",
 				"name": "Josei",
-				"value": "12",
+				"id": "12",
 				"canExclude": false
 			},
 			{
 				"type": "genre",
 				"name": "Martial Arts",
-				"value": "13",
+				"id": "13",
 				"canExclude": false
 			},
 			{
 				"type": "genre",
 				"name": "Mature",
-				"value": "14",
+				"id": "14",
 				"canExclude": false
 			},
 			{
 				"type": "genre",
 				"name": "Mecha",
-				"value": "15",
+				"id": "15",
 				"canExclude": false
 			},
 			{
 				"type": "genre",
 				"name": "Mystery",
-				"value": "16",
+				"id": "16",
 				"canExclude": false
 			},
 			{
 				"type": "genre",
 				"name": "One Shot",
-				"value": "17",
+				"id": "17",
 				"canExclude": false
 			},
 			{
 				"type": "genre",
 				"name": "Psychological",
-				"value": "18",
+				"id": "18",
 				"canExclude": false
 			},
 			{
 				"type": "genre",
 				"name": "Romance",
-				"value": "19",
+				"id": "19",
 				"canExclude": false
 			},
 			{
 				"type": "genre",
 				"name": "School Life",
-				"value": "20",
+				"id": "20",
 				"canExclude": false
 			},
 			{
 				"type": "genre",
-				"name": "Sci-Fi",
-				"value": "21",
+				"name": "Sci-fi",
+				"id": "21",
 				"canExclude": false
 			},
 			{
 				"type": "genre",
 				"name": "Seinen",
-				"value": "22",
+				"id": "22",
 				"canExclude": false
 			},
 			{
 				"type": "genre",
 				"name": "Shoujo",
-				"value": "23",
+				"id": "23",
 				"canExclude": false
 			},
 			{
 				"type": "genre",
 				"name": "Shoujo Ai",
-				"value": "24",
+				"id": "24",
 				"canExclude": false
 			},
 			{
 				"type": "genre",
 				"name": "Shounen",
-				"value": "25",
+				"id": "25",
 				"canExclude": false
 			},
 			{
 				"type": "genre",
 				"name": "Shounen Ai",
-				"value": "26",
+				"id": "26",
 				"canExclude": false
 			},
 			{
 				"type": "genre",
 				"name": "Slice of Life",
-				"value": "27",
+				"id": "27",
 				"canExclude": false
 			},
 			{
 				"type": "genre",
 				"name": "Sports",
-				"value": "28",
+				"id": "28",
 				"canExclude": false
 			},
 			{
 				"type": "genre",
 				"name": "Supernatural",
-				"value": "29",
+				"id": "29",
 				"canExclude": false
 			},
 			{
 				"type": "genre",
 				"name": "Tragedy",
-				"value": "30",
+				"id": "30",
 				"canExclude": false
 			},
 			{
 				"type": "genre",
 				"name": "Yaoi",
-				"value": "31",
+				"id": "31",
 				"canExclude": false
 			},
 			{
 				"type": "genre",
 				"name": "Yuri",
-				"value": "32",
+				"id": "32",
 				"canExclude": false
 			}
 		]
