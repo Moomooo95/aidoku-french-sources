@@ -1,0 +1,15 @@
+{
+	"info": {
+		"id": "fr.mangascantrad",
+		"lang": "fr",
+		"name": "MangaScantrad",
+		"version": 1,
+		"url": "https://manga-scantrad.net/",
+		"nsfw": 0
+	},
+	"listings": [
+		{ "name": "Dernières Sorties" },
+		{ "name": "Les plus vus" },
+		{ "name": "Nouveau" }
+	]
+}
