@@ -1,6 +1,6 @@
 [package]
 name = "mangascantrad-aidoku"
-version = "0.1.1"
+version = "0.1.2"
 authors = ["Moomooo95 <mohamed.ali.benzina.pro@gmail.com>"]
 edition = "2021"
 description = "MangaScantrad source for aidoku"

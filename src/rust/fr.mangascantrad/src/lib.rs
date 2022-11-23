@@ -1,6 +1,4 @@
 #![no_std]
-#![feature(int_roundings)]
-#![feature(allocator_api)]
 use aidoku::{
 	prelude::*,
 	error::Result,
@@ -94,16 +92,14 @@ fn get_manga_list(filters: Vec<Filter>, page: i32) -> Result<MangaPageResult> {
 		}
 	}
 
-	let html = Request::new(&url, HttpMethod::Get).html();
+	let html = Request::new(&url, HttpMethod::Get).html()?;
 
-	let mut mangas: Vec<Manga> = Vec::new();
-	parser::parse_catalogue(html, &mut mangas);
-
-	let is_last_page = parser::is_last_pages_catalogue(Request::new(&url, HttpMethod::Get).html());
+	let manga: Vec<Manga> = parser::parse_catalogue(html);
+	let has_more = parser::is_not_last_pages_catalogue(Request::new(&url, HttpMethod::Get).html()?);
 	
 	Ok(MangaPageResult {
-		manga: mangas,
-		has_more: is_last_page,
+		manga,
+		has_more,
 	})
 }
 
@@ -144,22 +140,21 @@ fn get_manga_listing(listing: Listing, page: i32) -> Result<MangaPageResult> {
 #[get_manga_details]
 fn get_manga_details(manga_id: String) -> Result<Manga> {
 	let url = format!("https://manga-scantrad.net/manga/{}", &manga_id);
-	let html = Request::new(&url, HttpMethod::Get).html();
+	let html = Request::new(&url, HttpMethod::Get).html()?;
 	return parser::parse_manga_details(html, manga_id);
 }
 
 #[get_chapter_list]
 fn get_chapter_list(manga_id: String) -> Result<Vec<Chapter>> {
 	let url = format!("https://manga-scantrad.net/manga/{}/ajax/chapters/", &manga_id);
-	let html = Request::new(url.clone().as_str(), HttpMethod::Post).html();
+	let html = Request::new(url.clone().as_str(), HttpMethod::Post).html()?;
 	return parser::parse_chapter_list(html);
 }
 
 #[get_page_list]
-fn get_page_list(chapter_id: String) -> Result<Vec<Page>> {
+fn get_page_list(_manga_id: String, chapter_id: String) -> Result<Vec<Page>> {
 	let url = format!("https://manga-scantrad.net/manga/{}?style=list", &chapter_id);
-	let html = Request::new(url.clone().as_str(), HttpMethod::Get)
-	.html();
+	let html = Request::new(url.clone().as_str(), HttpMethod::Get).html()?;
 	return parser::parse_chapter_details(html);
 }
 
@@ -171,5 +166,3 @@ fn modify_image_request(request: Request) {
 		request.header("Host", "manga-scantrad.net");
 	}
 }
-	
-

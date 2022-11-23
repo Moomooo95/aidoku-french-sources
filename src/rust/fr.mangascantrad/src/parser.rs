@@ -8,23 +8,28 @@ use aidoku::{
 	Manga, Page, MangaStatus, MangaContentRating, MangaViewer, Chapter
 };
 
+use crate::helper::get_url_image;
+
+
 //////////////////////////
 //// PARSER FUNCTIONS ////
 //////////////////////////
 
 // parse manga with basic details
-pub fn parse_catalogue(html: Node, mangas: &mut Vec<Manga>) {
-	for page in html.select(".tab-content-wrap .c-tabs-item__content").array() {
-		let obj = page.as_node();
+pub fn parse_catalogue(html: Node) -> Vec<Manga> {
+	let mut mangas: Vec<Manga> = Vec::new();
 
-		let url = obj.select(".tab-thumb a").attr("href").read();
-		let split_url :Vec<&str>= url.split("/").collect();
-		let id = String::from(split_url[4]);
-		let cover = obj.select(".tab-thumb.c-image-hover a img").attr("data-src").read().replace("-193x278", "");
+	for manga in html.select(".tab-content-wrap .c-tabs-item__content").array() {
+		let obj = manga.as_node().expect("html array not an array of nodes");
+
+		// check if is not anime
+		if obj.select(".tab-meta .latest-chap .chapter a").attr("href").read().contains("episode") { continue; }
+
+		let cover = get_url_image(obj.select(".tab-thumb.c-image-hover a img"));
 		let title = obj.select(".post-title h3").text().read();
-
-		println!("{}", cover);
-
+		let url = obj.select(".tab-thumb a").attr("href").read();
+		let id = String::from(url.split("/").enumerate().nth(4).expect("id").1.trim());
+		
 		mangas.push(Manga {
 			id,
 			cover,
@@ -36,32 +41,33 @@ pub fn parse_catalogue(html: Node, mangas: &mut Vec<Manga>) {
 			categories: Vec::new(),
 			status: MangaStatus::Unknown,
 			nsfw: MangaContentRating::Safe,
-			viewer: MangaViewer::Default
+			viewer: MangaViewer::Rtl
 		});
 	}
+
+	return mangas;
 }
 
-// parse total pages of catalogue
-pub fn is_last_pages_catalogue(html: Node) -> bool {
-	let is_last = String::from(html.select(".wp-pagenavi .last").text().read().trim()).len() as i64;
-	return is_last == 0;
+// check if is last page of catalogue
+pub fn is_not_last_pages_catalogue(html: Node) -> bool {
+	return html.select(".wp-pagenavi .nextpostslink").text().read().trim().len() != 0;
 }
 
 // parse mangas with full details
-pub fn parse_manga_details(manga_obj: Node, id: String) -> Result<Manga> {	
-	let cover = manga_obj.select(".site-content .summary_image img").attr("data-src").read();
-	let title = manga_obj.select(".site-content .post-title h1").text().read();
-	let author = manga_obj.select("a[href*=author]").text().read();
-	let artist = manga_obj.select("a[href*=artist]").text().read();
-	let description = manga_obj.select(".description-summary p").text().read();
+pub fn parse_manga_details(html: Node, id: String) -> Result<Manga> {	
+	let cover = get_url_image(html.select(".site-content .summary_image img"));
+	let title = html.select(".site-content .post-title h1").text().read();
+	let author = html.select("a[href*=author]").text().read();
+	let artist = html.select("a[href*=artist]").text().read();
+	let description = html.select(".description-summary p").text().read();
 	let url = format!("https://manga-scantrad.net/manga/{}", &id);
 
 	let mut categories: Vec<String> = Vec::new();
-	manga_obj.select(".genres-content a[href*=manga-genre]")
+	html.select(".genres-content a[href*=manga-genre]")
 		.array()
-		.for_each(|tag| categories.push(tag.as_node().text().read()));
+		.for_each(|tag| categories.push(tag.as_node().expect("html array not an array of nodes").text().read()));
 
-	let status_str = manga_obj.select("div.post-content_item:nth-child(2) > div:nth-child(2)").text().read().trim().to_lowercase();
+	let status_str = html.select("div.post-content_item:nth-child(2) > div:nth-child(2)").text().read().trim().to_lowercase();
 	let status = if status_str.contains("en cours") {
 		MangaStatus::Ongoing
 	} else if status_str.contains("terminé") {
@@ -82,7 +88,7 @@ pub fn parse_manga_details(manga_obj: Node, id: String) -> Result<Manga> {
 		MangaContentRating::Safe
 	};
 
-	let type_str = manga_obj.select("div.post-content_item:nth-child(9) > div:nth-child(2)").text().read().to_lowercase();
+	let type_str = html.select("div.post-content_item:nth-child(9) > div:nth-child(2)").text().read().to_lowercase();
 
 	let viewer = match type_str.as_str() {
 		"manga" => MangaViewer::Rtl,
@@ -106,61 +112,51 @@ pub fn parse_manga_details(manga_obj: Node, id: String) -> Result<Manga> {
 }
 
 // parse all chapter of manga
-pub fn parse_chapter_list(chapter_obj: Node) -> Result<Vec<Chapter>> {
+pub fn parse_chapter_list(html: Node) -> Result<Vec<Chapter>> {
 	let mut chapters: Vec<Chapter> = Vec::new();
-	for chapter in chapter_obj.select("ul .wp-manga-chapter").array() {
-		let chapter_obj = chapter.as_node();
 
-		let url = chapter_obj.select("a").attr("href").read();
+	for chapter in html.select("ul .wp-manga-chapter").array() {
+		let obj = chapter.as_node().expect("html array not an array of nodes");
+
+		let url = String::from(obj.select("a").attr("href").read().trim());
 		let id = String::from(&url.replace("https://manga-scantrad.net/manga/", ""));
 
-		let mut volume = -1.0;
-		let mut chapter = -1.0;
+		// get title of chapter if exist
 		let mut title = String::new();
+		let chapter_info = String::from(obj.select("a").text().read().trim());
+		if chapter_info.contains("-") {
+			title = String::from(chapter_info.split("-").enumerate().nth(1).expect("title").1.trim().replace("_", " "));
+		}
 
-		let chap_title_str = String::from(chapter_obj.select("a").text().read().trim());
-		if chap_title_str.contains("-") {
-			let split_title :Vec<&str>= chap_title_str.split("-").collect();
+		// get volume and chapter number
+		let details_chapter = String::from(url.split("/").enumerate().nth(5).expect("details").1.trim());
+		let details_chapter_array: Vec<&str> = details_chapter.split("-").collect();
+		
+		// get volume number if exist
+		let mut volume = -1.0;
+		if details_chapter.contains("vol-") {
+			volume = details_chapter_array[details_chapter_array.iter().position(|&x| x.contains("vol")).unwrap() + 1].parse().unwrap()
+		}
 
-			if split_title[0].contains("Vol") {
-				let split_title :Vec<&str>= split_title[0].split(" ").collect(); // ["Vol.1", "Ch.30"]
+		// get chapter number
+		let mut chapter = -1.0;
+		if details_chapter.contains("chapter-") || details_chapter.contains("chapitre-") || details_chapter.contains("ch-") || details_chapter.contains("chap-") {
+			let index_chapter = details_chapter_array.iter().position(|&x| x.contains("chapter") || x.contains("chapitre") || x.contains("ch") || x.contains("chap")).unwrap() + 1;
+			let mut chapter_str = String::from(details_chapter_array[index_chapter].trim());
 
-				let split_vol :Vec<&str>= split_title[0].split(".").collect();
-				volume = String::from(split_vol[1]).parse().unwrap();
+			if chapter_str.contains("_") {
+				chapter_str = String::from(chapter_str.split("_").enumerate().nth(0).expect("chapter").1.trim());
+			}
 
-				let split_chp :Vec<&str>= split_title[1].split(".").collect();
-				chapter = String::from(split_chp[1]).parse().unwrap();
-
-			} else if split_title[0].contains("Chapitre") {
-				let split_chp :Vec<&str>= split_title[0].split(" ").collect();
-				chapter = String::from(split_chp[1]).parse().unwrap();
+			if details_chapter_array.len() > index_chapter + 2  && details_chapter_array[index_chapter + 1].trim().parse().unwrap_or(-1.0) != -1.0{
+				chapter_str = format!("{}.{}", chapter_str, details_chapter_array[index_chapter + 1].trim());
 			}
 			
-			title = String::from(split_title[1].trim());
+			chapter = chapter_str.parse().unwrap();
 		}
-		else {
 
-			if !chap_title_str.contains("Vol") && !chap_title_str.contains("Chapitre") {
-				let mut split_title :Vec<&str>= chap_title_str.trim().split(" ").collect();
-
-				if split_title.len() > 1 {
-					chapter = String::from(split_title[0].trim()).parse().unwrap();
-					split_title.remove(0);
-					title = String::from(split_title.join(" "));
-				}
-				else {
-					chapter = String::from(chap_title_str.trim()).parse().unwrap();
-				}
-			}
-			else {
-				let split_str :Vec<&str>= id.split("/").collect();
-				let chapter_str = String::from(split_str[1]);
-				let split_chapter_str :Vec<&str>= chapter_str.split("-").collect();
-				chapter = String::from(split_chapter_str[split_chapter_str.len() - 1]).parse().unwrap();
-			}
-		}
-		
-		let mut date_updated = StringRef::from(&chapter_obj.select(".chapter-release-date").text().read().trim())
+		// get release date of chapter
+		let mut date_updated = StringRef::from(&obj.select(".chapter-release-date").text().read().trim())
 			.0
 			.as_date("d MMMM yyyy", Some("fr"), None)
 			.unwrap_or(-1.0);
@@ -180,16 +176,17 @@ pub fn parse_chapter_list(chapter_obj: Node) -> Result<Vec<Chapter>> {
 			lang: String::from("fr"),
 		});
 	}
+
 	Ok(chapters)
 }
 
 // parse all images of chapters
-pub fn parse_chapter_details(chapter_details_obj: Node) -> Result<Vec<Page>> {
+pub fn parse_chapter_details(html: Node) -> Result<Vec<Page>> {
 	let mut pages: Vec<Page> = Vec::new();
 
 	let mut i = 0;
-	for page in chapter_details_obj.select(".entry-content .reading-content .page-break img").array() {
-		let url = String::from(page.as_node().attr("data-src").read().trim());
+	for image_obj in html.select(".entry-content .reading-content .page-break img").array() {
+		let url = get_url_image(image_obj.as_node()?);
 
 		pages.push(Page {
 			index: i as i32,
@@ -197,7 +194,9 @@ pub fn parse_chapter_details(chapter_details_obj: Node) -> Result<Vec<Page>> {
 			base64: String::new(),
 			text: String::new(),
 		});
+		
 		i += 1;
 	}
+	
 	Ok(pages)
 }

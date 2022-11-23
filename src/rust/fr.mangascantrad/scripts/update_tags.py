@@ -6,7 +6,6 @@ import os
 response = requests.get('https://manga-scantrad.net/?s=&post_type=wp-manga', headers={"Host": "manga-scantrad.net"})
 soup = BeautifulSoup(response.content, features='html.parser')
 
-print(response.content)
 genres = []
 for genre in soup.select('#search-advanced .checkbox-group .checkbox'):
     genres.append({
