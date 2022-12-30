@@ -3,9 +3,9 @@
 		"id": "fr.lelscanvf",
 		"lang": "fr",
 		"name": "LelscanVF",
-		"version": 1,
+		"version": 2,
 		"url": "https://lelscanvf.com",
-		"nsfw": 0
+		"nsfw": 1
 	},
 	"listings": [
 		{ "name": "Dernières Sorties" },

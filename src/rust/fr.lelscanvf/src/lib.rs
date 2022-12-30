@@ -91,7 +91,7 @@ fn get_manga_list(filters: Vec<Filter>, page: i32) -> Result<MangaPageResult> {
 	let mut has_more = false;
 
 	if url.contains("search") {
-		let json = Request::new(&url, HttpMethod::Get).json().as_object()?;
+		let json = Request::new(&url, HttpMethod::Get).json()?.as_object()?;
 
 		for item in json.get("suggestions").as_array()? {
 			let data = item.as_object()?;
@@ -113,23 +113,23 @@ fn get_manga_list(filters: Vec<Filter>, page: i32) -> Result<MangaPageResult> {
 					categories: Vec::new(),
 					status: MangaStatus::Unknown,
 					nsfw: MangaContentRating::Safe,
-					viewer: MangaViewer::Default
+					viewer: MangaViewer::Rtl
 				});
 			}
 		}
 	} else if url.contains("filterList") {
-		let html = Request::new(&url, HttpMethod::Get).html();
-		parser::parse_filterlist(html, &mut manga);
-		has_more = parser::is_last_page(Request::new(&url, HttpMethod::Get).html());
+		let html = Request::new(&url, HttpMethod::Get).html()?;
+		manga = parser::parse_filterlist(html);
+		has_more = parser::is_last_page(Request::new(&url, HttpMethod::Get).html()?);
 	} else if url.contains("topManga") {
-		let html = Request::new(&url, HttpMethod::Get).html();
-		parser::parse_top_manga(html, &mut manga);
+		let html = Request::new(&url, HttpMethod::Get).html()?;
+		manga = parser::parse_top_manga(html);
 	} else {
-		let html = Request::new(&url, HttpMethod::Get).html();
+		let html = Request::new(&url, HttpMethod::Get).html()?;
 		if sort == 0 {
-			parser::parse_recents(html, &mut manga);
+			manga = parser::parse_recents(html);
 		} else if sort == 1 {
-			parser::parse_recents_popular(html, &mut manga);
+			manga = parser::parse_recents_popular(html);
 		}
 	}
 
@@ -176,25 +176,21 @@ fn get_manga_listing(listing: Listing, page: i32) -> Result<MangaPageResult> {
 #[get_manga_details]
 fn get_manga_details(manga_id: String) -> Result<Manga> {
 	let url = format!("https://lelscanvf.com/manga/{}", &manga_id);
-	let html = Request::new(url.clone().as_str(), HttpMethod::Get).html();
+	let html = Request::new(url.clone().as_str(), HttpMethod::Get).html()?;
 	return parser::parse_manga(html, manga_id);
 }
 
 #[get_chapter_list]
 fn get_chapter_list(manga_id: String) -> Result<Vec<Chapter>> {
 	let url = format!("https://lelscanvf.com/manga/{}", &manga_id);
-	let html = Request::new(url.clone().as_str(), HttpMethod::Get).html();
+	let html = Request::new(url.clone().as_str(), HttpMethod::Get).html()?;
 	return parser::get_chaper_list(html);
 }
 
 #[get_page_list]
-fn get_page_list(chapter_id: String) -> Result<Vec<Page>> {
+fn get_page_list(chapter_id: String, _manga_id: String) -> Result<Vec<Page>> {
 	let url = format!("https://lelscanvf.com/manga/{}", &chapter_id);
-	let html = Request::new(url.clone().as_str(), HttpMethod::Get)
-	.header(
-		"Referer", 
-		"https://lelscanvf.com/"
-	).html();
+	let html = Request::new(url.clone().as_str(), HttpMethod::Get).header("Referer", "https://lelscanvf.com/").html()?;
 	return parser::get_page_list(html);
 }
 

@@ -12,18 +12,19 @@ use aidoku::{
 //// PARSER FUNCTIONS ////
 //////////////////////////
 
-pub fn parse_recents(html: Node, result: &mut Vec<Manga>) {
-	for page in html.select(".mangalist .manga-item").array() {
-		let obj = page.as_node();
+// parse latest manga with basic details
+pub fn parse_recents(html: Node) -> Vec<Manga>  {
+	let mut mangas: Vec<Manga> = Vec::new();
 
-		let url = obj.select(".manga-heading a").attr("href").read();
-		let split_url :Vec<&str>= url.split("/").collect();
-		let id = String::from(split_url[4]);
+	for page in html.select(".mangalist .manga-item").array() {
+		let obj = page.as_node().expect("page");
 
 		let title = obj.select(".manga-heading a").text().read();
+		let url = obj.select(".manga-heading a").attr("href").read();
+		let id = String::from(url.split("/").enumerate().nth(4).expect("id").1.trim());
 		let cover = format!("https://lelscanvf.com/uploads/manga/{}/cover/cover_250x350.jpg", id);
 
-		result.push(Manga {
+		mangas.push(Manga {
 			id,
 			cover,
 			title,
@@ -34,24 +35,26 @@ pub fn parse_recents(html: Node, result: &mut Vec<Manga>) {
 			categories: Vec::new(),
 			status: MangaStatus::Unknown,
 			nsfw: MangaContentRating::Safe,
-			viewer: MangaViewer::Default
+			viewer: MangaViewer::Rtl
 		});
 	}
-	
+
+	return mangas;	
 }
 
-pub fn parse_recents_popular(html: Node, result: &mut Vec<Manga>) {
-	for page in html.select(".hot-thumbnails li").array() {
-		let obj = page.as_node();
+// parse latest popular manga with basic details
+pub fn parse_recents_popular(html: Node) -> Vec<Manga>  {
+	let mut mangas: Vec<Manga> = Vec::new();
 
-		let url = obj.select(".manga-name a").attr("href").read();
-		let split_url :Vec<&str>= url.split("/").collect();
-		let id = String::from(split_url[4]);
+	for page in html.select(".hot-thumbnails li").array() {
+		let obj = page.as_node().expect("page");
 
 		let title = obj.select(".manga-name a").text().read();
+		let url = obj.select(".manga-name a").attr("href").read();
+		let id = String::from(url.split("/").enumerate().nth(4).expect("id").1.trim());
 		let cover = format!("https://lelscanvf.com/uploads/manga/{}/cover/cover_250x350.jpg", id);
 
-		result.push(Manga {
+		mangas.push(Manga {
 			id,
 			cover,
 			title,
@@ -62,23 +65,26 @@ pub fn parse_recents_popular(html: Node, result: &mut Vec<Manga>) {
 			categories: Vec::new(),
 			status: MangaStatus::Unknown,
 			nsfw: MangaContentRating::Safe,
-			viewer: MangaViewer::Default
+			viewer: MangaViewer::Rtl
 		});
 	}
+
+	return mangas;	
 }
 
-pub fn parse_top_manga(html: Node, result: &mut Vec<Manga>) {
-	for page in html.select("li").array() {
-		let obj = page.as_node();
+// parse top manga with basic details
+pub fn parse_top_manga(html: Node) -> Vec<Manga>  {
+	let mut mangas: Vec<Manga> = Vec::new();
 
-		let url = obj.select(".media-left a").attr("href").read();
-		let split_url :Vec<&str>= url.split("/").collect();
-		let id = String::from(split_url[4]);
+	for page in html.select("li").array() {
+		let obj = page.as_node().expect("page");
 
 		let title = obj.select("h5 strong").text().read();
+		let url = obj.select(".media-left a").attr("href").read();
+		let id = String::from(url.split("/").enumerate().nth(4).expect("id").1.trim());
 		let cover = format!("https://lelscanvf.com/uploads/manga/{}/cover/cover_250x350.jpg", id);
 
-		result.push(Manga {
+		mangas.push(Manga {
 			id,
 			cover,
 			title,
@@ -89,24 +95,27 @@ pub fn parse_top_manga(html: Node, result: &mut Vec<Manga>) {
 			categories: Vec::new(),
 			status: MangaStatus::Unknown,
 			nsfw: MangaContentRating::Safe,
-			viewer: MangaViewer::Default
+			viewer: MangaViewer::Rtl
 		});
 	}
+
+	return mangas;
 }
 
-pub fn parse_filterlist(html: Node, result: &mut Vec<Manga>) {
-	for page in html.select(".media").array() {
-		let obj = page.as_node();
+// parse manga with basic details
+pub fn parse_filterlist(html: Node) -> Vec<Manga>  {
+	let mut mangas: Vec<Manga> = Vec::new();
 
-		let url = obj.select(".media-heading .chart-title").attr("href").read();
-		let split_url :Vec<&str>= url.split("/").collect();
-		let id = String::from(split_url[4]);
+	for page in html.select(".media").array() {
+		let obj = page.as_node().expect("page");
 
 		let title = obj.select(".media-heading .chart-title").text().read();
+		let url = obj.select(".media-heading .chart-title").attr("href").read();
+		let id = String::from(url.split("/").enumerate().nth(4).expect("id").1.trim());
 		let cover = format!("https://lelscanvf.com/uploads/manga/{}/cover/cover_250x350.jpg", id);
 
 		if id.len() > 0 && title.len() > 0 && cover.len() > 0 {
-			result.push(Manga {
+			mangas.push(Manga {
 				id,
 				cover,
 				title,
@@ -117,15 +126,24 @@ pub fn parse_filterlist(html: Node, result: &mut Vec<Manga>) {
 				categories: Vec::new(),
 				status: MangaStatus::Unknown,
 				nsfw: MangaContentRating::Safe,
-				viewer: MangaViewer::Default
+				viewer: MangaViewer::Rtl
 			});
 		}
 	}
+
+	return mangas;
 }
 
+// check if is last page of list manga
+pub fn is_last_page(obj: Node) -> bool {
+	return obj.select(".pagination li").last().has_class("disabled")
+}
+
+// parse mangas with full details
 pub fn parse_manga(obj: Node, id: String) -> Result<Manga> {
 	let cover = format!("https://lelscanvf.com/uploads/manga/{}/cover/cover_250x350.jpg", id);
 	let title = String::from(obj.select(".widget-title").first().text().read().trim());
+
 	let author = String::from(obj.select("a[href*=author]").text().read().trim());
 	let artist = String::from(obj.select("a[href*=artist]").text().read().trim());
 	let description = String::from(obj.select(".well p").text().read().trim());
@@ -138,7 +156,7 @@ pub fn parse_manga(obj: Node, id: String) -> Result<Manga> {
 	let mut categories: Vec<String> = Vec::new();
 	obj.select("a[href*=genre]")
 		.array()
-		.for_each(|tag| categories.push(tag.as_node().text().read()));
+		.for_each(|tag| categories.push(tag.as_node().expect("page").text().read()));
 
 	let status = if status_str.contains("ongoing") {
 		MangaStatus::Ongoing
@@ -177,18 +195,17 @@ pub fn parse_manga(obj: Node, id: String) -> Result<Manga> {
 	})
 }
 
+// parse all chapter of manga
 pub fn get_chaper_list(obj: Node) -> Result<Vec<Chapter>> {
 	let mut chapters: Vec<Chapter> = Vec::new();
 
 	for chapter in obj.select(".chapters li:not(.volume)").array() {
-		let obj = chapter.as_node();
+		let obj = chapter.as_node().expect("page");
 
 		let title = obj.select(".chapter-title-rtl em").text().read();
 		let url = obj.select(".chapter-title-rtl a").attr("href").read();
 		let id = String::from(&url.replace("https://lelscanvf.com/manga/", ""));
-
-		let split_url :Vec<&str>= url.split("/").collect();
-		let chapter = split_url[split_url.len() - 1].parse().unwrap();
+		let chapter = String::from(url.split("/").enumerate().nth(5).expect("chapter num").1.trim()).parse().unwrap();
 
 		let mut date_updated = StringRef::from(&obj.select(".date-chapter-title-rtl").text().read().trim())
 			.0
@@ -210,23 +227,24 @@ pub fn get_chaper_list(obj: Node) -> Result<Vec<Chapter>> {
 			lang: String::from("fr"),
 		});
 	}
+
 	Ok(chapters)
 }
 
+// parse all images of chapter
 pub fn get_page_list(obj: Node) -> Result<Vec<Page>> {
 	let mut pages: Vec<Page> = Vec::new();
 
 	let mut i = 0;
 	for page in obj.select("#all img").array() {
-		let obj = page.as_node();
+		let obj = page.as_node().expect("page");
 
 		let mut url = String::from(obj.attr("data-src").read().trim());
+		let text = String::from(obj.attr("alt").read().trim());
 
 		if !url.contains("https:") {
 			url = format!("https:{}", obj.attr("data-src").read().trim());
 		}
-
-		let text = String::from(obj.attr("alt").read().trim());
 
 		pages.push(Page {
 			index: i as i32,
@@ -236,10 +254,6 @@ pub fn get_page_list(obj: Node) -> Result<Vec<Page>> {
 		});
 		i += 1;
 	}
+	
 	Ok(pages)
 }
-
-pub fn is_last_page(obj: Node) -> bool {
-	return obj.select(".pagination li").last().has_class("disabled")
-}
-
