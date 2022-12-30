@@ -8,22 +8,23 @@ use aidoku::{
 	Manga, Page, MangaStatus, MangaContentRating, MangaViewer, Chapter
 };
 use core::str::FromStr;
-use crate::get_url_image;
+use crate::helper::get_url_image;
 
 //////////////////////////
 //// PARSER FUNCTIONS ////
 //////////////////////////
 
 // parse manga with basic details
-pub fn parse_catalogue(html: Node, mangas: &mut Vec<Manga>) {
-	for page in html.select(".row .c-tabs-item__content").array() {
-		let obj = page.as_node();
+pub fn parse_catalogue(html: Node) -> Vec<Manga> {
+	let mut mangas: Vec<Manga> = Vec::new();
 
-		let url = obj.select("h3 a").attr("href").read();
-		let split_url :Vec<&str>= url.split("/").collect();
-		let id = String::from(split_url[4]);
+	for page in html.select(".row .c-tabs-item__content").array() {
+		let obj = page.as_node().expect("html array not an array of nodes");
+
 		let cover = get_url_image(&obj);
 		let title = obj.select("h3 a").text().read();
+		let url = obj.select("h3 a").attr("href").read();
+		let id = String::from(url.split("/").enumerate().nth(4).expect("id").1.trim());
 
 		mangas.push(Manga {
 			id,
@@ -36,9 +37,11 @@ pub fn parse_catalogue(html: Node, mangas: &mut Vec<Manga>) {
 			categories: Vec::new(),
 			status: MangaStatus::Unknown,
 			nsfw: MangaContentRating::Safe,
-			viewer: MangaViewer::Default
+			viewer: MangaViewer::Rtl
 		});
 	}
+
+	return mangas;
 }
 
 // parse total pages of catalogue
@@ -60,7 +63,7 @@ pub fn parse_manga_details(manga_obj: Node, id: String) -> Result<Manga> {
 	let mut categories: Vec<String> = Vec::new();
 	manga_obj.select("a[href*=genre][rel=tag]")
 		.array()
-		.for_each(|tag| categories.push(tag.as_node().text().read()));
+		.for_each(|tag| categories.push(tag.as_node().expect("html array not an array of nodes").text().read()));
 
 	let status_str = manga_obj.select("div.post-content_item:nth-child(2) > div:nth-child(2)").text().read().trim().to_lowercase();
 	let status = if status_str.contains("en cours") {
@@ -112,7 +115,7 @@ pub fn parse_manga_details(manga_obj: Node, id: String) -> Result<Manga> {
 pub fn parse_chapter_list(chapter_obj: Node) -> Result<Vec<Chapter>> {
 	let mut chapters: Vec<Chapter> = Vec::new();
 	for chapter in chapter_obj.select(".wp-manga-chapter").array() {
-		let chapter_obj = chapter.as_node();
+		let chapter_obj = chapter.as_node().expect("html array not an array of nodes");
 
 		let url = chapter_obj.select("a").attr("href").read();
 		let id = String::from(&url.replace("https://mangas-origines.fr/manga/", ""));
@@ -147,6 +150,7 @@ pub fn parse_chapter_list(chapter_obj: Node) -> Result<Vec<Chapter>> {
 			lang: String::from("fr"),
 		});
 	}
+	
 	Ok(chapters)
 }
 
@@ -156,8 +160,7 @@ pub fn parse_chapter_details(chapter_details_obj: Node) -> Result<Vec<Page>> {
 
 	let mut i = 0;
 	for page in chapter_details_obj.select(".container .reading-content div").array() {
-		let url = get_url_image(&page.as_node());
-		// println!("{}", String::from(chapter_details_obj.html().read()));
+		let url = get_url_image(&page.as_node()?);
 
 		pages.push(Page {
 			index: i as i32,

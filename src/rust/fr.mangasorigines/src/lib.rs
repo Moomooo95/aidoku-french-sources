@@ -18,7 +18,6 @@ use helper::*;
 
 #[get_manga_list]
 fn get_manga_list(filters: Vec<Filter>, page: i32) -> Result<MangaPageResult> {
-	
 	let mut url = format!("https://mangas-origines.fr/?post_type=wp-manga&s&paged={}", &i32_to_string(page));
 
 	for filter in filters {
@@ -93,17 +92,14 @@ fn get_manga_list(filters: Vec<Filter>, page: i32) -> Result<MangaPageResult> {
 		}
 	}
 
-	let html = Request::new(&url, HttpMethod::Get).html();
+	let html = Request::new(&url, HttpMethod::Get).html()?;
 
-	let mut mangas: Vec<Manga> = Vec::new();
-	parser::parse_catalogue(html, &mut mangas);
-
-	let html2 = Request::new(&url, HttpMethod::Get).html();
-	let nb_pages = parser::parse_total_pages_catalogue(html2);
+	let manga: Vec<Manga> = parser::parse_catalogue(html);
+	let has_more = page < parser::parse_total_pages_catalogue(Request::new(&url, HttpMethod::Get).html()?);
 	
 	Ok(MangaPageResult {
-		manga: mangas,
-		has_more: page < nb_pages,
+		manga,
+		has_more
 	})
 }
 
@@ -144,24 +140,29 @@ fn get_manga_listing(listing: Listing, page: i32) -> Result<MangaPageResult> {
 #[get_manga_details]
 fn get_manga_details(manga_id: String) -> Result<Manga> {
 	let url = format!("https://mangas-origines.fr/manga/{}", &manga_id);
-	let html = Request::new(&url, HttpMethod::Get).html();
+	let html = Request::new(&url, HttpMethod::Get).html()?;
 	return parser::parse_manga_details(html, manga_id);
 }
 
 #[get_chapter_list]
 fn get_chapter_list(manga_id: String) -> Result<Vec<Chapter>> {
 	let url = format!("https://mangas-origines.fr/manga/{}/ajax/chapters/", &manga_id);
-	let html = Request::new(url.clone().as_str(), HttpMethod::Post).html();
+	let html = Request::new(url.clone().as_str(), HttpMethod::Post).html()?;
 	return parser::parse_chapter_list(html);
 }
 
 #[get_page_list]
-fn get_page_list(chapter_id: String) -> Result<Vec<Page>> {
+fn get_page_list(_manga_id: String, chapter_id: String) -> Result<Vec<Page>> {
 	let url = format!("https://mangas-origines.fr/manga/{}?style=list", &chapter_id);
-	let html = Request::new(url.clone().as_str(), HttpMethod::Get)
-	.html();
+	let html = Request::new(url.clone().as_str(), HttpMethod::Get).html()?;
 	return parser::parse_chapter_details(html);
 }
 
+#[modify_image_request]
+fn modify_image_request(request: Request) {
+	if request.url().read().contains("mangas-origines.fr") {
+		request.header("Referer", "mangas-origines.fr");
+	}
+}
 
 
