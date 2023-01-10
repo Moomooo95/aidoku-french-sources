@@ -3,7 +3,7 @@ import requests
 import json
 import os
 
-response = requests.get('https://manga-scantrad.net/?s=&post_type=wp-manga', headers={"Host": "manga-scantrad.net"})
+response = requests.get('https://manga-scantrad.io/?s=&post_type=wp-manga', headers={"Host": "manga-scantrad.io"})
 soup = BeautifulSoup(response.content, features='html.parser')
 
 genres = []

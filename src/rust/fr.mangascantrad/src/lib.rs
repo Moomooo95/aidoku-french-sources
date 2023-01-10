@@ -16,7 +16,7 @@ use helper::*;
 
 #[get_manga_list]
 fn get_manga_list(filters: Vec<Filter>, page: i32) -> Result<MangaPageResult> {
-	let mut url = format!("https://manga-scantrad.net/?post_type=wp-manga&s&paged={}", &i32_to_string(page));
+	let mut url = format!("https://manga-scantrad.io/?post_type=wp-manga&s&paged={}", &i32_to_string(page));
 
 	for filter in filters {
 		match filter.kind {
@@ -34,10 +34,6 @@ fn get_manga_list(filters: Vec<Filter>, page: i32) -> Result<MangaPageResult> {
 				}
 			}
 			FilterType::Check => {
-				let value = filter.value.as_int().unwrap_or(-1);
-				if value < 0 {
-					continue;
-				}
 				if let Ok(id) = filter.object.get("id").as_string() {
 					url.push_str("&status[]=");
 					url.push_str(&id.read());
@@ -56,15 +52,15 @@ fn get_manga_list(filters: Vec<Filter>, page: i32) -> Result<MangaPageResult> {
 				};
 				let index = value.get("index").as_int().unwrap_or(0);
 				//let ascending = value.get("ascending").as_bool().unwrap_or(false);
-				url.push_str("&m_orderby=");
+				url.push_str("&m_orderby");
 				url.push_str(match index {
 					0 => "",
-					1 => "latest",
-					2 => "alphabet",
-					3 => "rating",
-					4 => "trending",
-					5 => "views",
-					6 => "new-manga",
+					1 => "=latest",
+					2 => "=alphabet",
+					3 => "=rating",
+					4 => "=trending",
+					5 => "=views",
+					6 => "=new-manga",
 					_ => ""
 				});
 			}
@@ -139,30 +135,30 @@ fn get_manga_listing(listing: Listing, page: i32) -> Result<MangaPageResult> {
 
 #[get_manga_details]
 fn get_manga_details(manga_id: String) -> Result<Manga> {
-	let url = format!("https://manga-scantrad.net/manga/{}", &manga_id);
+	let url = format!("https://manga-scantrad.io/manga/{}", &manga_id);
 	let html = Request::new(&url, HttpMethod::Get).html()?;
 	return parser::parse_manga_details(html, manga_id);
 }
 
 #[get_chapter_list]
 fn get_chapter_list(manga_id: String) -> Result<Vec<Chapter>> {
-	let url = format!("https://manga-scantrad.net/manga/{}/ajax/chapters/", &manga_id);
+	let url = format!("https://manga-scantrad.io/manga/{}/ajax/chapters/", &manga_id);
 	let html = Request::new(url.clone().as_str(), HttpMethod::Post).html()?;
 	return parser::parse_chapter_list(html);
 }
 
 #[get_page_list]
-fn get_page_list(_manga_id: String, chapter_id: String) -> Result<Vec<Page>> {
-	let url = format!("https://manga-scantrad.net/manga/{}?style=list", &chapter_id);
+fn get_page_list(manga_id: String, chapter_id: String) -> Result<Vec<Page>> {
+	let url = format!("https://manga-scantrad.io/manga/{}/{}?style=list", &manga_id, &chapter_id);
 	let html = Request::new(url.clone().as_str(), HttpMethod::Get).html()?;
 	return parser::parse_chapter_details(html);
 }
 
 #[modify_image_request]
 fn modify_image_request(request: Request) {
-	if request.url().read().contains("stockage.manga-scantrad.net") {
-		request.header("Host", "stockage.manga-scantrad.net");
-	} else if request.url().read().contains("manga-scantrad.net") {
-		request.header("Host", "manga-scantrad.net");
+	if request.url().read().contains("stockage.manga-scantrad.io") {
+		request.header("Host", "stockage.manga-scantrad.io");
+	} else if request.url().read().contains("manga-scantrad.io") {
+		request.header("Host", "manga-scantrad.io");
 	}
 }

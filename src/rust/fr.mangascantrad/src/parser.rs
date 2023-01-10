@@ -60,7 +60,7 @@ pub fn parse_manga_details(html: Node, id: String) -> Result<Manga> {
 	let author = html.select("a[href*=author]").text().read();
 	let artist = html.select("a[href*=artist]").text().read();
 	let description = html.select(".description-summary p").text().read();
-	let url = format!("https://manga-scantrad.net/manga/{}", &id);
+	let url = format!("https://manga-scantrad.io/manga/{}", &id);
 
 	let mut categories: Vec<String> = Vec::new();
 	html.select(".genres-content a[href*=manga-genre]")
@@ -119,7 +119,7 @@ pub fn parse_chapter_list(html: Node) -> Result<Vec<Chapter>> {
 		let obj = chapter.as_node().expect("html array not an array of nodes");
 
 		let url = String::from(obj.select("a").attr("href").read().trim());
-		let id = String::from(&url.replace("https://manga-scantrad.net/manga/", ""));
+		let id = String::from(url.split("/").enumerate().nth(5).expect("id").1.trim());
 
 		// get title of chapter if exist
 		let mut title = String::new();

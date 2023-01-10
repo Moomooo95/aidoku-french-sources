@@ -1,10 +1,10 @@
 {
 	"info": {
-		"id": "fr.mangasorigines",
+		"id": "fr.reaperscans",
 		"lang": "fr",
-		"name": "MangasOrigines",
-		"version": 3,
-		"url": "https://mangas-origines.fr/",
+		"name": "ReaperScansFR",
+		"version": 1,
+		"url": "https://reaperscans.fr/",
 		"nsfw": 0
 	},
 	"listings": [

@@ -204,7 +204,7 @@ pub fn get_chaper_list(obj: Node) -> Result<Vec<Chapter>> {
 
 		let title = obj.select(".chapter-title-rtl em").text().read();
 		let url = obj.select(".chapter-title-rtl a").attr("href").read();
-		let id = String::from(&url.replace("https://lelscanvf.com/manga/", ""));
+		let id = String::from(url.split("/").enumerate().nth(5).expect("id").1.trim());
 		let chapter = String::from(url.split("/").enumerate().nth(5).expect("chapter num").1.trim()).parse().unwrap();
 
 		let mut date_updated = StringRef::from(&obj.select(".date-chapter-title-rtl").text().read().trim())
@@ -243,7 +243,7 @@ pub fn get_page_list(obj: Node) -> Result<Vec<Page>> {
 		let text = String::from(obj.attr("alt").read().trim());
 
 		if !url.contains("https:") {
-			url = format!("https:{}", obj.attr("data-src").read().trim());
+			url = format!("https:{}", obj.attr("data-src").read().trim());	
 		}
 
 		pages.push(Page {

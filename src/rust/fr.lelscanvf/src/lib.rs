@@ -188,8 +188,8 @@ fn get_chapter_list(manga_id: String) -> Result<Vec<Chapter>> {
 }
 
 #[get_page_list]
-fn get_page_list(chapter_id: String, _manga_id: String) -> Result<Vec<Page>> {
-	let url = format!("https://lelscanvf.com/manga/{}", &chapter_id);
+fn get_page_list(manga_id: String, chapter_id: String) -> Result<Vec<Page>> {
+	let url = format!("https://lelscanvf.com/manga/{}/{}", &manga_id, &chapter_id);
 	let html = Request::new(url.clone().as_str(), HttpMethod::Get).header("Referer", "https://lelscanvf.com/").html()?;
 	return parser::get_page_list(html);
 }
