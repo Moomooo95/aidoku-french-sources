@@ -14,5 +14,6 @@ This repository hosts the french sources that are installable directly through t
 | MangaScantrad     | https://manga-scantrad.io/      |
 | ReaperScansFR     | https://reaperscans.fr/         |
 | LelscanVF         | https://lelscanvf.com/          |
+| FR Scan           | https://frscan.ws/              |
 | Le Cercle du Scan | https://lel.lecercleduscan.com/ |
 
