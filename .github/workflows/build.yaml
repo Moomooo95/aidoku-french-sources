@@ -63,7 +63,6 @@ jobs:
     -
       name: Build Rust sources
       run: |
-        ls ./src/rust/*
         for src in ./src/rust/*; do
           (
             cd "$src"
