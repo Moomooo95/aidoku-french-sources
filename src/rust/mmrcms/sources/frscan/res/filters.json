@@ -1,0 +1,63 @@
+[
+	{
+		"type": "title"
+	},
+	{
+		"type": "author"
+	},
+	{
+		"type": "select",
+		"name": "Category",
+		"options": [
+			"None",
+			"Action",
+			"Adventure",
+			"Comedy",
+			"Doujinshi",
+			"Drama",
+			"Ecchi",
+			"Fantasy",
+			"Gender Bender",
+			"Harem",
+			"Historical",
+			"Horror",
+			"Josei",
+			"Martial Arts",
+			"Mature",
+			"Mecha",
+			"Mystery",
+			"One Shot",
+			"Psychological",
+			"Romance",
+			"Vie Scolaire",
+			"Sci-fi",
+			"Seinen",
+			"Shoujo",
+			"Shoujo Ai",
+			"Shounen",
+			"Shounen Ai",
+			"Tranche de vie",
+			"Sports",
+			"Supernatural",
+			"Tragedie",
+			"Yaoi",
+			"Yuri",
+			"Autre",
+			"BD Occidentale",
+			"Webtoon"
+		]
+	},
+	{
+		"type": "sort",
+		"name": "Sort by",
+		"canAscend": true,
+		"options": [
+			"Title",
+			"Views"
+		],
+		"default": {
+			"index": 0,
+			"ascending": true
+		}
+	}
+]

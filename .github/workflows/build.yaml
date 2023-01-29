@@ -67,7 +67,7 @@ jobs:
           (
             cd "$src"
             echo "$src"
-            ls "$src"
+            ls
             ./build.sh -a
           )
         done
