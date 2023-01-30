@@ -16,4 +16,5 @@ This repository hosts the french sources that are installable directly through t
 | LelscanVF         | https://lelscanvf.com/          |
 | FR Scan           | https://frscan.ws/              |
 | Le Cercle du Scan | https://lel.lecercleduscan.com/ |
+| Astral Manga      | https://astral-manga.fr/        |
 

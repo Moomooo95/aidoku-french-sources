@@ -1,0 +1,266 @@
+[
+	{
+		"type": "title"
+	},
+	{
+		"type": "group",
+		"name": "Status",
+		"filters": [
+			{
+				"type": "check",
+				"name": "En cours"
+			},
+			{
+				"type": "check",
+				"name": "En pause"
+			},
+			{
+				"type": "check",
+				"name": "Annulé"
+			},
+			{
+				"type": "check",
+				"name": "Terminé"
+			}
+		]
+	},
+	{
+		"type": "select",
+		"name": "Genre Condition",
+		"options": [
+			"OU (ayant l'un des genres sélectionnés)",
+			"ET (ayant tous les genres sélectionnés)"
+		]
+	},
+	{
+		"type": "group",
+		"name": "Genres",
+		"filters": [
+			{
+				"type": "genre",
+				"name": "Action",
+				"id": "action"
+			},
+			{
+				"type": "genre",
+				"name": "Adulte",
+				"id": "adult"
+			},
+			{
+				"type": "genre",
+				"name": "Amitié",
+				"id": "amitie"
+			},
+			{
+				"type": "genre",
+				"name": "Art martial",
+				"id": "art-martial"
+			},
+			{
+				"type": "genre",
+				"name": "Aventure",
+				"id": "adventure"
+			},
+			{
+				"type": "genre",
+				"name": "Combat",
+				"id": "combat"
+			},
+			{
+				"type": "genre",
+				"name": "Comédie",
+				"id": "comedy"
+			},
+			{
+				"type": "genre",
+				"name": "Cuisine",
+				"id": "cooking"
+			},
+			{
+				"type": "genre",
+				"name": "Drame",
+				"id": "drama"
+			},
+			{
+				"type": "genre",
+				"name": "Ecchi",
+				"id": "ecchi"
+			},
+			{
+				"type": "genre",
+				"name": "Fantaisie",
+				"id": "fantasy"
+			},
+			{
+				"type": "genre",
+				"name": "Fantastique",
+				"id": "fantastique"
+			},
+			{
+				"type": "genre",
+				"name": "Gender Bender",
+				"id": "gender-bender"
+			},
+			{
+				"type": "genre",
+				"name": "Gore",
+				"id": "gore"
+			},
+			{
+				"type": "genre",
+				"name": "Guerre",
+				"id": "guerre"
+			},
+			{
+				"type": "genre",
+				"name": "Harem",
+				"id": "harem"
+			},
+			{
+				"type": "genre",
+				"name": "Historique",
+				"id": "historical"
+			},
+			{
+				"type": "genre",
+				"name": "Horreur",
+				"id": "horror"
+			},
+			{
+				"type": "genre",
+				"name": "Josei",
+				"id": "josei"
+			},
+			{
+				"type": "genre",
+				"name": "Manga",
+				"id": "manga"
+			},
+			{
+				"type": "genre",
+				"name": "Manhua",
+				"id": "manhua"
+			},
+			{
+				"type": "genre",
+				"name": "Manhwa",
+				"id": "manhwa"
+			},
+			{
+				"type": "genre",
+				"name": "Mature",
+				"id": "mature"
+			},
+			{
+				"type": "genre",
+				"name": "Mecha",
+				"id": "mecha"
+			},
+			{
+				"type": "genre",
+				"name": "Mystère",
+				"id": "mystery"
+			},
+			{
+				"type": "genre",
+				"name": "One shot",
+				"id": "one-shot"
+			},
+			{
+				"type": "genre",
+				"name": "Policier",
+				"id": "detective"
+			},
+			{
+				"type": "genre",
+				"name": "Psychologique",
+				"id": "psychological"
+			},
+			{
+				"type": "genre",
+				"name": "Régression",
+				"id": "regression"
+			},
+			{
+				"type": "genre",
+				"name": "Returner",
+				"id": "returner"
+			},
+			{
+				"type": "genre",
+				"name": "Romance",
+				"id": "romance"
+			},
+			{
+				"type": "genre",
+				"name": "Science-fiction",
+				"id": "sci-fi"
+			},
+			{
+				"type": "genre",
+				"name": "Seinen",
+				"id": "seinen"
+			},
+			{
+				"type": "genre",
+				"name": "Shôjo",
+				"id": "shojo"
+			},
+			{
+				"type": "genre",
+				"name": "Shôjo Ai",
+				"id": "shojo-ai"
+			},
+			{
+				"type": "genre",
+				"name": "Shônen",
+				"id": "shonen"
+			},
+			{
+				"type": "genre",
+				"name": "Shônen Ai",
+				"id": "shonen-ai"
+			},
+			{
+				"type": "genre",
+				"name": "Sports",
+				"id": "sports"
+			},
+			{
+				"type": "genre",
+				"name": "Surnaturel",
+				"id": "surnaturel"
+			},
+			{
+				"type": "genre",
+				"name": "Tragédie",
+				"id": "tragedy"
+			},
+			{
+				"type": "genre",
+				"name": "Tranches de vie",
+				"id": "tranches-de-vie"
+			},
+			{
+				"type": "genre",
+				"name": "Vie scolaire",
+				"id": "vie-scolaire"
+			},
+			{
+				"type": "genre",
+				"name": "Webtoon",
+				"id": "webtoon"
+			},
+			{
+				"type": "genre",
+				"name": "Yaoi",
+				"id": "yaoi"
+			},
+			{
+				"type": "genre",
+				"name": "Yuri",
+				"id": "yuri"
+			}
+		]
+	}
+]
