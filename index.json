@@ -1,0 +1,65 @@
+[
+  {
+    "id": "fr.lelscanvf",
+    "name": "LelscanVF",
+    "file": "fr.lelscanvf-v6.aix",
+    "icon": "fr.lelscanvf-v6.png",
+    "lang": "fr",
+    "version": 6,
+    "nsfw": 1
+  },
+  {
+    "id": "fr.mangascantrad",
+    "name": "Manga Scantrad",
+    "file": "fr.mangascantrad-v5.aix",
+    "icon": "fr.mangascantrad-v5.png",
+    "lang": "fr",
+    "version": 5,
+    "nsfw": 1
+  },
+  {
+    "id": "fr.mangasorigines",
+    "name": "Mangas Origines",
+    "file": "fr.mangasorigines-v4.aix",
+    "icon": "fr.mangasorigines-v4.png",
+    "lang": "fr",
+    "version": 4,
+    "nsfw": 0
+  },
+  {
+    "id": "fr.lecercleduscan",
+    "name": "Le Cercle du Scan",
+    "file": "fr.lecercleduscan-v4.aix",
+    "icon": "fr.lecercleduscan-v4.png",
+    "lang": "fr",
+    "version": 4,
+    "nsfw": 0
+  },
+  {
+    "id": "fr.reaperscans",
+    "name": "Reaper Scans FR",
+    "file": "fr.reaperscans-v3.aix",
+    "icon": "fr.reaperscans-v3.png",
+    "lang": "fr",
+    "version": 3,
+    "nsfw": 0
+  },
+  {
+    "id": "fr.astralmanga",
+    "name": "Astral Manga",
+    "file": "fr.astralmanga-v2.aix",
+    "icon": "fr.astralmanga-v2.png",
+    "lang": "fr",
+    "version": 2,
+    "nsfw": 0
+  },
+  {
+    "id": "fr.frscan",
+    "name": "FR Scan",
+    "file": "fr.frscan-v3.aix",
+    "icon": "fr.frscan-v3.png",
+    "lang": "fr",
+    "version": 3,
+    "nsfw": 1
+  }
+]
