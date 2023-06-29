@@ -3,7 +3,7 @@ use mmrcms_template::{mmrcms, template::MMRCMSSource};
 
 mmrcms! {
 	MMRCMSSource {
-		base_url: "https://frscan.ws",
+		base_url: "https://frscans.com",
 		lang: "fr",
 		category_mapper: |idx| {
 			String::from(match idx {
