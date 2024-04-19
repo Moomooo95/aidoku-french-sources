@@ -1,0 +1,10 @@
+{
+	"info": {
+		"id": "fr.mangascan",
+		"lang": "fr",
+		"name": "Manga Scan",
+		"version": 1,
+		"url": "https://mangascan-fr.com",
+		"nsfw": 1
+	}
+}
