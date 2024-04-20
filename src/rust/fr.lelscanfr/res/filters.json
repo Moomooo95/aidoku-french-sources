@@ -1,0 +1,681 @@
+[
+	{
+		"type": "title"
+	},
+	{
+		"type": "select",
+		"name": "Type",
+		"options": [
+			"Tous",
+			"Manga",
+			"Manhua",
+			"Manhwa",
+			"Bande Dessinée"
+		]
+	},
+	{
+		"type": "select",
+		"name": "Status",
+		"options": [
+			"Tous",
+			"En cours",
+			"Terminé"
+		]
+	},
+	{
+		"type": "group",
+		"name": "Genres",
+		"filters": [
+			{
+				"type": "genre",
+				"name": "Académie",
+				"id": "Académie"
+			},
+			{
+				"type": "genre",
+				"name": "Action",
+				"id": "Action"
+			},
+			{
+				"type": "genre",
+				"name": "Adolescence",
+				"id": "Adolescence"
+			},
+			{
+				"type": "genre",
+				"name": "Adulte",
+				"id": "Adulte"
+			},
+			{
+				"type": "genre",
+				"name": "Aliens",
+				"id": "Aliens"
+			},
+			{
+				"type": "genre",
+				"name": "Amitié",
+				"id": "Amitié"
+			},
+			{
+				"type": "genre",
+				"name": "Amour",
+				"id": "Amour"
+			},
+			{
+				"type": "genre",
+				"name": "Animaux",
+				"id": "Animaux"
+			},
+			{
+				"type": "genre",
+				"name": "Arts Martiaux",
+				"id": "Arts Martiaux"
+			},
+			{
+				"type": "genre",
+				"name": "Assassinat",
+				"id": "Assassinat"
+			},
+			{
+				"type": "genre",
+				"name": "Autre Monde",
+				"id": "Autre Monde"
+			},
+			{
+				"type": "genre",
+				"name": "Aventure",
+				"id": "Aventure"
+			},
+			{
+				"type": "genre",
+				"name": "Bande Dessinée",
+				"id": "Bande Dessinée"
+			},
+			{
+				"type": "genre",
+				"name": "Baston",
+				"id": "Baston"
+			},
+			{
+				"type": "genre",
+				"name": "Boxe",
+				"id": "Boxe"
+			},
+			{
+				"type": "genre",
+				"name": "Cannibale",
+				"id": "Cannibale"
+			},
+			{
+				"type": "genre",
+				"name": "Chasseur",
+				"id": "Chasseur"
+			},
+			{
+				"type": "genre",
+				"name": "Combats",
+				"id": "Combats"
+			},
+			{
+				"type": "genre",
+				"name": "Comédie",
+				"id": "Comédie"
+			},
+			{
+				"type": "genre",
+				"name": "Cooking",
+				"id": "Cooking"
+			},
+			{
+				"type": "genre",
+				"name": "Crime",
+				"id": "Crime"
+			},
+			{
+				"type": "genre",
+				"name": "Cuisine",
+				"id": "Cuisine"
+			},
+			{
+				"type": "genre",
+				"name": "Culinaire",
+				"id": "Culinaire"
+			},
+			{
+				"type": "genre",
+				"name": "Cyborgs",
+				"id": "Cyborgs"
+			},
+			{
+				"type": "genre",
+				"name": "Délinquants",
+				"id": "Délinquants"
+			},
+			{
+				"type": "genre",
+				"name": "Démons",
+				"id": "Démons"
+			},
+			{
+				"type": "genre",
+				"name": "Dragons",
+				"id": "Dragons"
+			},
+			{
+				"type": "genre",
+				"name": "Drame",
+				"id": "Drame"
+			},
+			{
+				"type": "genre",
+				"name": "Dystopie",
+				"id": "Dystopie"
+			},
+			{
+				"type": "genre",
+				"name": "Ecchi",
+				"id": "Ecchi"
+			},
+			{
+				"type": "genre",
+				"name": "Ecole",
+				"id": "Ecole"
+			},
+			{
+				"type": "genre",
+				"name": "Empereur",
+				"id": "Empereur"
+			},
+			{
+				"type": "genre",
+				"name": "Esprit",
+				"id": "Esprit"
+			},
+			{
+				"type": "genre",
+				"name": "Famille",
+				"id": "Famille"
+			},
+			{
+				"type": "genre",
+				"name": "Fantastique",
+				"id": "Fantastique"
+			},
+			{
+				"type": "genre",
+				"name": "Fantômes",
+				"id": "Fantômes"
+			},
+			{
+				"type": "genre",
+				"name": "Fruit",
+				"id": "Fruit"
+			},
+			{
+				"type": "genre",
+				"name": "Full Color",
+				"id": "Full Color"
+			},
+			{
+				"type": "genre",
+				"name": "Futur",
+				"id": "Futur"
+			},
+			{
+				"type": "genre",
+				"name": "Gender Bender",
+				"id": "Gender Bender"
+			},
+			{
+				"type": "genre",
+				"name": "Gore",
+				"id": "Gore"
+			},
+			{
+				"type": "genre",
+				"name": "Goule",
+				"id": "Goule"
+			},
+			{
+				"type": "genre",
+				"name": "Grimoire",
+				"id": "Grimoire"
+			},
+			{
+				"type": "genre",
+				"name": "Guerre",
+				"id": "Guerre"
+			},
+			{
+				"type": "genre",
+				"name": "Harcèlement",
+				"id": "Harcèlement"
+			},
+			{
+				"type": "genre",
+				"name": "Harem",
+				"id": "Harem"
+			},
+			{
+				"type": "genre",
+				"name": "Heroic Fantasy",
+				"id": "Heroic Fantasy"
+			},
+			{
+				"type": "genre",
+				"name": "Histoire",
+				"id": "Histoire"
+			},
+			{
+				"type": "genre",
+				"name": "Historique",
+				"id": "Historique"
+			},
+			{
+				"type": "genre",
+				"name": "Horreur",
+				"id": "Horreur"
+			},
+			{
+				"type": "genre",
+				"name": "Humour",
+				"id": "Humour"
+			},
+			{
+				"type": "genre",
+				"name": "Inspecteur",
+				"id": "Inspecteur"
+			},
+			{
+				"type": "genre",
+				"name": "Isekai",
+				"id": "Isekai"
+			},
+			{
+				"type": "genre",
+				"name": "Jeunesse",
+				"id": "Jeunesse"
+			},
+			{
+				"type": "genre",
+				"name": "Jeux Vidéo",
+				"id": "Jeux Vidéo"
+			},
+			{
+				"type": "genre",
+				"name": "Josei",
+				"id": "Josei"
+			},
+			{
+				"type": "genre",
+				"name": "Justicier",
+				"id": "Justicier"
+			},
+			{
+				"type": "genre",
+				"name": "Lycée",
+				"id": "Lycée"
+			},
+			{
+				"type": "genre",
+				"name": "Magie",
+				"id": "Magie"
+			},
+			{
+				"type": "genre",
+				"name": "Maladie",
+				"id": "Maladie"
+			},
+			{
+				"type": "genre",
+				"name": "Mature",
+				"id": "Mature"
+			},
+			{
+				"type": "genre",
+				"name": "Médiéval",
+				"id": "Médiéval"
+			},
+			{
+				"type": "genre",
+				"name": "Mentor",
+				"id": "Mentor"
+			},
+			{
+				"type": "genre",
+				"name": "Militaire",
+				"id": "Militaire"
+			},
+			{
+				"type": "genre",
+				"name": "Monster Girls",
+				"id": "Monster Girls"
+			},
+			{
+				"type": "genre",
+				"name": "Monstres",
+				"id": "Monstres"
+			},
+			{
+				"type": "genre",
+				"name": "Mort",
+				"id": "Mort"
+			},
+			{
+				"type": "genre",
+				"name": "Moyen Âge",
+				"id": "Moyen Âge"
+			},
+			{
+				"type": "genre",
+				"name": "Mystère",
+				"id": "Mystère"
+			},
+			{
+				"type": "genre",
+				"name": "Nekketsu",
+				"id": "Nekketsu"
+			},
+			{
+				"type": "genre",
+				"name": "Ninjas",
+				"id": "Ninjas"
+			},
+			{
+				"type": "genre",
+				"name": "Nourriture",
+				"id": "Nourriture"
+			},
+			{
+				"type": "genre",
+				"name": "Oneshot",
+				"id": "Oneshot"
+			},
+			{
+				"type": "genre",
+				"name": "Organisations Secrètes",
+				"id": "Organisations Secrètes"
+			},
+			{
+				"type": "genre",
+				"name": "Paranormal",
+				"id": "Paranormal"
+			},
+			{
+				"type": "genre",
+				"name": "Parodie",
+				"id": "Parodie"
+			},
+			{
+				"type": "genre",
+				"name": "Pirates",
+				"id": "Pirates"
+			},
+			{
+				"type": "genre",
+				"name": "Politique",
+				"id": "Politique"
+			},
+			{
+				"type": "genre",
+				"name": "Post-Apocalyptique",
+				"id": "Post-Apocalyptique"
+			},
+			{
+				"type": "genre",
+				"name": "Pouvoirs",
+				"id": "Pouvoirs"
+			},
+			{
+				"type": "genre",
+				"name": "Professeur",
+				"id": "Professeur"
+			},
+			{
+				"type": "genre",
+				"name": "Psychologie",
+				"id": "Psychologie"
+			},
+			{
+				"type": "genre",
+				"name": "Psychologique",
+				"id": "Psychologique"
+			},
+			{
+				"type": "genre",
+				"name": "Quotidien",
+				"id": "Quotidien"
+			},
+			{
+				"type": "genre",
+				"name": "Réincarnation",
+				"id": "Réincarnation"
+			},
+			{
+				"type": "genre",
+				"name": "Reine",
+				"id": "Reine"
+			},
+			{
+				"type": "genre",
+				"name": "Restaurant",
+				"id": "Restaurant"
+			},
+			{
+				"type": "genre",
+				"name": "Rêves",
+				"id": "Rêves"
+			},
+			{
+				"type": "genre",
+				"name": "Roi",
+				"id": "Roi"
+			},
+			{
+				"type": "genre",
+				"name": "Romance",
+				"id": "Romance"
+			},
+			{
+				"type": "genre",
+				"name": "Royauté",
+				"id": "Royauté"
+			},
+			{
+				"type": "genre",
+				"name": "School Life",
+				"id": "School Life"
+			},
+			{
+				"type": "genre",
+				"name": "Science-Fiction",
+				"id": "Science-Fiction"
+			},
+			{
+				"type": "genre",
+				"name": "Secret",
+				"id": "Secret"
+			},
+			{
+				"type": "genre",
+				"name": "Seinen",
+				"id": "Seinen"
+			},
+			{
+				"type": "genre",
+				"name": "Shinigami",
+				"id": "Shinigami"
+			},
+			{
+				"type": "genre",
+				"name": "Shōjo",
+				"id": "Shōjo"
+			},
+			{
+				"type": "genre",
+				"name": "Shônen",
+				"id": "Shônen"
+			},
+			{
+				"type": "genre",
+				"name": "Slice Of Life",
+				"id": "Slice Of Life"
+			},
+			{
+				"type": "genre",
+				"name": "Smut",
+				"id": "Smut"
+			},
+			{
+				"type": "genre",
+				"name": "Société",
+				"id": "Société"
+			},
+			{
+				"type": "genre",
+				"name": "Sport",
+				"id": "Sport"
+			},
+			{
+				"type": "genre",
+				"name": "Steampunk",
+				"id": "Steampunk"
+			},
+			{
+				"type": "genre",
+				"name": "Super Pouvoirs",
+				"id": "Super Pouvoirs"
+			},
+			{
+				"type": "genre",
+				"name": "Super-héros",
+				"id": "Super-héros"
+			},
+			{
+				"type": "genre",
+				"name": "Super-vilains",
+				"id": "Super-vilains"
+			},
+			{
+				"type": "genre",
+				"name": "Surnaturel",
+				"id": "Surnaturel"
+			},
+			{
+				"type": "genre",
+				"name": "Survival",
+				"id": "Survival"
+			},
+			{
+				"type": "genre",
+				"name": "Survivre",
+				"id": "Survivre"
+			},
+			{
+				"type": "genre",
+				"name": "Suspense",
+				"id": "Suspense"
+			},
+			{
+				"type": "genre",
+				"name": "Thriller",
+				"id": "Thriller"
+			},
+			{
+				"type": "genre",
+				"name": "Time Travel",
+				"id": "Time Travel"
+			},
+			{
+				"type": "genre",
+				"name": "Titans",
+				"id": "Titans"
+			},
+			{
+				"type": "genre",
+				"name": "Tournois",
+				"id": "Tournois"
+			},
+			{
+				"type": "genre",
+				"name": "Tragédie",
+				"id": "Tragédie"
+			},
+			{
+				"type": "genre",
+				"name": "Tragique",
+				"id": "Tragique"
+			},
+			{
+				"type": "genre",
+				"name": "Tranche De Vie",
+				"id": "Tranche De Vie"
+			},
+			{
+				"type": "genre",
+				"name": "Vampires",
+				"id": "Vampires"
+			},
+			{
+				"type": "genre",
+				"name": "Vengeance",
+				"id": "Vengeance"
+			},
+			{
+				"type": "genre",
+				"name": "Video Games",
+				"id": "Video Games"
+			},
+			{
+				"type": "genre",
+				"name": "Vie Scolaire",
+				"id": "Vie Scolaire"
+			},
+			{
+				"type": "genre",
+				"name": "Violence",
+				"id": "Violence"
+			},
+			{
+				"type": "genre",
+				"name": "Voyage",
+				"id": "Voyage"
+			},
+			{
+				"type": "genre",
+				"name": "Voyage Dans Le Temps",
+				"id": "Voyage Dans Le Temps"
+			},
+			{
+				"type": "genre",
+				"name": "Voyage Temporel",
+				"id": "Voyage Temporel"
+			},
+			{
+				"type": "genre",
+				"name": "Webcomic",
+				"id": "Webcomic"
+			},
+			{
+				"type": "genre",
+				"name": "Webtoon",
+				"id": "Webtoon"
+			},
+			{
+				"type": "genre",
+				"name": "Wuxia",
+				"id": "Wuxia"
+			},
+			{
+				"type": "genre",
+				"name": "Yokai",
+				"id": "Yokai"
+			},
+			{
+				"type": "genre",
+				"name": "Zombies",
+				"id": "Zombies"
+			}
+		]
+	}
+]

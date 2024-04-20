@@ -13,8 +13,7 @@ This repository hosts the french sources that are installable directly through t
 | MangasOrigines    | https://mangas-origines.fr/     |
 | MangaScantrad     | https://manga-scantrad.io/      |
 | ReaperScansFR     | https://reaperscans.fr/         |
-| LelscanVF         | https://lelscanvf.com/          |
-| FR Scan           | https://frscan.ws/              |
-| Le Cercle du Scan | https://lel.lecercleduscan.com/ |
 | Astral Manga      | https://astral-manga.fr/        |
+| LelscanFR         | https://lelscanfr.com/          |
+| Manga Scan        | https://mangascan-fr.com/       |
 
