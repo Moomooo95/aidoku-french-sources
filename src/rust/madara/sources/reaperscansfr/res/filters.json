@@ -63,6 +63,11 @@
 			},
 			{
 				"type": "genre",
+				"name": "Combat",
+				"id": "combat"
+			},
+			{
+				"type": "genre",
 				"name": "Comédie",
 				"id": "comedie"
 			},
@@ -75,6 +80,11 @@
 				"type": "genre",
 				"name": "Drame",
 				"id": "drame"
+			},
+			{
+				"type": "genre",
+				"name": "Dungeon",
+				"id": "dungeon"
 			},
 			{
 				"type": "genre",
@@ -118,6 +128,16 @@
 			},
 			{
 				"type": "genre",
+				"name": "Josei",
+				"id": "josei"
+			},
+			{
+				"type": "genre",
+				"name": "Magie",
+				"id": "magie"
+			},
+			{
+				"type": "genre",
 				"name": "Manhua",
 				"id": "manhua"
 			},
@@ -153,8 +173,23 @@
 			},
 			{
 				"type": "genre",
+				"name": "private",
+				"id": "private"
+			},
+			{
+				"type": "genre",
 				"name": "Psychologie",
 				"id": "psychologie"
+			},
+			{
+				"type": "genre",
+				"name": "Réincarnation",
+				"id": "reincarnation"
+			},
+			{
+				"type": "genre",
+				"name": "Returner",
+				"id": "returner"
 			},
 			{
 				"type": "genre",
@@ -220,6 +255,16 @@
 				"type": "genre",
 				"name": "Webtoon",
 				"id": "webtoon"
+			},
+			{
+				"type": "genre",
+				"name": "Webtoons",
+				"id": "webtoons"
+			},
+			{
+				"type": "genre",
+				"name": "Xianxia",
+				"id": "xianxia"
 			},
 			{
 				"type": "genre",
