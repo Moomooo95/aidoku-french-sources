@@ -9,8 +9,8 @@ fn get_data() -> template::MadaraSiteData {
 	let data: template::MadaraSiteData = template::MadaraSiteData {
 		base_url: String::from("https://astral-manga.fr"),
 		lang: String::from("fr"),
-		date_format: String::from("dd/MM/yyyy"),
 		description_selector: String::from("div.manga-excerpt p"),
+		date_format: String::from("dd/MM/yyyy"),
 		status_filter_ongoing: String::from("En cours"),
 		status_filter_completed: String::from("Terminé"),
 		status_filter_cancelled: String::from("Annulé"),
@@ -78,8 +78,8 @@ fn get_chapter_list(id: String) -> Result<Vec<Chapter>> {
 }
 
 #[get_page_list]
-fn get_page_list(id: String) -> Result<Vec<Page>> {
-	template::get_page_list(id, get_data())
+fn get_page_list(_manga_id: String, chapter_id: String) -> Result<Vec<Page>> {
+	template::get_page_list(chapter_id, get_data())
 }
 
 #[modify_image_request]
