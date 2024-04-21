@@ -9,8 +9,10 @@ fn get_data() -> template::MadaraSiteData {
 	let data: template::MadaraSiteData = template::MadaraSiteData {
 		base_url: String::from("https://mangas-origines.fr"),
 		lang: String::from("fr"),
+		source_path: String::from("oeuvre"),
 		date_format: String::from("dd/MM/yyyy"),
-		description_selector: String::from("div.manga-excerpt p"),
+		description_selector: String::from("div.summary__content p"),
+		author_selector: String::from("div.manga-authors"),
 		status_filter_ongoing: String::from("En cours"),
 		status_filter_completed: String::from("Terminé"),
 		status_filter_cancelled: String::from("Annulé"),
@@ -34,6 +36,7 @@ fn get_data() -> template::MadaraSiteData {
 			}
 		},
 		alt_ajax: true,
+		user_agent: Some(String::from("Mozilla/5.0 (iPhone; CPU iPhone OS 17_4_1 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/17.3.1 Mobile/15E148 Safari/604.1")),
 		..Default::default()
 	};
 	data
@@ -60,8 +63,8 @@ fn get_chapter_list(id: String) -> Result<Vec<Chapter>> {
 }
 
 #[get_page_list]
-fn get_page_list(id: String) -> Result<Vec<Page>> {
-	template::get_page_list(id, get_data())
+fn get_page_list(_manga_id: String, chapter_id: String) -> Result<Vec<Page>> {
+	template::get_page_list(chapter_id, get_data())
 }
 
 #[modify_image_request]
