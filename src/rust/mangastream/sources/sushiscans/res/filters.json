@@ -1,0 +1,187 @@
+[
+	{
+		"type": "title"
+	},
+	{
+		"type": "group",
+		"name": "Tags",
+		"filters": [
+			{
+				"type": "genre",
+				"name": "Action",
+				"id": "10"
+			},
+			{
+				"type": "genre",
+				"name": "Adventure",
+				"id": "93039"
+			},
+			{
+				"type": "genre",
+				"name": "Arts Martiaux",
+				"id": "22429"
+			},
+			{
+				"type": "genre",
+				"name": "Aventure",
+				"id": "299"
+			},
+			{
+				"type": "genre",
+				"name": "Comédie",
+				"id": "562"
+			},
+			{
+				"type": "genre",
+				"name": "Comedy",
+				"id": "93040"
+			},
+			{
+				"type": "genre",
+				"name": "Drame",
+				"id": "300"
+			},
+			{
+				"type": "genre",
+				"name": "Fantastique",
+				"id": "301"
+			},
+			{
+				"type": "genre",
+				"name": "Fantasy",
+				"id": "93041"
+			},
+			{
+				"type": "genre",
+				"name": "Histoires courtes",
+				"id": "22289"
+			},
+			{
+				"type": "genre",
+				"name": "Historique",
+				"id": "302"
+			},
+			{
+				"type": "genre",
+				"name": "Horreur",
+				"id": "21492"
+			},
+			{
+				"type": "genre",
+				"name": "Josei",
+				"id": "22406"
+			},
+			{
+				"type": "genre",
+				"name": "Magie",
+				"id": "13908"
+			},
+			{
+				"type": "genre",
+				"name": "Mecha",
+				"id": "2168"
+			},
+			{
+				"type": "genre",
+				"name": "Mystère",
+				"id": "519"
+			},
+			{
+				"type": "genre",
+				"name": "Mystery",
+				"id": "93037"
+			},
+			{
+				"type": "genre",
+				"name": "Nekketsu",
+				"id": "22290"
+			},
+			{
+				"type": "genre",
+				"name": "Psychologique",
+				"id": "520"
+			},
+			{
+				"type": "genre",
+				"name": "Romance",
+				"id": "11760"
+			},
+			{
+				"type": "genre",
+				"name": "School Life",
+				"id": "59"
+			},
+			{
+				"type": "genre",
+				"name": "Sci-fi",
+				"id": "2170"
+			},
+			{
+				"type": "genre",
+				"name": "Science-Fiction",
+				"id": "13887"
+			},
+			{
+				"type": "genre",
+				"name": "Seinen",
+				"id": "2171"
+			},
+			{
+				"type": "genre",
+				"name": "Shoujo",
+				"id": "22282"
+			},
+			{
+				"type": "genre",
+				"name": "Shounen",
+				"id": "14"
+			},
+			{
+				"type": "genre",
+				"name": "Slice of Life",
+				"id": "563"
+			},
+			{
+				"type": "genre",
+				"name": "Sports",
+				"id": "70"
+			},
+			{
+				"type": "genre",
+				"name": "Supernaturel",
+				"id": "22423"
+			},
+			{
+				"type": "genre",
+				"name": "Surnaturel",
+				"id": "303"
+			},
+			{
+				"type": "genre",
+				"name": "Tragédie",
+				"id": "521"
+			}
+		]
+	},
+	{
+		"type": "select",
+		"name": "Status",
+		"options": [
+			"All",
+			"En Cours",
+			"Terminé",
+			"En pause"
+		]
+	},
+	{
+		"type": "select",
+		"name": "Type",
+		"options": [
+			"All",
+			"Manga",
+			"Manhwa",
+			"Manhua",
+			"Comic"
+		]
+	}
+]
