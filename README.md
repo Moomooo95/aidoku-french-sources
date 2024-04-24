@@ -16,4 +16,6 @@ This repository hosts the french sources that are installable directly through t
 | Astral Manga      | https://astral-manga.fr/        |
 | LelscanFR         | https://lelscanfr.com/          |
 | Manga Scan        | https://mangascan-fr.com/       |
+| PhenixScans       | https://phenixscans.fr/         |
+| SushiScans        | https://sushiscan.fr/           |
 
