@@ -1,0 +1,23 @@
+{
+	"info": {
+		"id": "fr.legacyscans",
+		"lang": "fr",
+		"name": "LegacyScans",
+		"version": 1,
+		"url": "https://legacy-scans.com/"
+	},
+	"listings": [
+		{
+			"name": "Dernières Sorties"
+		},
+		{
+			"name": "Populaire (Jour)"
+		},
+		{
+			"name": "Populaire (Mois)"
+		},
+		{
+			"name": "Populaire (Tous)"
+		}
+	]
+}

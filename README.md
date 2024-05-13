@@ -18,4 +18,5 @@ This repository hosts the french sources that are installable directly through t
 | Manga Scan        | https://mangascan-fr.com/       |
 | PhenixScans       | https://phenixscans.fr/         |
 | SushiScans        | https://sushiscan.fr/           |
+| LegacyScans       | https://legacy-scans.com/       |
 

@@ -1,0 +1,483 @@
+[
+	{
+		"type": "title"
+	},
+	{
+		"type": "select",
+		"name": "Status",
+		"options": [
+			"Tous",
+			"En cours",
+			"Terminé",
+			"Annulé",
+			"En pause",
+			"Abandonné"
+		]
+	},
+	{
+		"type": "select",
+		"name": "Type",
+		"options": [
+			"Tous",
+			"Manga",
+			"Manhua",
+			"Manhwa",
+			"One Shot"
+		]
+	},
+	{
+		"type": "select",
+		"name": "Ordre",
+		"options": [
+			"Aucun",
+			"ASC",
+			"DESC"
+		]
+	},
+	{
+		"type": "group",
+		"name": "Genres",
+		"filters": [
+			{
+				"type": "genre",
+				"name": "Action",
+				"id": "Action"
+			},
+			{
+				"type": "genre",
+				"name": "Aventure",
+				"id": "Aventure"
+			},
+			{
+				"type": "genre",
+				"name": "Arts Martiaux",
+				"id": "Arts Martiaux"
+			},
+			{
+				"type": "genre",
+				"name": "Combat",
+				"id": "Combat"
+			},
+			{
+				"type": "genre",
+				"name": "Comédie",
+				"id": "Comédie"
+			},
+			{
+				"type": "genre",
+				"name": "Drame",
+				"id": "Drame"
+			},
+			{
+				"type": "genre",
+				"name": "Fantastique",
+				"id": "Fantastique"
+			},
+			{
+				"type": "genre",
+				"name": "Science-fiction",
+				"id": "Science-fiction"
+			},
+			{
+				"type": "genre",
+				"name": "Shonen",
+				"id": "Shonen"
+			},
+			{
+				"type": "genre",
+				"name": "Amitié",
+				"id": "Amitié"
+			},
+			{
+				"type": "genre",
+				"name": "Amour",
+				"id": "Amour"
+			},
+			{
+				"type": "genre",
+				"name": "Romance",
+				"id": "Romance"
+			},
+			{
+				"type": "genre",
+				"name": "Shôjo",
+				"id": "Shôjo"
+			},
+			{
+				"type": "genre",
+				"name": "Tranches de vie",
+				"id": "Tranches de vie"
+			},
+			{
+				"type": "genre",
+				"name": "Harem",
+				"id": "Harem"
+			},
+			{
+				"type": "genre",
+				"name": "Surnaturel",
+				"id": "Surnaturel"
+			},
+			{
+				"type": "genre",
+				"name": "Guerre",
+				"id": "Guerre"
+			},
+			{
+				"type": "genre",
+				"name": "Mystère",
+				"id": "Mystère"
+			},
+			{
+				"type": "genre",
+				"name": "Fantaisie",
+				"id": "Fantaisie"
+			},
+			{
+				"type": "genre",
+				"name": "Psychologique",
+				"id": "Psychologique"
+			},
+			{
+				"type": "genre",
+				"name": "Mature",
+				"id": "Mature"
+			},
+			{
+				"type": "genre",
+				"name": "Tragédie",
+				"id": "Tragédie"
+			},
+			{
+				"type": "genre",
+				"name": "Webtoons",
+				"id": "Webtoons"
+			},
+			{
+				"type": "genre",
+				"name": "Seinen",
+				"id": "Seinen"
+			},
+			{
+				"type": "genre",
+				"name": "Historique",
+				"id": "Historique"
+			},
+			{
+				"type": "genre",
+				"name": "Vie scolaire",
+				"id": "Vie scolaire"
+			},
+			{
+				"type": "genre",
+				"name": "magie",
+				"id": "magie"
+			},
+			{
+				"type": "genre",
+				"name": "One Shot",
+				"id": "One Shot"
+			},
+			{
+				"type": "genre",
+				"name": "Shôjo Ai",
+				"id": "Shôjo Ai"
+			},
+			{
+				"type": "genre",
+				"name": "Ecchi",
+				"id": "Ecchi"
+			},
+			{
+				"type": "genre",
+				"name": "Horreur",
+				"id": "Horreur"
+			},
+			{
+				"type": "genre",
+				"name": "Gender Bender",
+				"id": "Gender Bender"
+			},
+			{
+				"type": "genre",
+				"name": "Adulte",
+				"id": "Adulte"
+			},
+			{
+				"type": "genre",
+				"name": "Josei",
+				"id": "Josei"
+			},
+			{
+				"type": "genre",
+				"name": "Returner",
+				"id": "Returner"
+			},
+			{
+				"type": "genre",
+				"name": "comedy",
+				"id": "comedy"
+			},
+			{
+				"type": "genre",
+				"name": "Sports",
+				"id": "Sports"
+			},
+			{
+				"type": "genre",
+				"name": "Monstres",
+				"id": "Monstres"
+			},
+			{
+				"type": "genre",
+				"name": "Realité Virtuel",
+				"id": "Realité Virtuel"
+			},
+			{
+				"type": "genre",
+				"name": "Mecha",
+				"id": "Mecha"
+			},
+			{
+				"type": "genre",
+				"name": "isekaï",
+				"id": "isekaï"
+			},
+			{
+				"type": "genre",
+				"name": "Jeux vidéo",
+				"id": "Jeux vidéo"
+			},
+			{
+				"type": "genre",
+				"name": "Inconnu",
+				"id": "Inconnu"
+			},
+			{
+				"type": "genre",
+				"name": "Doujinshi",
+				"id": "Doujinshi"
+			},
+			{
+				"type": "genre",
+				"name": "Policier",
+				"id": "Policier"
+			},
+			{
+				"type": "genre",
+				"name": "Réincarnation",
+				"id": "Réincarnation"
+			},
+			{
+				"type": "genre",
+				"name": "Yuri",
+				"id": "Yuri"
+			},
+			{
+				"type": "genre",
+				"name": "Sport",
+				"id": "Sport"
+			},
+			{
+				"type": "genre",
+				"name": "crime",
+				"id": "crime"
+			},
+			{
+				"type": "genre",
+				"name": "Gangster",
+				"id": "Gangster"
+			},
+			{
+				"type": "genre",
+				"name": "Police",
+				"id": "Police"
+			},
+			{
+				"type": "genre",
+				"name": "Organisation secrète",
+				"id": "Organisation secrète"
+			},
+			{
+				"type": "genre",
+				"name": "Magical Girls",
+				"id": "Magical Girls"
+			},
+			{
+				"type": "genre",
+				"name": "Bromance",
+				"id": "Bromance"
+			},
+			{
+				"type": "genre",
+				"name": "Adventure",
+				"id": "Adventure"
+			},
+			{
+				"type": "genre",
+				"name": "Necromancer",
+				"id": "Necromancer"
+			},
+			{
+				"type": "genre",
+				"name": "Shônen Ai",
+				"id": "Shônen Ai"
+			},
+			{
+				"type": "genre",
+				"name": "Boxe",
+				"id": "Boxe"
+			},
+			{
+				"type": "genre",
+				"name": "Parodie",
+				"id": "Parodie"
+			},
+			{
+				"type": "genre",
+				"name": "Hentai",
+				"id": "Hentai"
+			},
+			{
+				"type": "genre",
+				"name": "4-koma",
+				"id": "4-koma"
+			},
+			{
+				"type": "genre",
+				"name": "Voyage Temporel",
+				"id": "Voyage Temporel"
+			},
+			{
+				"type": "genre",
+				"name": "vampires",
+				"id": "vampires"
+			},
+			{
+				"type": "genre",
+				"name": "Super héros",
+				"id": "Super héros"
+			},
+			{
+				"type": "genre",
+				"name": "A",
+				"id": "A"
+			},
+			{
+				"type": "genre",
+				"name": "c",
+				"id": "c"
+			},
+			{
+				"type": "genre",
+				"name": "t",
+				"id": "t"
+			},
+			{
+				"type": "genre",
+				"name": "i",
+				"id": "i"
+			},
+			{
+				"type": "genre",
+				"name": "o",
+				"id": "o"
+			},
+			{
+				"type": "genre",
+				"name": "n",
+				"id": "n"
+			},
+			{
+				"type": "genre",
+				"name": ",",
+				"id": ","
+			},
+			{
+				"type": "genre",
+				"name": " ",
+				"id": " "
+			},
+			{
+				"type": "genre",
+				"name": "r",
+				"id": "r"
+			},
+			{
+				"type": "genre",
+				"name": "s",
+				"id": "s"
+			},
+			{
+				"type": "genre",
+				"name": "M",
+				"id": "M"
+			},
+			{
+				"type": "genre",
+				"name": "a",
+				"id": "a"
+			},
+			{
+				"type": "genre",
+				"name": "u",
+				"id": "u"
+			},
+			{
+				"type": "genre",
+				"name": "x",
+				"id": "x"
+			},
+			{
+				"type": "genre",
+				"name": "v",
+				"id": "v"
+			},
+			{
+				"type": "genre",
+				"name": "e",
+				"id": "e"
+			},
+			{
+				"type": "genre",
+				"name": "C",
+				"id": "C"
+			},
+			{
+				"type": "genre",
+				"name": "m",
+				"id": "m"
+			},
+			{
+				"type": "genre",
+				"name": "b",
+				"id": "b"
+			},
+			{
+				"type": "genre",
+				"name": "S",
+				"id": "S"
+			},
+			{
+				"type": "genre",
+				"name": "h",
+				"id": "h"
+			},
+			{
+				"type": "genre",
+				"name": "Smut",
+				"id": "Smut"
+			},
+			{
+				"type": "genre",
+				"name": "démons",
+				"id": "démons"
+			},
+			{
+				"type": "genre",
+				"name": "Virtuel world",
+				"id": "Virtuel world"
+			}
+		]
+	}
+]
