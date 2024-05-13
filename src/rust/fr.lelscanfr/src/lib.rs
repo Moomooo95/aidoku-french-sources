@@ -4,6 +4,7 @@ use aidoku::{
 	error::Result,
 	std::{
 		net::{Request,HttpMethod},
+		html::Node,
 		String, Vec
 	},
 	Filter, FilterType, Manga, MangaPageResult, Page, Chapter
@@ -71,7 +72,18 @@ fn get_manga_details(manga_id: String) -> Result<Manga> {
 fn get_chapter_list(manga_id: String) -> Result<Vec<Chapter>> {
 	let url = format!("{}/manga/{}", String::from(BASE_URL), manga_id);
 	let html = Request::new(url, HttpMethod::Get).html()?;
-	parser::parse_chapter_list(String::from(BASE_URL), manga_id, html)
+
+	if !html.select(".pagination").text().read().is_empty() {
+		let nb_pages = html.select(".pagination-link").last().previous().expect("last page").attr("onclick").read().chars().rev().nth(1).unwrap().to_digit(10).unwrap();
+		let mut all_nodes: Vec<Node> = Vec::new();
+		for page in 1..nb_pages+1 {
+			let url = format!("{}/manga/{}?page={}", String::from(BASE_URL), manga_id, page);
+			all_nodes.push(Request::new(url, HttpMethod::Get).html()?)
+		}
+		parser::parse_chapter_list(String::from(BASE_URL), manga_id, all_nodes)
+	} else {
+		parser::parse_chapter_list(String::from(BASE_URL), manga_id, [html].to_vec())
+	}	
 }
 
 #[get_page_list]
