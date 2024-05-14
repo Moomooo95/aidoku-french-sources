@@ -1,7 +1,7 @@
 #![no_std]
 use aidoku::{
 	error::Result, prelude::*, std::net::Request, std::String, std::Vec, Chapter, DeepLink, Filter, Listing, Manga,
-	MangaPageResult, MangaStatus, Page,
+	MangaPageResult, Page,
 };
 use madara_template::template;
 
@@ -19,22 +19,6 @@ fn get_data() -> template::MadaraSiteData {
 		status_filter_on_hold: String::from("En pause"),
 		popular: String::from("Populaire"),
 		trending: String::from("Tendance"),
-		status: |html| {
-			let status_str = html
-				.select("div.post-content_item:contains(Statut) div.summary-content")
-				.text()
-				.read()
-				.to_lowercase();
-			let mut status_str = status_str.chars();
-			status_str.next();
-			match status_str.as_str() {
-				"en cours" => MangaStatus::Ongoing,
-				"complété" => MangaStatus::Completed,
-				"annulé" => MangaStatus::Cancelled,
-				"en pause" => MangaStatus::Hiatus,
-				_ => MangaStatus::Unknown,
-			}
-		},
 		alt_ajax: true,
 		user_agent: Some(String::from("Mozilla/5.0 (iPhone; CPU iPhone OS 17_4_1 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/17.3.1 Mobile/15E148 Safari/604.1")),
 		..Default::default()
@@ -69,7 +53,7 @@ fn get_page_list(_manga_id: String, chapter_id: String) -> Result<Vec<Page>> {
 
 #[modify_image_request]
 fn modify_image_request(request: Request) {
-	template::modify_image_request(String::from("mangas-origines.fr"), request);
+	template::modify_image_request(String::from("mangas-origines.fr"), request, get_data());
 }
 
 #[handle_url]

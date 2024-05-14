@@ -21,16 +21,18 @@ fn get_data() -> template::MadaraSiteData {
 				.select("div.post-content_item:contains(État) div.summary-content")
 				.text()
 				.read()
+				.trim()
 				.to_lowercase();
 			match status_str.as_str() {
-				"en cours" => MangaStatus::Ongoing,
-				"terminé" => MangaStatus::Completed,
-				"annulé" => MangaStatus::Cancelled,
-				"en pause" => MangaStatus::Hiatus,
+				"ongoing" | "releasing" => MangaStatus::Ongoing,
+				"completed" => MangaStatus::Completed,
+				"canceled" | "dropped" => MangaStatus::Cancelled,
+				"hiatus" | "on hold" => MangaStatus::Hiatus,
 				_ => MangaStatus::Unknown,
 			}
 		},
 		alt_ajax: true,
+		user_agent: Some(String::from("Mozilla/5.0 (iPhone; CPU iPhone OS 17_4_1 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/17.3.1 Mobile/15E148 Safari/604.1")),
 		..Default::default()
 	};
 	data
@@ -57,13 +59,13 @@ fn get_chapter_list(id: String) -> Result<Vec<Chapter>> {
 }
 
 #[get_page_list]
-fn get_page_list(id: String) -> Result<Vec<Page>> {
-	template::get_page_list(id, get_data())
+fn get_page_list(_manga_id: String, chapter_id: String) -> Result<Vec<Page>> {
+	template::get_page_list(chapter_id, get_data())
 }
 
 #[modify_image_request]
 fn modify_image_request(request: Request) {
-	template::modify_image_request(String::from("manga-scantrad.io"), request);
+	template::modify_image_request(String::from("manga-scantrad.io"), request, get_data());
 }
 
 #[handle_url]

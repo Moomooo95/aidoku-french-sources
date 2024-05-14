@@ -140,15 +140,13 @@ impl Default for MadaraSiteData {
 					.select("div.post-content_item:contains(Status) div.summary-content")
 					.text()
 					.read()
+					.trim()
 					.to_lowercase();
 				match status_str.as_str() {
-					"ongoing" => MangaStatus::Ongoing,
-					"releasing" => MangaStatus::Ongoing,
+					"ongoing" | "releasing" => MangaStatus::Ongoing,
 					"completed" => MangaStatus::Completed,
-					"canceled" => MangaStatus::Cancelled,
-					"dropped" => MangaStatus::Cancelled,
-					"hiatus" => MangaStatus::Hiatus,
-					"on hold" => MangaStatus::Hiatus,
+					"canceled" | "dropped" => MangaStatus::Cancelled,
+					"hiatus" | "on hold" => MangaStatus::Hiatus,
 					_ => MangaStatus::Unknown,
 				}
 			},
@@ -323,11 +321,7 @@ pub fn get_series_page(data: MadaraSiteData, listing: &str, page: i32) -> Result
 	Ok(MangaPageResult { manga, has_more })
 }
 
-pub fn get_manga_listing(
-	data: MadaraSiteData,
-	listing: Listing,
-	page: i32,
-) -> Result<MangaPageResult> {
+pub fn get_manga_listing(data: MadaraSiteData, listing: Listing, page: i32) -> Result<MangaPageResult> {
 	if listing.name == data.popular {
 		return get_series_page(data, "_wp_manga_views", page);
 	}
@@ -352,7 +346,7 @@ pub fn get_manga_details(manga_id: String, data: MadaraSiteData) -> Result<Manga
 		title = title.replace(&title_badges, "");
 		title = String::from(title.trim());
 	}
-	let cover = get_image_url(html.select("div.summary_image img"));
+	let cover = get_image_url(html.select("div.summary_image img").first());
 	let author = html.select(&data.author_selector).text().read();
 	let artist = html.select("div.artist-content a").text().read();
 	let description = html.select(&data.description_selector).text().read();
@@ -496,7 +490,7 @@ pub fn get_chapter_list(manga_id: String, data: MadaraSiteData) -> Result<Vec<Ch
 }
 
 pub fn get_page_list(chapter_id: String, data: MadaraSiteData) -> Result<Vec<Page>> {
-	let url = data.base_url.clone() + "/" + data.source_path.as_str() + "/" + chapter_id.as_str();
+	let url = data.base_url.clone() + "/" + data.source_path.as_str() + "/" + chapter_id.as_str() + "?style=list";
 	
 	let mut req = Request::new(url.as_str(), HttpMethod::Get);
 	req = add_user_agent_header(req, &data.user_agent);
@@ -519,8 +513,8 @@ pub fn get_page_list(chapter_id: String, data: MadaraSiteData) -> Result<Vec<Pag
 	Ok(pages)
 }
 
-pub fn modify_image_request(base_url: String, request: Request) {
-	request.header("Referer", &base_url);
+pub fn modify_image_request(base_url: String, request: Request, data: MadaraSiteData) {
+	add_user_agent_header(request.header("Referer", &base_url), &data.user_agent);
 }
 
 pub fn handle_url(url: String, data: MadaraSiteData) -> Result<DeepLink> {

@@ -22,6 +22,7 @@ fn get_data() -> template::MadaraSiteData {
 				.select("div.post-content_item:contains(Statut) div.summary-content")
 				.text()
 				.read()
+				.trim()
 				.to_lowercase();
 			match status_str.as_str() {
 				"en cours" => MangaStatus::Ongoing,
@@ -84,7 +85,7 @@ fn get_page_list(_manga_id: String, chapter_id: String) -> Result<Vec<Page>> {
 
 #[modify_image_request]
 fn modify_image_request(request: Request) {
-	template::modify_image_request(String::from("manga-scantrad.io"), request);
+	template::modify_image_request(String::from("astral-manga.fr"), request, get_data());
 }
 
 #[handle_url]

@@ -373,6 +373,11 @@
 			},
 			{
 				"type": "genre",
+				"name": "Voyage Temporel",
+				"id": "voyage-temporel"
+			},
+			{
+				"type": "genre",
 				"name": "Webtoons",
 				"id": "webtoons"
 			},

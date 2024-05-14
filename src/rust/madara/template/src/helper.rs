@@ -1,6 +1,11 @@
 use aidoku::{
-	std::defaults::defaults_get, std::html::Node, std::net::HttpMethod, std::net::Request,
-	std::String, std::Vec, Filter, FilterType,
+	std::{
+		defaults::defaults_get,
+		html::Node,
+		net::{HttpMethod, Request},
+		String, Vec,
+	},
+	Filter, FilterType,
 };
 
 use crate::template::MadaraSiteData;

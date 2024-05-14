@@ -22,16 +22,18 @@ fn get_data() -> template::MadaraSiteData {
 				.select("div.post-content_item:contains(Statut) div.summary-content")
 				.text()
 				.read()
+				.trim()
 				.to_lowercase();
 			match status_str.as_str() {
-				"ongoing" => MangaStatus::Ongoing,
+				"ongoing" | "releasing" => MangaStatus::Ongoing,
 				"completed" => MangaStatus::Completed,
 				"canceled" | "dropped" => MangaStatus::Cancelled,
-				"on hold" => MangaStatus::Hiatus,
+				"hiatus" | "on hold" => MangaStatus::Hiatus,
 				_ => MangaStatus::Unknown,
 			}
 		},
 		alt_ajax: true,
+		user_agent: Some(String::from("Mozilla/5.0 (iPhone; CPU iPhone OS 17_4_1 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/17.3.1 Mobile/15E148 Safari/604.1")),
 		..Default::default()
 	};
 	data
@@ -64,7 +66,7 @@ fn get_page_list(_manga_id: String, chapter_id: String) -> Result<Vec<Page>> {
 
 #[modify_image_request]
 fn modify_image_request(request: Request) {
-	template::modify_image_request(String::from("reaperscans.fr"), request);
+	template::modify_image_request(String::from("reaperscans.fr"), request, get_data());
 }
 
 #[handle_url]
