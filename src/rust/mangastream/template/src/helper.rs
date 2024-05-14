@@ -179,7 +179,7 @@ pub fn get_search_url(
 		url.push_str(&format!("&status={}", status));
 	}
 	if !manga_type.is_empty() {
-		url.push_str(&format!("&type={}", manga_type));
+		url.push_str(&format!("&type={}", urlencode(manga_type)));
 	}
 	url
 }

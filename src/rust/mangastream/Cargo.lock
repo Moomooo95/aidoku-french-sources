@@ -134,6 +134,14 @@ dependencies = [
 ]
 
 [[package]]
+name = "sushiscan"
+version = "0.1.0"
+dependencies = [
+ "aidoku",
+ "mangastream_template",
+]
+
+[[package]]
 name = "sushiscans"
 version = "0.1.0"
 dependencies = [

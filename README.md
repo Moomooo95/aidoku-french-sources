@@ -19,4 +19,5 @@ This repository hosts the french sources that are installable directly through t
 | PhenixScans       | https://phenixscans.fr/         |
 | SushiScans        | https://sushiscan.fr/           |
 | LegacyScans       | https://legacy-scans.com/       |
+| SushiScan         | https://sushiscan.net/          |
 

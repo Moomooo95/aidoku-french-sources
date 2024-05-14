@@ -1,10 +1,10 @@
 {
 	"info": {
-		"id": "fr.phenixscans",
+		"id": "fr.sushiscan",
 		"lang": "fr",
-		"name": "Phenix Scans",
-		"version": 2,
-		"url": "https://phenixscans.fr/"
+		"name": "Sushi-Scan",
+		"version": 1,
+		"url": "https://sushiscan.net/"
 	},
 	"listings": [
 		{

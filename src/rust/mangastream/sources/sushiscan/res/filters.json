@@ -9,6 +9,7 @@
 			"All",
 			"En Cours",
 			"Terminé",
+			"Abandonné",
 			"En Pause"
 		]
 	},
@@ -20,7 +21,12 @@
 			"Manga",
 			"Manhwa",
 			"Manhua",
-			"Comic"
+			"Comics",
+			"FanFiction",
+			"Bande-Dessinée",
+			"Global-Manga",
+			"Artbook",
+			"Anime-Comics"
 		]
 	},
 	{
@@ -30,157 +36,147 @@
 			{
 				"type": "genre",
 				"name": "Action",
-				"id": "10"
-			},
-			{
-				"type": "genre",
-				"name": "Adventure",
-				"id": "93039"
-			},
-			{
-				"type": "genre",
-				"name": "Arts Martiaux",
-				"id": "22429"
+				"id": "3"
 			},
 			{
 				"type": "genre",
 				"name": "Aventure",
-				"id": "299"
+				"id": "12"
+			},
+			{
+				"type": "genre",
+				"name": "Biographique",
+				"id": "165"
 			},
 			{
 				"type": "genre",
 				"name": "Comédie",
-				"id": "562"
+				"id": "13"
 			},
 			{
 				"type": "genre",
-				"name": "Comedy",
-				"id": "93040"
+				"name": "Crossover",
+				"id": "267"
 			},
 			{
 				"type": "genre",
 				"name": "Drame",
-				"id": "300"
+				"id": "4"
+			},
+			{
+				"type": "genre",
+				"name": "Ecchi",
+				"id": "43"
+			},
+			{
+				"type": "genre",
+				"name": "Erotique",
+				"id": "96"
 			},
 			{
 				"type": "genre",
 				"name": "Fantastique",
-				"id": "301"
+				"id": "5"
 			},
 			{
 				"type": "genre",
 				"name": "Fantasy",
-				"id": "93041"
+				"id": "32"
 			},
 			{
 				"type": "genre",
 				"name": "Histoires courtes",
-				"id": "22289"
+				"id": "93"
 			},
 			{
 				"type": "genre",
 				"name": "Historique",
-				"id": "302"
+				"id": "24"
 			},
 			{
 				"type": "genre",
 				"name": "Horreur",
-				"id": "21492"
+				"id": "6"
 			},
 			{
 				"type": "genre",
-				"name": "Josei",
-				"id": "22406"
+				"name": "Isekai",
+				"id": "639"
 			},
 			{
 				"type": "genre",
-				"name": "Magie",
-				"id": "13908"
-			},
-			{
-				"type": "genre",
-				"name": "Mecha",
-				"id": "2168"
+				"name": "Mature",
+				"id": "7"
 			},
 			{
 				"type": "genre",
 				"name": "Mystère",
-				"id": "519"
-			},
-			{
-				"type": "genre",
-				"name": "Mystery",
-				"id": "93037"
+				"id": "8"
 			},
 			{
 				"type": "genre",
 				"name": "Nekketsu",
-				"id": "22290"
+				"id": "764"
 			},
 			{
 				"type": "genre",
 				"name": "Psychologique",
-				"id": "520"
+				"id": "20"
 			},
 			{
 				"type": "genre",
 				"name": "Romance",
-				"id": "11760"
+				"id": "26"
 			},
 			{
 				"type": "genre",
-				"name": "School Life",
-				"id": "59"
-			},
-			{
-				"type": "genre",
-				"name": "Sci-fi",
-				"id": "2170"
+				"name": "School-Life",
+				"id": "16"
 			},
 			{
 				"type": "genre",
 				"name": "Science-Fiction",
-				"id": "13887"
+				"id": "37"
 			},
 			{
 				"type": "genre",
-				"name": "Seinen",
-				"id": "2171"
+				"name": "Shôjo-aï",
+				"id": "173"
 			},
 			{
 				"type": "genre",
-				"name": "Shoujo",
-				"id": "22282"
-			},
-			{
-				"type": "genre",
-				"name": "Shounen",
-				"id": "14"
+				"name": "Shônen-aï",
+				"id": "599"
 			},
 			{
 				"type": "genre",
 				"name": "Slice of Life",
-				"id": "563"
+				"id": "28"
 			},
 			{
 				"type": "genre",
-				"name": "Sports",
-				"id": "70"
-			},
-			{
-				"type": "genre",
-				"name": "Supernaturel",
-				"id": "22423"
+				"name": "Sport",
+				"id": "18"
 			},
 			{
 				"type": "genre",
 				"name": "Surnaturel",
-				"id": "303"
+				"id": "9"
 			},
 			{
 				"type": "genre",
-				"name": "Tragédie",
-				"id": "521"
+				"name": "Thriller",
+				"id": "79"
+			},
+			{
+				"type": "genre",
+				"name": "Tournois",
+				"id": "305"
+			},
+			{
+				"type": "genre",
+				"name": "Tragique",
+				"id": "10"
 			}
 		]
 	}

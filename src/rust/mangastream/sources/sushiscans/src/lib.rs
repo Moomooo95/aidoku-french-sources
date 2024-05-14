@@ -10,7 +10,10 @@ fn get_instance() -> MangaStreamSource {
 	MangaStreamSource {
 		base_url: String::from("https://sushiscan.fr"),
 		listing: ["Dernières", "Populaire", "Nouveau"],
-		status_options: ["En Cours", "Terminé", "En pause", "", ""],
+		status_options: ["En Cours", "Terminé", "En Pause", "", ""],
+		last_page_text: "Suivant",
+		last_page_text_2: "Next",
+		status_options_search: ["", "ongoing", "completed", "hiatus", ""],
 		manga_details_categories: ".seriestugenre a",
 		manga_details_author: ".infotable td:contains(Auteur)+td",
 		manga_details_artist: ".infotable td:contains(Artiste)+td",

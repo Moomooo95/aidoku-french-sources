@@ -3,6 +3,27 @@
 		"type": "title"
 	},
 	{
+		"type": "select",
+		"name": "Status",
+		"options": [
+			"All",
+			"En Cours",
+			"Terminé",
+			"En Pause"
+		]
+	},
+	{
+		"type": "select",
+		"name": "Type",
+		"options": [
+			"All",
+			"Manga",
+			"Manhwa",
+			"Manhua",
+			"Comic"
+		]
+	},
+	{
 		"type": "group",
 		"name": "Tags",
 		"filters": [
@@ -376,27 +397,6 @@
 				"name": "Webtoons",
 				"id": "webtoons"
 			}
-		]
-	},
-	{
-		"type": "select",
-		"name": "Status",
-		"options": [
-			"All",
-			"En Cours",
-			"Fini",
-			"En Pause"
-		]
-	},
-	{
-		"type": "select",
-		"name": "Type",
-		"options": [
-			"All",
-			"Manga",
-			"Manhwa",
-			"Manhua",
-			"Comic"
 		]
 	}
 ]

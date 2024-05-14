@@ -35,6 +35,8 @@ pub struct MangaStreamSource {
 	pub last_page_text_2: &'static str,
 	pub status_options: [&'static str; 5],
 	pub status_options_2: [&'static str; 5],
+	pub status_options_search: [&'static str; 5],
+	pub type_options_search: [&'static str; 10],
 
 	pub manga_details_categories: &'static str,
 	pub nsfw_genres: Vec<String>,
@@ -88,6 +90,9 @@ impl Default for MangaStreamSource {
 			last_page_text_2: "NNNN",
 			status_options: ["Ongoing", "Completed", "Hiatus", "Cancelled", "Dropped"],
 			status_options_2: ["","","","",""],
+			
+			status_options_search: ["", "ongoing", "completed", "cancelled", "hiatus"],
+			type_options_search: ["", "manga", "manhwa", "manhua", "comic", "", "", "", "", ""],
 
 			manga_details_categories: "span.mgen a",
 			nsfw_genres: [ "Adult".into(), "Ecchi".into(), "Mature".into(), "Smut".into() ].to_vec(),
@@ -129,8 +134,6 @@ impl MangaStreamSource {
 		let mut status: String = String::new();
 		let mut title: String = String::new();
 		let mut manga_type: String = String::new();
-		let status_options = ["", "ongoing", "completed", "hiatus"];
-		let type_options = ["", "manga", "manhwa", "manhua", "comic"];
 		for filter in filters {
 			match filter.kind {
 				FilterType::Title => {
@@ -154,8 +157,8 @@ impl MangaStreamSource {
 				FilterType::Select => {
 					let index = filter.value.as_int().unwrap_or(-1) as usize;
 					match filter.name.as_str() {
-						"Status" => status = String::from(status_options[index]),
-						"Type" => manga_type = String::from(type_options[index]),
+						"Status" => status = String::from(self.status_options_search[index]),
+						"Type" => manga_type = String::from(self.type_options_search[index]),
 						_ => continue,
 					}
 				}
@@ -508,7 +511,7 @@ impl MangaStreamSource {
 				"image/avif,image/webp,image/apng,image/svg+xml,image/*,*/*;q=0.8",
 			)
 			.header("Referer", &self.base_url)
-			;
+			.header("User-Agent", USER_AGENT);
 	}
 
 	pub fn handle_url(&self, url: String) -> Result<DeepLink> {

@@ -8,17 +8,22 @@ use mangastream_template::template::MangaStreamSource;
 
 fn get_instance() -> MangaStreamSource {
 	MangaStreamSource {
-		use_manga_postids: true,
-		use_chapter_postids: true,
-		base_url: String::from("https://phenixscans.fr/"),
+		base_url: String::from("https://sushiscan.net"),
 		listing: ["Dernières", "Populaire", "Nouveau"],
-		status_options: ["En Cours", "Fini", "En Pause", "", ""],
+		status_options: ["En Cours", "Terminé", "En Pause", "", "Abandonné"],
+		traverse_pathname: "catalogue",
 		last_page_text: "Suivant",
 		last_page_text_2: "Next",
-		status_options_search: ["", "ongoing", "completed", "hiatus", ""],
-		manga_details_author: ".imptdt:contains(Auteur) i, .fmed b:contains(Auteur)+span",
-		manga_details_artist: ".fmed b:contains(Artiste)+span",
-		traverse_pathname: "manga",
+		status_options_search: ["", "ongoing", "completed", "hiatus", "en pause"],
+		type_options_search: ["", "manga", "manhwa", "manhua", "comics", "fanfiction", "bande-dessinée", "global-manga", "artbook", "anime-comics"],
+		manga_details_categories: ".seriestugenre a",
+		manga_details_author: ".infotable td:contains(Auteur)+td",
+		manga_details_artist: ".infotable td:contains(Dessinateur)+td",
+		manga_details_status: ".infotable td:contains(Statut)+td",
+		manga_details_type: ".infotable td:contains(Type)+td",
+		chapter_date_format : "MMMM dd, yyyy",
+		language: "fr",
+		locale: "fr-FR",
 		alt_pages: true,
 		..Default::default()
 	}
