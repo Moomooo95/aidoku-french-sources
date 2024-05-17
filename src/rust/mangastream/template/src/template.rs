@@ -466,7 +466,10 @@ impl MangaStreamSource {
 			let json = parse(trimmed_json.as_bytes())?.as_object()?;
 			let images = json.get("images").as_array()?;
 			for (index, page) in images.enumerate() {
-				let page_url_img = page.as_string()?.read();
+				let mut page_url_img = page.as_string()?.read();
+				if !page_url_img.contains("https") {
+					page_url_img = page_url_img.replace("http", "https");
+				}
 				let page_url_encoded = urlencode(page_url_img.clone());
 				let page_url = if page_url_img.contains("%") {
 					page_url_img
