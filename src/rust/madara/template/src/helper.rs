@@ -79,6 +79,9 @@ pub fn get_image_url(obj: Node) -> String {
 	if img.is_empty() {
 		img = obj.attr("srcset").read();
 	}
+	if img.is_empty() {
+		img = obj.attr("data-cfsrc").read();
+	}
 	img = String::from(img.trim());
 
 	if let Ok(highres) = defaults_get("highres") {
