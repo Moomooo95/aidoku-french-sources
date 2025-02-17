@@ -12,7 +12,7 @@
 			},
 			{
 				"type": "check",
-				"name": "En pause"
+				"name": "Terminé"
 			},
 			{
 				"type": "check",
@@ -20,7 +20,7 @@
 			},
 			{
 				"type": "check",
-				"name": "Terminé"
+				"name": "En pause"
 			}
 		]
 	},
@@ -43,11 +43,6 @@
 			},
 			{
 				"type": "genre",
-				"name": "Adulte",
-				"id": "adult"
-			},
-			{
-				"type": "genre",
 				"name": "Amitié",
 				"id": "amitie"
 			},
@@ -55,6 +50,11 @@
 				"type": "genre",
 				"name": "Art martial",
 				"id": "art-martial"
+			},
+			{
+				"type": "genre",
+				"name": "Arts martiaux",
+				"id": "arts-martiaux"
 			},
 			{
 				"type": "genre",
@@ -75,6 +75,16 @@
 				"type": "genre",
 				"name": "Cuisine",
 				"id": "cooking"
+			},
+			{
+				"type": "genre",
+				"name": "Délinquance",
+				"id": "delinquance"
+			},
+			{
+				"type": "genre",
+				"name": "Démons",
+				"id": "demons"
 			},
 			{
 				"type": "genre",
@@ -128,8 +138,18 @@
 			},
 			{
 				"type": "genre",
+				"name": "Isekai",
+				"id": "isekai"
+			},
+			{
+				"type": "genre",
 				"name": "Josei",
 				"id": "josei"
+			},
+			{
+				"type": "genre",
+				"name": "Magie",
+				"id": "magie"
 			},
 			{
 				"type": "genre",
@@ -145,11 +165,6 @@
 				"type": "genre",
 				"name": "Manhwa",
 				"id": "manhwa"
-			},
-			{
-				"type": "genre",
-				"name": "Mature",
-				"id": "mature"
 			},
 			{
 				"type": "genre",
@@ -173,6 +188,11 @@
 			},
 			{
 				"type": "genre",
+				"name": "Politique",
+				"id": "politique"
+			},
+			{
+				"type": "genre",
 				"name": "Psychologique",
 				"id": "psychological"
 			},
@@ -190,6 +210,11 @@
 				"type": "genre",
 				"name": "Romance",
 				"id": "romance"
+			},
+			{
+				"type": "genre",
+				"name": "Royauté",
+				"id": "royaute"
 			},
 			{
 				"type": "genre",
@@ -243,6 +268,11 @@
 			},
 			{
 				"type": "genre",
+				"name": "Vengeance",
+				"id": "vengeance"
+			},
+			{
+				"type": "genre",
 				"name": "Vie scolaire",
 				"id": "vie-scolaire"
 			},
@@ -250,16 +280,6 @@
 				"type": "genre",
 				"name": "Webtoon",
 				"id": "webtoon"
-			},
-			{
-				"type": "genre",
-				"name": "Yaoi",
-				"id": "yaoi"
-			},
-			{
-				"type": "genre",
-				"name": "Yuri",
-				"id": "yuri"
 			}
 		]
 	}
