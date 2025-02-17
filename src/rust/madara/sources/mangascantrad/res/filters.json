@@ -363,6 +363,11 @@
 			},
 			{
 				"type": "genre",
+				"name": "Vengeance",
+				"id": "vengeance"
+			},
+			{
+				"type": "genre",
 				"name": "Vie scolaire",
 				"id": "vie-scolaire"
 			},
