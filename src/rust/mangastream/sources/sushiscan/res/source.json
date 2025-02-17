@@ -2,8 +2,8 @@
 	"info": {
 		"id": "fr.sushiscan",
 		"lang": "fr",
-		"name": "Sushi-Scan",
-		"version": 2,
+		"name": "SushiScan",
+		"version": 3,
 		"url": "https://sushiscan.net/"
 	},
 	"listings": [

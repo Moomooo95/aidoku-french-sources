@@ -15,7 +15,7 @@ fn get_instance() -> MangaStreamSource {
 		last_page_text: "Suivant",
 		last_page_text_2: "Next",
 		status_options_search: ["", "ongoing", "completed", "hiatus", "en pause"],
-		type_options_search: ["", "manga", "manhwa", "manhua", "comics", "fanfiction", "bande-dessinée", "global-manga", "artbook", "anime-comics"],
+		type_options_search: ["", "manga", "manhwa", "manhua", "comic", "fanfiction", "bande-dessinée", "global-manga", "artbook", "anime-comics", "guidebook"],
 		manga_details_categories: ".seriestugenre a",
 		manga_details_author: ".infotable td:contains(Auteur)+td",
 		manga_details_artist: ".infotable td:contains(Dessinateur)+td",

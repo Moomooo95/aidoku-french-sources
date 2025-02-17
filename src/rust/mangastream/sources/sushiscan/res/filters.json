@@ -6,7 +6,7 @@
 		"type": "select",
 		"name": "Status",
 		"options": [
-			"All",
+			"Tout",
 			"En Cours",
 			"Terminé",
 			"Abandonné",
@@ -17,7 +17,7 @@
 		"type": "select",
 		"name": "Type",
 		"options": [
-			"All",
+			"Tout",
 			"Manga",
 			"Manhwa",
 			"Manhua",
@@ -26,7 +26,8 @@
 			"Bande-Dessinée",
 			"Global-Manga",
 			"Artbook",
-			"Anime-Comics"
+			"Anime-Comics",
+			"GuideBook"
 		]
 	},
 	{
@@ -47,6 +48,11 @@
 				"type": "genre",
 				"name": "Biographique",
 				"id": "165"
+			},
+			{
+				"type": "genre",
+				"name": "Comédi",
+				"id": "2062"
 			},
 			{
 				"type": "genre",
@@ -82,6 +88,16 @@
 				"type": "genre",
 				"name": "Fantasy",
 				"id": "32"
+			},
+			{
+				"type": "genre",
+				"name": "Furyo",
+				"id": "2455"
+			},
+			{
+				"type": "genre",
+				"name": "Guide Book",
+				"id": "1209"
 			},
 			{
 				"type": "genre",
@@ -177,6 +193,11 @@
 				"type": "genre",
 				"name": "Tragique",
 				"id": "10"
+			},
+			{
+				"type": "genre",
+				"name": "Yonkoma",
+				"id": "819"
 			}
 		]
 	}

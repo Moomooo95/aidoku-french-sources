@@ -1,6 +1,6 @@
 use aidoku::{
 	error::{AidokuError, AidokuErrorKind, Result},
-	prelude::format,
+	prelude::*,
 	std::json::parse,
 	std::net::{HttpMethod, Request},
 	std::{String, Vec},
@@ -10,7 +10,7 @@ use aidoku::{
 
 use crate::helper::*;
 
-pub const USER_AGENT: &str = "Mozilla/5.0 (iPhone; CPU iPhone OS 17_4_1 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/17.3.1 Mobile/15E148 Safari/604.1";
+pub const USER_AGENT: &str = "Mozilla/5.0 (iPhone; CPU iPhone OS 17_2 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) GSA/300.0.598994205 Mobile/15E148 Safari/604";
 
 pub struct MangaStreamSource {
 	/// Use static post ids instead of dynamic ids parsed from urls \
@@ -36,7 +36,7 @@ pub struct MangaStreamSource {
 	pub status_options: [&'static str; 5],
 	pub status_options_2: [&'static str; 5],
 	pub status_options_search: [&'static str; 5],
-	pub type_options_search: [&'static str; 10],
+	pub type_options_search: [&'static str; 11],
 
 	pub manga_details_categories: &'static str,
 	pub nsfw_genres: Vec<String>,
@@ -92,7 +92,7 @@ impl Default for MangaStreamSource {
 			status_options_2: ["","","","",""],
 			
 			status_options_search: ["", "ongoing", "completed", "cancelled", "hiatus"],
-			type_options_search: ["", "manga", "manhwa", "manhua", "comic", "", "", "", "", ""],
+			type_options_search: ["", "manga", "manhwa", "manhua", "comic", "", "", "", "", "", ""],
 
 			manga_details_categories: "span.mgen a",
 			nsfw_genres: [ "Adult".into(), "Ecchi".into(), "Mature".into(), "Smut".into() ].to_vec(),
