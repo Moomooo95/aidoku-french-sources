@@ -68,6 +68,11 @@
 			},
 			{
 				"type": "genre",
+				"name": "Dark Fantasy",
+				"id": "dark-fantasy"
+			},
+			{
+				"type": "genre",
 				"name": "Démon",
 				"id": "demon"
 			},
@@ -83,8 +88,23 @@
 			},
 			{
 				"type": "genre",
+				"name": "Dystopie",
+				"id": "dystopie"
+			},
+			{
+				"type": "genre",
 				"name": "Ecchi",
 				"id": "ecchi"
+			},
+			{
+				"type": "genre",
+				"name": "École",
+				"id": "ecole"
+			},
+			{
+				"type": "genre",
+				"name": "Erotique",
+				"id": "erotique"
 			},
 			{
 				"type": "genre",
@@ -123,6 +143,16 @@
 			},
 			{
 				"type": "genre",
+				"name": "Magie",
+				"id": "magie"
+			},
+			{
+				"type": "genre",
+				"name": "Malédiction",
+				"id": "malediction"
+			},
+			{
+				"type": "genre",
 				"name": "Manga",
 				"id": "manga"
 			},
@@ -138,8 +168,33 @@
 			},
 			{
 				"type": "genre",
+				"name": "Mature",
+				"id": "mature"
+			},
+			{
+				"type": "genre",
+				"name": "Mort",
+				"id": "mort"
+			},
+			{
+				"type": "genre",
+				"name": "Murim",
+				"id": "murim"
+			},
+			{
+				"type": "genre",
+				"name": "Musique",
+				"id": "musique"
+			},
+			{
+				"type": "genre",
 				"name": "Mystère",
 				"id": "mystere"
+			},
+			{
+				"type": "genre",
+				"name": "Novel",
+				"id": "novel"
 			},
 			{
 				"type": "genre",
@@ -148,8 +203,18 @@
 			},
 			{
 				"type": "genre",
+				"name": "Prison",
+				"id": "prison"
+			},
+			{
+				"type": "genre",
 				"name": "Psychologique",
 				"id": "psychologique"
+			},
+			{
+				"type": "genre",
+				"name": "Religion",
+				"id": "religion"
 			},
 			{
 				"type": "genre",
@@ -193,8 +258,23 @@
 			},
 			{
 				"type": "genre",
+				"name": "Société",
+				"id": "societe"
+			},
+			{
+				"type": "genre",
+				"name": "Sorcellerie",
+				"id": "sorcellerie"
+			},
+			{
+				"type": "genre",
 				"name": "Sport",
 				"id": "sport"
+			},
+			{
+				"type": "genre",
+				"name": "Steampunk",
+				"id": "steampunk"
 			},
 			{
 				"type": "genre",
@@ -213,8 +293,13 @@
 			},
 			{
 				"type": "genre",
-				"name": "Webtoon",
-				"id": "webtoon"
+				"name": "Webcomic",
+				"id": "webcomic"
+			},
+			{
+				"type": "genre",
+				"name": "Yuri",
+				"id": "yuri"
 			}
 		]
 	}

@@ -12,6 +12,7 @@ use crate::template::MadaraSiteData;
 
 extern crate alloc;
 use alloc::string::ToString;
+use base64::prelude::*;
 
 pub fn urlencode(string: String) -> String {
 	let mut result: Vec<u8> = Vec::with_capacity(string.len() * 3);
@@ -211,7 +212,18 @@ pub fn get_int_manga_id(
 	req = add_user_agent_header(req, &user_agent);
 
 	if let Ok(html) = req.html() {
-		let id_html = html.select("script#wp-manga-js-extra").html().read();
+		
+		let id_html = if html.select("script#wp-manga-js-extra").html().read().is_empty() {
+			String::from_utf8(
+				BASE64_STANDARD
+				.decode(html.select("script#wp-manga-js-extra").attr("src").read().replace("data:text/javascript;base64,", ""))
+				.unwrap())
+			.unwrap()
+		} else {
+			html.select("script#wp-manga-js-extra").html().read()
+		};
+
+		
 		let id = &id_html[id_html.find("manga_id").expect("Could not find manga_id") + 11
 			..id_html.find("\"}").expect("Could not find end of manga_id")];
 		String::from(id)

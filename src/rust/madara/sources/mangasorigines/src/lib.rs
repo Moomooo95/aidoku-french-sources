@@ -20,7 +20,7 @@ fn get_data() -> template::MadaraSiteData {
 		popular: String::from("Populaire"),
 		trending: String::from("Tendance"),
 		alt_ajax: true,
-		user_agent: Some(String::from("Mozilla/5.0 (iPhone; CPU iPhone OS 17_4_1 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/17.3.1 Mobile/15E148 Safari/604.1")),
+		user_agent: Some(String::from("Mozilla/5.0 (iPhone; CPU iPhone OS 17_2 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) GSA/300.0.598994205 Mobile/15E148 Safari/604")),
 		..Default::default()
 	};
 	data
