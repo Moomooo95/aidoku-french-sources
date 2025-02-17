@@ -6,9 +6,10 @@
 		"type": "select",
 		"name": "Status",
 		"options": [
-			"All",
+			"Tout",
 			"En Cours",
 			"Terminé",
+			"Abandonné",
 			"En Pause"
 		]
 	},
@@ -16,11 +17,18 @@
 		"type": "select",
 		"name": "Type",
 		"options": [
-			"All",
+			"Tout",
 			"Manga",
 			"Manhwa",
 			"Manhua",
-			"Comic"
+			"Comics",
+			"Fanfiction",
+			"Webtoon FR",
+			"BD",
+			"Global-Manga",
+			"Guidebook",
+			"Artbook",
+			"Anime-Comics"
 		]
 	},
 	{
@@ -35,7 +43,7 @@
 			{
 				"type": "genre",
 				"name": "Adventure",
-				"id": "93039"
+				"id": "111654"
 			},
 			{
 				"type": "genre",
@@ -49,18 +57,43 @@
 			},
 			{
 				"type": "genre",
+				"name": "Boys Love",
+				"id": "111137"
+			},
+			{
+				"type": "genre",
 				"name": "Comédie",
 				"id": "562"
 			},
 			{
 				"type": "genre",
 				"name": "Comedy",
-				"id": "93040"
+				"id": "111134"
+			},
+			{
+				"type": "genre",
+				"name": "Drama",
+				"id": "111086"
 			},
 			{
 				"type": "genre",
 				"name": "Drame",
-				"id": "300"
+				"id": "110666"
+			},
+			{
+				"type": "genre",
+				"name": "Ecchi",
+				"id": "110646"
+			},
+			{
+				"type": "genre",
+				"name": "Erotique",
+				"id": "110637"
+			},
+			{
+				"type": "genre",
+				"name": "Fantaisie",
+				"id": "110957"
 			},
 			{
 				"type": "genre",
@@ -70,12 +103,27 @@
 			{
 				"type": "genre",
 				"name": "Fantasy",
-				"id": "93041"
+				"id": "111179"
+			},
+			{
+				"type": "genre",
+				"name": "Gender Bender",
+				"id": "111143"
+			},
+			{
+				"type": "genre",
+				"name": "Harem",
+				"id": "109224"
 			},
 			{
 				"type": "genre",
 				"name": "Histoires courtes",
 				"id": "22289"
+			},
+			{
+				"type": "genre",
+				"name": "Historical",
+				"id": "111208"
 			},
 			{
 				"type": "genre",
@@ -89,13 +137,78 @@
 			},
 			{
 				"type": "genre",
+				"name": "Horror",
+				"id": "111232"
+			},
+			{
+				"type": "genre",
+				"name": "Isekai",
+				"id": "110881"
+			},
+			{
+				"type": "genre",
 				"name": "Josei",
-				"id": "22406"
+				"id": "111109"
 			},
 			{
 				"type": "genre",
 				"name": "Magie",
 				"id": "13908"
+			},
+			{
+				"type": "genre",
+				"name": "Manga",
+				"id": "111104"
+			},
+			{
+				"type": "genre",
+				"name": "Manga BL",
+				"id": "111138"
+			},
+			{
+				"type": "genre",
+				"name": "Manga Hentai",
+				"id": "111103"
+			},
+			{
+				"type": "genre",
+				"name": "Manga Romance",
+				"id": "111106"
+			},
+			{
+				"type": "genre",
+				"name": "Manhwa",
+				"id": "111428"
+			},
+			{
+				"type": "genre",
+				"name": "Manhwa A",
+				"id": "111416"
+			},
+			{
+				"type": "genre",
+				"name": "Manhwa J",
+				"id": "111421"
+			},
+			{
+				"type": "genre",
+				"name": "Manhwa P",
+				"id": "111412"
+			},
+			{
+				"type": "genre",
+				"name": "Manhwa R",
+				"id": "111493"
+			},
+			{
+				"type": "genre",
+				"name": "Martial Arts",
+				"id": "107110"
+			},
+			{
+				"type": "genre",
+				"name": "Mature",
+				"id": "100321"
 			},
 			{
 				"type": "genre",
@@ -110,12 +223,32 @@
 			{
 				"type": "genre",
 				"name": "Mystery",
-				"id": "93037"
+				"id": "111365"
 			},
 			{
 				"type": "genre",
 				"name": "Nekketsu",
 				"id": "22290"
+			},
+			{
+				"type": "genre",
+				"name": "Non-censuré",
+				"id": "111140"
+			},
+			{
+				"type": "genre",
+				"name": "Omégaverse",
+				"id": "111139"
+			},
+			{
+				"type": "genre",
+				"name": "Pornhwa",
+				"id": "111348"
+			},
+			{
+				"type": "genre",
+				"name": "Pornwa",
+				"id": "111347"
 			},
 			{
 				"type": "genre",
@@ -126,6 +259,11 @@
 				"type": "genre",
 				"name": "Romance",
 				"id": "11760"
+			},
+			{
+				"type": "genre",
+				"name": "Scantrad",
+				"id": "111446"
 			},
 			{
 				"type": "genre",
@@ -149,6 +287,16 @@
 			},
 			{
 				"type": "genre",
+				"name": "Shôjo-aï",
+				"id": "111035"
+			},
+			{
+				"type": "genre",
+				"name": "Shônen-aï",
+				"id": "111007"
+			},
+			{
+				"type": "genre",
 				"name": "Shoujo",
 				"id": "22282"
 			},
@@ -164,13 +312,23 @@
 			},
 			{
 				"type": "genre",
+				"name": "Smut",
+				"id": "111072"
+			},
+			{
+				"type": "genre",
+				"name": "Sport",
+				"id": "100319"
+			},
+			{
+				"type": "genre",
 				"name": "Sports",
 				"id": "70"
 			},
 			{
 				"type": "genre",
-				"name": "Supernaturel",
-				"id": "22423"
+				"name": "Supernatural",
+				"id": "111142"
 			},
 			{
 				"type": "genre",
@@ -179,8 +337,38 @@
 			},
 			{
 				"type": "genre",
+				"name": "Thriller",
+				"id": "111396"
+			},
+			{
+				"type": "genre",
 				"name": "Tragédie",
 				"id": "521"
+			},
+			{
+				"type": "genre",
+				"name": "Tragedy",
+				"id": "111434"
+			},
+			{
+				"type": "genre",
+				"name": "Tranche de vie",
+				"id": "111105"
+			},
+			{
+				"type": "genre",
+				"name": "Webtoon",
+				"id": "110966"
+			},
+			{
+				"type": "genre",
+				"name": "Yaoi",
+				"id": "111011"
+			},
+			{
+				"type": "genre",
+				"name": "Yuri",
+				"id": "111033"
 			}
 		]
 	}
