@@ -8,9 +8,7 @@ use mangastream_template::template::MangaStreamSource;
 
 fn get_instance() -> MangaStreamSource {
 	MangaStreamSource {
-		use_manga_postids: true,
-		use_chapter_postids: true,
-		base_url: String::from("https://phenixscans.fr/"),
+		base_url: String::from("https://phenixscans.fr"),
 		listing: ["Dernières", "Populaire", "Nouveau"],
 		status_options: ["En Cours", "Fini", "En Pause", "", ""],
 		last_page_text: "Suivant",

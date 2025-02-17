@@ -6,7 +6,7 @@
 		"type": "select",
 		"name": "Status",
 		"options": [
-			"All",
+			"Tout",
 			"En Cours",
 			"Terminé",
 			"En Pause"
@@ -16,7 +16,7 @@
 		"type": "select",
 		"name": "Type",
 		"options": [
-			"All",
+			"Tout",
 			"Manga",
 			"Manhwa",
 			"Manhua",
@@ -27,6 +27,21 @@
 		"type": "group",
 		"name": "Tags",
 		"filters": [
+			{
+				"type": "genre",
+				"name": "Académie",
+				"id": "academie"
+			},
+			{
+				"type": "genre",
+				"name": "academy",
+				"id": "academy"
+			},
+			{
+				"type": "genre",
+				"name": "Acting",
+				"id": "acting"
+			},
 			{
 				"type": "genre",
 				"name": "Action",
@@ -49,6 +64,11 @@
 			},
 			{
 				"type": "genre",
+				"name": "Action Aventure Fantastique Surnaturel",
+				"id": "action-aventure-fantastique-surnaturel"
+			},
+			{
+				"type": "genre",
 				"name": "Action Drame Shônen",
 				"id": "action-drame-shonen"
 			},
@@ -59,6 +79,11 @@
 			},
 			{
 				"type": "genre",
+				"name": "Adulte",
+				"id": "adulte"
+			},
+			{
+				"type": "genre",
 				"name": "Adventure",
 				"id": "adventure"
 			},
@@ -66,6 +91,11 @@
 				"type": "genre",
 				"name": "amitié",
 				"id": "amitie"
+			},
+			{
+				"type": "genre",
+				"name": "amitier",
+				"id": "amitier"
 			},
 			{
 				"type": "genre",
@@ -84,13 +114,38 @@
 			},
 			{
 				"type": "genre",
+				"name": "aura",
+				"id": "aura"
+			},
+			{
+				"type": "genre",
 				"name": "Aventure",
 				"id": "aventure"
 			},
 			{
 				"type": "genre",
+				"name": "aventurier",
+				"id": "aventurier"
+			},
+			{
+				"type": "genre",
+				"name": "chevalier",
+				"id": "chevalier"
+			},
+			{
+				"type": "genre",
+				"name": "Ciriolla",
+				"id": "ciriolla"
+			},
+			{
+				"type": "genre",
 				"name": "Combat",
 				"id": "combat"
+			},
+			{
+				"type": "genre",
+				"name": "Combats",
+				"id": "combats"
 			},
 			{
 				"type": "genre",
@@ -101,6 +156,16 @@
 				"type": "genre",
 				"name": "Comedy",
 				"id": "comedy"
+			},
+			{
+				"type": "genre",
+				"name": "Demons",
+				"id": "demons"
+			},
+			{
+				"type": "genre",
+				"name": "donjon",
+				"id": "donjon"
 			},
 			{
 				"type": "genre",
@@ -124,8 +189,28 @@
 			},
 			{
 				"type": "genre",
+				"name": "Ecole",
+				"id": "ecole"
+			},
+			{
+				"type": "genre",
+				"name": "ésprit",
+				"id": "esprit"
+			},
+			{
+				"type": "genre",
+				"name": "exorcisme",
+				"id": "exorcisme"
+			},
+			{
+				"type": "genre",
 				"name": "Fantaisie",
 				"id": "fantaisie"
+			},
+			{
+				"type": "genre",
+				"name": "fantaisy",
+				"id": "fantaisy"
 			},
 			{
 				"type": "genre",
@@ -139,8 +224,33 @@
 			},
 			{
 				"type": "genre",
+				"name": "forgeron",
+				"id": "forgeron"
+			},
+			{
+				"type": "genre",
+				"name": "Gacha",
+				"id": "gacha"
+			},
+			{
+				"type": "genre",
+				"name": "Gang",
+				"id": "gang"
+			},
+			{
+				"type": "genre",
+				"name": "Ghosts",
+				"id": "ghosts"
+			},
+			{
+				"type": "genre",
 				"name": "Harem",
 				"id": "harem"
+			},
+			{
+				"type": "genre",
+				"name": "heroes",
+				"id": "heroes"
 			},
 			{
 				"type": "genre",
@@ -164,6 +274,16 @@
 			},
 			{
 				"type": "genre",
+				"name": "Isekai",
+				"id": "isekai"
+			},
+			{
+				"type": "genre",
+				"name": "jeu",
+				"id": "jeu"
+			},
+			{
+				"type": "genre",
 				"name": "Josei",
 				"id": "josei"
 			},
@@ -171,6 +291,11 @@
 				"type": "genre",
 				"name": "longstrip art",
 				"id": "longstrip-art"
+			},
+			{
+				"type": "genre",
+				"name": "Magic",
+				"id": "magic"
 			},
 			{
 				"type": "genre",
@@ -214,6 +339,16 @@
 			},
 			{
 				"type": "genre",
+				"name": "medieval",
+				"id": "medieval"
+			},
+			{
+				"type": "genre",
+				"name": "mercenaire",
+				"id": "mercenaire"
+			},
+			{
+				"type": "genre",
 				"name": "Monstre",
 				"id": "monstre"
 			},
@@ -239,8 +374,18 @@
 			},
 			{
 				"type": "genre",
+				"name": "necromancy",
+				"id": "necromancy"
+			},
+			{
+				"type": "genre",
 				"name": "necromencer",
 				"id": "necromencer"
+			},
+			{
+				"type": "genre",
+				"name": "noble",
+				"id": "noble"
 			},
 			{
 				"type": "genre",
@@ -279,13 +424,33 @@
 			},
 			{
 				"type": "genre",
+				"name": "post apocalyptique",
+				"id": "post-apocalyptique"
+			},
+			{
+				"type": "genre",
+				"name": "prince",
+				"id": "prince"
+			},
+			{
+				"type": "genre",
 				"name": "Psychological",
 				"id": "psychological"
 			},
 			{
 				"type": "genre",
+				"name": "Psychologie",
+				"id": "psychologie"
+			},
+			{
+				"type": "genre",
 				"name": "Psychologique",
 				"id": "psychologique"
+			},
+			{
+				"type": "genre",
+				"name": "R18",
+				"id": "r18"
 			},
 			{
 				"type": "genre",
@@ -306,6 +471,11 @@
 				"type": "genre",
 				"name": "Returner",
 				"id": "returner"
+			},
+			{
+				"type": "genre",
+				"name": "Revenge",
+				"id": "revenge"
 			},
 			{
 				"type": "genre",
@@ -359,6 +529,11 @@
 			},
 			{
 				"type": "genre",
+				"name": "Slide of Life",
+				"id": "slide-of-life"
+			},
+			{
+				"type": "genre",
 				"name": "Smut",
 				"id": "smut"
 			},
@@ -374,6 +549,11 @@
 			},
 			{
 				"type": "genre",
+				"name": "SuperNaturel",
+				"id": "supernaturel"
+			},
+			{
+				"type": "genre",
 				"name": "Surnaturel",
 				"id": "surnaturel"
 			},
@@ -384,6 +564,16 @@
 			},
 			{
 				"type": "genre",
+				"name": "syteme",
+				"id": "syteme"
+			},
+			{
+				"type": "genre",
+				"name": "Thriller",
+				"id": "thriller"
+			},
+			{
+				"type": "genre",
 				"name": "Tragédie",
 				"id": "tragedie"
 			},
@@ -391,6 +581,41 @@
 				"type": "genre",
 				"name": "Tragedy",
 				"id": "tragedy"
+			},
+			{
+				"type": "genre",
+				"name": "tranche de vie",
+				"id": "tranche-de-vie"
+			},
+			{
+				"type": "genre",
+				"name": "transmigration",
+				"id": "transmigration"
+			},
+			{
+				"type": "genre",
+				"name": "tresort",
+				"id": "tresort"
+			},
+			{
+				"type": "genre",
+				"name": "vengeance",
+				"id": "vengeance"
+			},
+			{
+				"type": "genre",
+				"name": "Vie Scolaire",
+				"id": "vie-scolaire"
+			},
+			{
+				"type": "genre",
+				"name": "Violence",
+				"id": "violence"
+			},
+			{
+				"type": "genre",
+				"name": "Webcomic",
+				"id": "webcomic"
 			},
 			{
 				"type": "genre",
