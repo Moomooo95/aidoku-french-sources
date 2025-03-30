@@ -1,0 +1,536 @@
+[
+	{
+		"type": "title"
+	},
+	{
+		"type": "select",
+		"name": "Status",
+		"options": [
+			"Tous les statuts",
+			"En cours",
+			"Terminé",
+			"En pause"
+		]
+	},
+	{
+		"type": "select",
+		"name": "Type",
+		"options": [
+			"Tous les types",
+			"Manga",
+			"Manhwa",
+			"Manhua"
+		]
+	},
+	{
+		"type": "group",
+		"name": "Genres",
+		"filters": [
+			{
+				"type": "genre",
+				"name": "Action",
+				"id": "67bd1aefae810159afa2675e"
+			},
+			{
+				"type": "genre",
+				"name": "Aventure",
+				"id": "67bd1aefae810159afa2675f"
+			},
+			{
+				"type": "genre",
+				"name": "Combat",
+				"id": "67bd1aefae810159afa26760"
+			},
+			{
+				"type": "genre",
+				"name": "Comedie",
+				"id": "67bd1aefae810159afa26761"
+			},
+			{
+				"type": "genre",
+				"name": "Fantaisie",
+				"id": "67bd1aefae810159afa26762"
+			},
+			{
+				"type": "genre",
+				"name": "Isekai",
+				"id": "67bd1aefae810159afa26763"
+			},
+			{
+				"type": "genre",
+				"name": "Arts-martiaux",
+				"id": "67bd1b03ae810159afa26779"
+			},
+			{
+				"type": "genre",
+				"name": "Fantastique",
+				"id": "67bd1b03ae810159afa2677a"
+			},
+			{
+				"type": "genre",
+				"name": "Historique",
+				"id": "67bd1b03ae810159afa2677b"
+			},
+			{
+				"type": "genre",
+				"name": "Réincarnation",
+				"id": "67bd1b03ae810159afa2677c"
+			},
+			{
+				"type": "genre",
+				"name": "Adventure",
+				"id": "67bd1ba0ae810159afa267e7"
+			},
+			{
+				"type": "genre",
+				"name": "Fantasy",
+				"id": "67bd1ba0ae810159afa267e8"
+			},
+			{
+				"type": "genre",
+				"name": "School Life",
+				"id": "67bd1ba0ae810159afa267e9"
+			},
+			{
+				"type": "genre",
+				"name": "Shounen",
+				"id": "67bd1ba0ae810159afa267ea"
+			},
+			{
+				"type": "genre",
+				"name": "Drama",
+				"id": "67bd1ca0ae810159afa268f7"
+			},
+			{
+				"type": "genre",
+				"name": "Partenaire",
+				"id": "67bd1ca0ae810159afa268f8"
+			},
+			{
+				"type": "genre",
+				"name": "Romance",
+				"id": "67bd1ca0ae810159afa268f9"
+			},
+			{
+				"type": "genre",
+				"name": "Shoujo",
+				"id": "67bd1ca0ae810159afa268fa"
+			},
+			{
+				"type": "genre",
+				"name": "Drame",
+				"id": "67bd1cd6ae810159afa2692f"
+			},
+			{
+				"type": "genre",
+				"name": "Supernatural",
+				"id": "67bd1dffae810159afa26a3b"
+			},
+			{
+				"type": "genre",
+				"name": "Ciriolla",
+				"id": "67bd1f24ae810159afa26b6c"
+			},
+			{
+				"type": "genre",
+				"name": "Mature",
+				"id": "67bd1f24ae810159afa26b6d"
+			},
+			{
+				"type": "genre",
+				"name": "Tragedy",
+				"id": "67bd1f24ae810159afa26b6e"
+			},
+			{
+				"type": "genre",
+				"name": "Martial Arts",
+				"id": "67bd1f53ae810159afa26b8d"
+			},
+			{
+				"type": "genre",
+				"name": "Seinen",
+				"id": "67bd1f53ae810159afa26b8e"
+			},
+			{
+				"type": "genre",
+				"name": "Action Aventure Fantastique Surnaturel",
+				"id": "67bd1fbeae810159afa26bdf"
+			},
+			{
+				"type": "genre",
+				"name": "Fantaisy",
+				"id": "67bd203cae810159afa26c7f"
+			},
+			{
+				"type": "genre",
+				"name": "Harem",
+				"id": "67bd203cae810159afa26c80"
+			},
+			{
+				"type": "genre",
+				"name": "Murim",
+				"id": "67bd203cae810159afa26c81"
+			},
+			{
+				"type": "genre",
+				"name": "Régression",
+				"id": "67bd203cae810159afa26c82"
+			},
+			{
+				"type": "genre",
+				"name": "Vengeance",
+				"id": "67bd203cae810159afa26c83"
+			},
+			{
+				"type": "genre",
+				"name": "Historical",
+				"id": "67bd211bae810159afa26d9d"
+			},
+			{
+				"type": "genre",
+				"name": "Comedy",
+				"id": "67bd21a8ae810159afa26dfc"
+			},
+			{
+				"type": "genre",
+				"name": "Slice of Life",
+				"id": "67bd21a8ae810159afa26dfd"
+			},
+			{
+				"type": "genre",
+				"name": "Novel",
+				"id": "67bd224eae810159afa26eb2"
+			},
+			{
+				"type": "genre",
+				"name": "Horreur",
+				"id": "67bd225aae810159afa26eb9"
+			},
+			{
+				"type": "genre",
+				"name": "Ecchi",
+				"id": "67bd22e6ae810159afa26f36"
+			},
+			{
+				"type": "genre",
+				"name": "Magie",
+				"id": "67bd22e6ae810159afa26f37"
+			},
+			{
+				"type": "genre",
+				"name": "Monstre",
+				"id": "67bd22e6ae810159afa26f38"
+			},
+			{
+				"type": "genre",
+				"name": "Action Arts martiaux Aventure Fantastique Surnaturel",
+				"id": "67bd2386ae810159afa26f59"
+			},
+			{
+				"type": "genre",
+				"name": "Dragon",
+				"id": "67bd260cae810159afa27194"
+			},
+			{
+				"type": "genre",
+				"name": "Josei",
+				"id": "67bd2668ae810159afa271dd"
+			},
+			{
+				"type": "genre",
+				"name": "Psychological",
+				"id": "67bd2668ae810159afa271de"
+			},
+			{
+				"type": "genre",
+				"name": "Sci-fi",
+				"id": "67bd26e8ae810159afa27249"
+			},
+			{
+				"type": "genre",
+				"name": "Psychologique",
+				"id": "67bd272bae810159afa2727c"
+			},
+			{
+				"type": "genre",
+				"name": "Tragédie",
+				"id": "67bd272bae810159afa2727d"
+			},
+			{
+				"type": "genre",
+				"name": "Ghosts",
+				"id": "67bd28ecae810159afa273ec"
+			},
+			{
+				"type": "genre",
+				"name": "Shônen",
+				"id": "67bd2c07ae810159afa27561"
+			},
+			{
+				"type": "genre",
+				"name": "Action Aventure Fantastique",
+				"id": "67bd2d64ae810159afa27694"
+			},
+			{
+				"type": "genre",
+				"name": "Amour",
+				"id": "67bd2de7ae810159afa27712"
+			},
+			{
+				"type": "genre",
+				"name": "Mystère",
+				"id": "67bd2de7ae810159afa27713"
+			},
+			{
+				"type": "genre",
+				"name": "Demons",
+				"id": "67bd2deeae810159afa27719"
+			},
+			{
+				"type": "genre",
+				"name": "Surnaturel",
+				"id": "67bd2e07ae810159afa27728"
+			},
+			{
+				"type": "genre",
+				"name": "Système",
+				"id": "67bd2e28ae810159afa27743"
+			},
+			{
+				"type": "genre",
+				"name": "Combats",
+				"id": "67bd2e55ae810159afa27769"
+			},
+			{
+				"type": "genre",
+				"name": "Action Adventure Fantaisie Psychologique",
+				"id": "67bd2e6dae810159afa27779"
+			},
+			{
+				"type": "genre",
+				"name": "Portail",
+				"id": "67bd2f7fae810159afa2785e"
+			},
+			{
+				"type": "genre",
+				"name": "Mystery",
+				"id": "67bd2f80ae810159afa27860"
+			},
+			{
+				"type": "genre",
+				"name": "Donjon",
+				"id": "67bd333dae810159afa27a85"
+			},
+			{
+				"type": "genre",
+				"name": "Necromancy",
+				"id": "67bd333dae810159afa27a86"
+			},
+			{
+				"type": "genre",
+				"name": "Syteme",
+				"id": "67bd333dae810159afa27a87"
+			},
+			{
+				"type": "genre",
+				"name": "Necromancien",
+				"id": "67bd335bae810159afa27aa6"
+			},
+			{
+				"type": "genre",
+				"name": "Adult",
+				"id": "67bd3374ae810159afa27abc"
+			},
+			{
+				"type": "genre",
+				"name": "Thriller",
+				"id": "67bd3889ae810159afa27ee9"
+			},
+			{
+				"type": "genre",
+				"name": "Aventurier",
+				"id": "67bd39fbae810159afa28014"
+			},
+			{
+				"type": "genre",
+				"name": "Art-martiaux",
+				"id": "67bd3a39ae810159afa28049"
+			},
+			{
+				"type": "genre",
+				"name": "Manhwa",
+				"id": "67bd3a5dae810159afa2805d"
+			},
+			{
+				"type": "genre",
+				"name": "Shôjo",
+				"id": "67bd3a5dae810159afa2805e"
+			},
+			{
+				"type": "genre",
+				"name": "Webtoons",
+				"id": "67bd3a5dae810159afa2805f"
+			},
+			{
+				"type": "genre",
+				"name": "Amitier",
+				"id": "67bd3c38ae810159afa281f2"
+			},
+			{
+				"type": "genre",
+				"name": "Smut",
+				"id": "67bd3c38ae810159afa281f3"
+			},
+			{
+				"type": "genre",
+				"name": "Manga",
+				"id": "67bd3c72ae810159afa2822c"
+			},
+			{
+				"type": "genre",
+				"name": "Action Drame Shônen",
+				"id": "67bd43a9ae810159afa287cf"
+			},
+			{
+				"type": "genre",
+				"name": "SuperNaturel",
+				"id": "67bd43c0ae810159afa287e1"
+			},
+			{
+				"type": "genre",
+				"name": "Vie Scolaire",
+				"id": "67bd43c0ae810159afa287e2"
+			},
+			{
+				"type": "genre",
+				"name": "Tranche de vie",
+				"id": "67bd44c8ae810159afa288e4"
+			},
+			{
+				"type": "genre",
+				"name": "Slide of Life",
+				"id": "67bd483cae810159afa28b8b"
+			},
+			{
+				"type": "genre",
+				"name": "Longstrip art",
+				"id": "67bd4eaaae810159afa28fd4"
+			},
+			{
+				"type": "genre",
+				"name": "Male Protagonist",
+				"id": "67bd4eaaae810159afa28fd5"
+			},
+			{
+				"type": "genre",
+				"name": "Manhwa Player",
+				"id": "67bd4eaaae810159afa28fd6"
+			},
+			{
+				"type": "genre",
+				"name": "Over Power MC",
+				"id": "67bd4eaaae810159afa28fd7"
+			},
+			{
+				"type": "genre",
+				"name": "Player",
+				"id": "67bd4eaaae810159afa28fd8"
+			},
+			{
+				"type": "genre",
+				"name": "Player Manhwa",
+				"id": "67bd4eaaae810159afa28fd9"
+			},
+			{
+				"type": "genre",
+				"name": "Magic",
+				"id": "67bd5719ae810159afa2960f"
+			},
+			{
+				"type": "genre",
+				"name": "Ésprit",
+				"id": "67bd57f2ae810159afa296d0"
+			},
+			{
+				"type": "genre",
+				"name": "R18",
+				"id": "67bd680eae810159afa2a430"
+			},
+			{
+				"type": "genre",
+				"name": "Académie",
+				"id": "67bd68daae810159afa2a4df"
+			},
+			{
+				"type": "genre",
+				"name": "Manwha",
+				"id": "67bd6c16ae810159afa2a6d3"
+			},
+			{
+				"type": "genre",
+				"name": "Webcomic",
+				"id": "67bd708bae810159afa2aa74"
+			},
+			{
+				"type": "genre",
+				"name": "Aura",
+				"id": "67bd7373ae810159afa2ad11"
+			},
+			{
+				"type": "genre",
+				"name": "Chevalier",
+				"id": "67bd7373ae810159afa2ad12"
+			},
+			{
+				"type": "genre",
+				"name": "Academy",
+				"id": "67bd76b3ae810159afa2afee"
+			},
+			{
+				"type": "genre",
+				"name": "Heroes",
+				"id": "67bd76b3ae810159afa2afef"
+			},
+			{
+				"type": "genre",
+				"name": "Post apocalyptique",
+				"id": "67bd7763ae810159afa2b0b7"
+			},
+			{
+				"type": "genre",
+				"name": "Regresseur",
+				"id": "67bd7811ae810159afa2b161"
+			},
+			{
+				"type": "genre",
+				"name": "Jeu",
+				"id": "67bd82c9ae810159afa2bb11"
+			},
+			{
+				"type": "genre",
+				"name": "Transmigration",
+				"id": "67bd82c9ae810159afa2bb12"
+			},
+			{
+				"type": "genre",
+				"name": "Amitié",
+				"id": "67bd8482ae810159afa2bbb4"
+			},
+			{
+				"type": "genre",
+				"name": "Sports",
+				"id": "67bd8859ae810159afa2bf6a"
+			}
+		]
+	},
+	{
+		"type": "select",
+		"name": "Trier par",
+		"options": [
+			"Populaire",
+			"Dernière mise à jour",
+			"A-Z",
+			"Nombre de chapitres"
+		]
+	}
+]
