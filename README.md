@@ -8,16 +8,16 @@ This repository hosts the french sources that are installable directly through t
 
 ## Sources Availables
 
-|       Name        |               URL               |
-| :---------------: | :-----------------------------: |
-| MangasOrigines    | https://mangas-origines.fr/     |
-| MangaScantrad     | https://manga-scantrad.io/      |
-| ReaperScansFR     | https://reaperscans.fr/         |
-| Astral Manga      | https://astral-manga.fr/        |
-| LelscanFR         | https://lelscanfr.com/          |
-| Manga Scan        | https://mangascan-fr.com/       |
-| PhenixScans       | https://phenixscans.fr/         |
-| SushiScans        | https://sushiscan.fr/           |
-| LegacyScans       | https://legacy-scans.com/       |
-| SushiScan         | https://sushiscan.net/          |
+|       Name        |               URL               |                       Status                        |
+| :---------------: | :-----------------------------: |:---------------------------------------------------:|
+| MangasOrigines    | https://mangas-origines.fr/     | ✅                                                  |
+| MangaScantrad     | https://manga-scantrad.io/      | ✅                                                  |
+| ReaperScansFR     | https://reaper-scans.fr/        | ❌ NOT WORKING (new template to implement)          |
+| Astral Manga      | https://astral-manga.fr/        | ✅                                                  |
+| LelscanFR         | https://lelscanfr.com/          | ✅                                                  |
+| Manga Scan        | https://mangascan-fr.com/       | ❌ NOT WORKING (website down)                       |
+| PhenixScans       | https://phenix-scans.com/       | ✅                                                  |
+| SushiScans        | https://sushiscan.fr/           | ✅                                                  |
+| LegacyScans       | https://legacy-scans.com/       | ❌ NOT WORKING                                      |
+| SushiScan         | https://sushiscan.net/          | ✅                                                  |
 
