@@ -33,7 +33,7 @@ fn get_data() -> template::MadaraSiteData {
 			}
 		},
 		alt_ajax: true,
-		user_agent: Some(String::from("Mozilla/5.0 (iPhone; CPU iPhone OS 17_2 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) GSA/300.0.598994205 Mobile/15E148 Safari/604")),
+		user_agent: Some(String::from("Mozilla/5.0 (Macintosh; Intel Mac OS X 14_7_4) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/18.3 Safari/605.1.15")),
 		..Default::default()
 	};
 	data
